@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/jint/!svn/ver/61/trunk/Jint.Tests/ecma_3/NumberFormatting
+END
+shell.js
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/jint/!svn/ver/61/trunk/Jint.Tests/ecma_3/NumberFormatting/shell.js
+END
+tostring-001.js
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/jint/!svn/ver/61/trunk/Jint.Tests/ecma_3/NumberFormatting/tostring-001.js
+END
+browser.js
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/jint/!svn/ver/61/trunk/Jint.Tests/ecma_3/NumberFormatting/browser.js
+END

@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/jint/!svn/ver/61/trunk/Jint.Tests/ecma_3/Unicode
+END
+uc-001.js
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/jint/!svn/ver/61/trunk/Jint.Tests/ecma_3/Unicode/uc-001.js
+END
+uc-002.js
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/jint/!svn/ver/61/trunk/Jint.Tests/ecma_3/Unicode/uc-002.js
+END
+regress-352044-01.js
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/jint/!svn/ver/61/trunk/Jint.Tests/ecma_3/Unicode/regress-352044-01.js
+END
+shell.js
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/jint/!svn/ver/61/trunk/Jint.Tests/ecma_3/Unicode/shell.js
+END
+uc-003.js
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/jint/!svn/ver/61/trunk/Jint.Tests/ecma_3/Unicode/uc-003.js
+END
+uc-004.js
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/jint/!svn/ver/61/trunk/Jint.Tests/ecma_3/Unicode/uc-004.js
+END
+uc-005.js
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/jint/!svn/ver/61/trunk/Jint.Tests/ecma_3/Unicode/uc-005.js
+END
+uc-001-n.js
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/jint/!svn/ver/61/trunk/Jint.Tests/ecma_3/Unicode/uc-001-n.js
+END
+uc-002-n.js
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/jint/!svn/ver/61/trunk/Jint.Tests/ecma_3/Unicode/uc-002-n.js
+END
+browser.js
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/jint/!svn/ver/61/trunk/Jint.Tests/ecma_3/Unicode/browser.js
+END
+regress-352044-02-n.js
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/jint/!svn/ver/61/trunk/Jint.Tests/ecma_3/Unicode/regress-352044-02-n.js
+END

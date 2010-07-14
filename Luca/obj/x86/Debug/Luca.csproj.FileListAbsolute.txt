@@ -1,0 +1,6 @@
+C:\Development\Code\Net4.0\Luca\Luca\bin\Debug\Luca.exe
+C:\Development\Code\Net4.0\Luca\Luca\bin\Debug\Luca.pdb
+C:\Development\Code\Net4.0\Luca\Luca\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Development\Code\Net4.0\Luca\Luca\obj\x86\Debug\Luca.exe
+C:\Development\Code\Net4.0\Luca\Luca\obj\x86\Debug\Luca.pdb
+C:\Development\Code\Net4.0\Luca\Luca\bin\Debug\Luca.exe.config

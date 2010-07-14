@@ -1,0 +1,53 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="B19816FE-B26A-47EB-BFC4-A9F9DD6BD5D8/f:Program.cs" caret="386" fromTop="16" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="B19816FE-B26A-47EB-BFC4-A9F9DD6BD5D8/f:Program.cs" caret="275" fromTop="2" />
+      <File id="B19816FE-B26A-47EB-BFC4-A9F9DD6BD5D8/f:Program.cs" caret="13" fromTop="0" />
+      <File id="B19816FE-B26A-47EB-BFC4-A9F9DD6BD5D8/f:Program.cs" caret="386" fromTop="16" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir>C:\Program Files (x86)\NUnit 2.5.2\bin\net-2.0\</NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="var" priority="1" />
+      <Item value="new" priority="1" />
+      <Item value="Jint" priority="1" />
+      <Item value="JintEngine`0" priority="0" />
+      <Item value="js" priority="0" />
+      <Item value="StringBuilder`0" priority="0" />
+      <Item value="Console`0" priority="1" />
+      <Item value="sb" priority="0" />
+      <Item value="using" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Jint.JintEngine">
+      <Item value="SetParameter`0" priority="0" />
+      <Item value="Run`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Console">
+      <Item value="WriteLine`0" priority="0" />
+      <Item value="ReadLine`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Text.StringBuilder">
+      <Item value="ToString`0" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+</Configuration>

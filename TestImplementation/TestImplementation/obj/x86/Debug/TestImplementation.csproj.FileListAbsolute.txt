@@ -1,0 +1,7 @@
+C:\Development\Code\Net4.0\Luca\TestImplementation\TestImplementation\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Development\Code\Net4.0\Luca\TestImplementation\TestImplementation\bin\Debug\TestImplementation.exe.config
+C:\Development\Code\Net4.0\Luca\TestImplementation\TestImplementation\bin\Debug\TestImplementation.exe
+C:\Development\Code\Net4.0\Luca\TestImplementation\TestImplementation\bin\Debug\TestImplementation.pdb
+C:\Development\Code\Net4.0\Luca\TestImplementation\TestImplementation\bin\Debug\Jint.dll
+C:\Development\Code\Net4.0\Luca\TestImplementation\TestImplementation\obj\x86\Debug\TestImplementation.exe
+C:\Development\Code\Net4.0\Luca\TestImplementation\TestImplementation\obj\x86\Debug\TestImplementation.pdb

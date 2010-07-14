@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/jint/!svn/ver/188/trunk/Jint/Debugger
+END
+DebugInformation.cs
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/jint/!svn/ver/173/trunk/Jint/Debugger/DebugInformation.cs
+END
+BreakPoint.cs
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/jint/!svn/ver/173/trunk/Jint/Debugger/BreakPoint.cs
+END
+SourceCodeDescriptor.cs
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/jint/!svn/ver/188/trunk/Jint/Debugger/SourceCodeDescriptor.cs
+END

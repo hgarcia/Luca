@@ -1,0 +1,173 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/jint/!svn/ver/202/trunk/Jint.Tests/SunSpider
+END
+bitops-bitwise-and.js
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/jint/!svn/ver/190/trunk/Jint.Tests/SunSpider/bitops-bitwise-and.js
+END
+bitops-bits-in-byte.js
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/jint/!svn/ver/190/trunk/Jint.Tests/SunSpider/bitops-bits-in-byte.js
+END
+string-tagcloud.js
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/jint/!svn/ver/190/trunk/Jint.Tests/SunSpider/string-tagcloud.js
+END
+math-partial-sums.js
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/jint/!svn/ver/190/trunk/Jint.Tests/SunSpider/math-partial-sums.js
+END
+crypto-sha1.js
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/jint/!svn/ver/190/trunk/Jint.Tests/SunSpider/crypto-sha1.js
+END
+access-nbody.js
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/jint/!svn/ver/190/trunk/Jint.Tests/SunSpider/access-nbody.js
+END
+controlflow-recursive.js
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/jint/!svn/ver/190/trunk/Jint.Tests/SunSpider/controlflow-recursive.js
+END
+date-format-xparb.js
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/jint/!svn/ver/190/trunk/Jint.Tests/SunSpider/date-format-xparb.js
+END
+math-spectral-norm.js
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/jint/!svn/ver/190/trunk/Jint.Tests/SunSpider/math-spectral-norm.js
+END
+3d-raytrace.js
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/jint/!svn/ver/190/trunk/Jint.Tests/SunSpider/3d-raytrace.js
+END
+filename.js
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/jint/!svn/ver/190/trunk/Jint.Tests/SunSpider/filename.js
+END
+date-format-tofte.js
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/jint/!svn/ver/190/trunk/Jint.Tests/SunSpider/date-format-tofte.js
+END
+3d-cube.js
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/jint/!svn/ver/190/trunk/Jint.Tests/SunSpider/3d-cube.js
+END
+crypto-aes.js
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/jint/!svn/ver/190/trunk/Jint.Tests/SunSpider/crypto-aes.js
+END
+bitops-nsieve-bits.js
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/jint/!svn/ver/190/trunk/Jint.Tests/SunSpider/bitops-nsieve-bits.js
+END
+access-nsieve.js
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/jint/!svn/ver/190/trunk/Jint.Tests/SunSpider/access-nsieve.js
+END
+string-base64.js
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/jint/!svn/ver/190/trunk/Jint.Tests/SunSpider/string-base64.js
+END
+3d-morph.js
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/jint/!svn/ver/190/trunk/Jint.Tests/SunSpider/3d-morph.js
+END
+simple.js
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/jint/!svn/ver/202/trunk/Jint.Tests/SunSpider/simple.js
+END
+math-cordic.js
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/jint/!svn/ver/190/trunk/Jint.Tests/SunSpider/math-cordic.js
+END
+regexp-dna.js
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/jint/!svn/ver/190/trunk/Jint.Tests/SunSpider/regexp-dna.js
+END
+string-validate-input.js
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/jint/!svn/ver/190/trunk/Jint.Tests/SunSpider/string-validate-input.js
+END
+access-fannkuch.js
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/jint/!svn/ver/190/trunk/Jint.Tests/SunSpider/access-fannkuch.js
+END
+string-unpack-code.js
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/jint/!svn/ver/190/trunk/Jint.Tests/SunSpider/string-unpack-code.js
+END
+string-fasta.js
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/jint/!svn/ver/190/trunk/Jint.Tests/SunSpider/string-fasta.js
+END
+crypto-md5.js
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/jint/!svn/ver/190/trunk/Jint.Tests/SunSpider/crypto-md5.js
+END
+bitops-3bit-bits-in-byte.js
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/jint/!svn/ver/190/trunk/Jint.Tests/SunSpider/bitops-3bit-bits-in-byte.js
+END
+access-binary-trees.js
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/jint/!svn/ver/190/trunk/Jint.Tests/SunSpider/access-binary-trees.js
+END

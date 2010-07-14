@@ -1,0 +1,139 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="9D9A4DB7-BB24-479E-AF7A-E8D51266316E/f:Luca.cs" caret="122" fromTop="5" />
+      <File id="8185C751-06E2-4833-A323-26C25185F271/f:AppGeneratorParams.cs" caret="334" fromTop="13" />
+      <File id="8185C751-06E2-4833-A323-26C25185F271/f:AppGenerator.cs" caret="348" fromTop="6" />
+      <File id="26754A8E-306C-419E-8A84-26561D5B03CB/f:ApplicationGeneratorSpecs.cs" caret="31" fromTop="0" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="26754A8E-306C-419E-8A84-26561D5B03CB/f:ApplicationGeneratorSpecs.cs" caret="1481" fromTop="10" />
+      <File id="26754A8E-306C-419E-8A84-26561D5B03CB/f:ApplicationGeneratorSpecs.cs" caret="1481" fromTop="14" />
+      <File id="26754A8E-306C-419E-8A84-26561D5B03CB/f:ApplicationGeneratorSpecs.cs" caret="1481" fromTop="2" />
+      <File id="26754A8E-306C-419E-8A84-26561D5B03CB/f:ApplicationGeneratorSpecs.cs" caret="1481" fromTop="10" />
+      <File id="26754A8E-306C-419E-8A84-26561D5B03CB/f:ApplicationGeneratorSpecs.cs" caret="1481" fromTop="7" />
+      <File id="26754A8E-306C-419E-8A84-26561D5B03CB/f:ApplicationGeneratorSpecs.cs" caret="1481" fromTop="22" />
+      <File id="26754A8E-306C-419E-8A84-26561D5B03CB/f:ApplicationGeneratorSpecs.cs" caret="1481" fromTop="13" />
+      <File id="26754A8E-306C-419E-8A84-26561D5B03CB/f:ApplicationGeneratorSpecs.cs" caret="1481" fromTop="22" />
+      <File id="26754A8E-306C-419E-8A84-26561D5B03CB/f:ApplicationGeneratorSpecs.cs" caret="1481" fromTop="7" />
+      <File id="26754A8E-306C-419E-8A84-26561D5B03CB/f:ApplicationGeneratorSpecs.cs" caret="1481" fromTop="31" />
+      <File id="26754A8E-306C-419E-8A84-26561D5B03CB/f:ApplicationGeneratorSpecs.cs" caret="91" fromTop="20" />
+      <File id="26754A8E-306C-419E-8A84-26561D5B03CB/f:ApplicationGeneratorSpecs.cs" caret="91" fromTop="15" />
+      <File id="26754A8E-306C-419E-8A84-26561D5B03CB/f:ApplicationGeneratorSpecs.cs" caret="91" fromTop="5" />
+      <File id="26754A8E-306C-419E-8A84-26561D5B03CB/f:ApplicationGeneratorSpecs.cs" caret="479" fromTop="15" />
+      <File id="26754A8E-306C-419E-8A84-26561D5B03CB/f:ApplicationGeneratorSpecs.cs" caret="484" fromTop="16" />
+      <File id="26754A8E-306C-419E-8A84-26561D5B03CB/f:ApplicationGeneratorSpecs.cs" caret="61" fromTop="0" />
+      <File id="26754A8E-306C-419E-8A84-26561D5B03CB/f:ApplicationGeneratorSpecs.cs" caret="199" fromTop="6" />
+      <File id="26754A8E-306C-419E-8A84-26561D5B03CB/f:ApplicationGeneratorSpecs.cs" caret="1471" fromTop="29" />
+      <File id="26754A8E-306C-419E-8A84-26561D5B03CB/f:ApplicationGeneratorSpecs.cs" caret="1065" fromTop="23" />
+      <File id="26754A8E-306C-419E-8A84-26561D5B03CB/f:ApplicationGeneratorSpecs.cs" caret="744" fromTop="17" />
+      <File id="26754A8E-306C-419E-8A84-26561D5B03CB/f:ApplicationGeneratorSpecs.cs" caret="1471" fromTop="27" />
+      <File id="26754A8E-306C-419E-8A84-26561D5B03CB/f:ApplicationGeneratorSpecs.cs" caret="1324" fromTop="21" />
+      <File id="8185C751-06E2-4833-A323-26C25185F271/f:AppGeneratorParams.cs" caret="263" fromTop="11" />
+      <File id="8185C751-06E2-4833-A323-26C25185F271/f:AppGeneratorParams.cs" caret="13" fromTop="0" />
+      <File id="8185C751-06E2-4833-A323-26C25185F271/f:AppGeneratorParams.cs" caret="334" fromTop="13" />
+      <File id="8185C751-06E2-4833-A323-26C25185F271/f:AppGenerator.cs" caret="916" fromTop="20" />
+      <File id="8185C751-06E2-4833-A323-26C25185F271/f:AppGenerator.cs" caret="735" fromTop="20" />
+      <File id="8185C751-06E2-4833-A323-26C25185F271/f:AppGenerator.cs" caret="572" fromTop="19" />
+      <File id="8185C751-06E2-4833-A323-26C25185F271/f:AppGenerator.cs" caret="348" fromTop="6" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir>C:\Program Files (x86)\NUnit 2.5.2\bin\net-2.0\</NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="if" priority="4" />
+      <Item value="args" priority="2" />
+      <Item value="string" priority="1" />
+      <Item value="ArgumentNullException`0" priority="4" />
+      <Item value="Type`0" priority="0" />
+      <Item value="typeof" priority="1" />
+      <Item value="LucaGenerator`0" priority="0" />
+      <Item value="Luca" priority="4" />
+      <Item value="new" priority="12" />
+      <Item value="using" priority="0" />
+      <Item value="Luca`0" priority="0" />
+      <Item value="_appGenerator" priority="2" />
+      <Item value="AppGenerator" priority="0" />
+      <Item value="null" priority="1" />
+      <Item value="_generatorParams" priority="1" />
+      <Item value="AssemblyLoadEventArgs`0" priority="0" />
+      <Item value="private" priority="3" />
+      <Item value="GeneratorParams`0" priority="0" />
+      <Item value="GeneratorParams" priority="0" />
+      <Item value="AppGenerator`0" priority="1" />
+      <Item value="throw" priority="0" />
+      <Item value="ArgumentNullException" priority="0" />
+      <Item value="ExpectedException" priority="0" />
+      <Item value="public" priority="1" />
+      <Item value="Machine.Specifications" priority="0" />
+      <Item value="Machine" priority="0" />
+      <Item value="Specifications" priority="0" />
+      <Item value="Subject" priority="1" />
+      <Item value="Establish`0" priority="2" />
+      <Item value="Because`0" priority="1" />
+      <Item value="AppGeneratorParams`0" priority="1" />
+      <Item value="_args" priority="1" />
+      <Item value="class" priority="0" />
+      <Item value="ContextBoundObject`0" priority="0" />
+      <Item value="specctxt" priority="0" />
+      <Item value="It`0" priority="0" />
+      <Item value="_generator" priority="1" />
+      <Item value="Result`0" priority="0" />
+      <Item value="Exception" priority="0" />
+      <Item value="_appGeneratorParams" priority="1" />
+      <Item value="File`0" priority="0" />
+      <Item value="IObservable" priority="0" />
+      <Item value="System" priority="0" />
+      <Item value="IO" priority="0" />
+      <Item value="DirectoryInfo`0" priority="2" />
+      <Item value="var" priority="0" />
+      <Item value="Path`0" priority="0" />
+      <Item value="dirinfo" priority="2" />
+      <Item value="Initialize`0" priority="0" />
+      <Item value="Length" priority="1" />
+      <Item value="IsFolderEmpty`0" priority="2" />
+      <Item value="bool" priority="0" />
+      <Item value="return" priority="1" />
+      <Item value="IOException`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Luca.AppGenerator">
+      <Item value="Generate`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.String">
+      <Item value="Indexer" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Machine.Specifications.Catch">
+      <Item value="Exception`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Exception">
+      <Item value="ShouldBeOfType`1" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.IO.Directory">
+      <Item value="EnumerateDirectories`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Luca.AppGeneratorParams">
+      <Item value="Path" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.IO.DirectoryInfo">
+      <Item value="Exists" priority="1" />
+      <Item value="GetFiles`0" priority="0" />
+      <Item value="GetDirectories`0" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+</Configuration>

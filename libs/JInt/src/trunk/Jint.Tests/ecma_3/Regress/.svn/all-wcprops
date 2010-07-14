@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/jint/!svn/ver/61/trunk/Jint.Tests/ecma_3/Regress
+END
+regress-420610.js
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/jint/!svn/ver/61/trunk/Jint.Tests/ecma_3/Regress/regress-420610.js
+END
+regress-385393-04.js
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/jint/!svn/ver/61/trunk/Jint.Tests/ecma_3/Regress/regress-385393-04.js
+END
+shell.js
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/jint/!svn/ver/61/trunk/Jint.Tests/ecma_3/Regress/shell.js
+END
+regress-420087.js
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/jint/!svn/ver/61/trunk/Jint.Tests/ecma_3/Regress/regress-420087.js
+END
+regress-419152.js
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/jint/!svn/ver/61/trunk/Jint.Tests/ecma_3/Regress/regress-419152.js
+END
+regress-469937.js
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/jint/!svn/ver/61/trunk/Jint.Tests/ecma_3/Regress/regress-469937.js
+END
+regress-441477-01.js
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/jint/!svn/ver/61/trunk/Jint.Tests/ecma_3/Regress/regress-441477-01.js
+END
+browser.js
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/jint/!svn/ver/61/trunk/Jint.Tests/ecma_3/Regress/browser.js
+END
