@@ -1,14 +1,12 @@
 ﻿using System;
 
-namespace Luca
+namespace Luca.Generators
 {
     public class AppGeneratorParams
     {
-        private readonly string[] _args;
-
         public AppGeneratorParams(string[] args)
         {
-            if(args == null) throw new ArgumentNullException();
+            if (args == null) throw new ArgumentException("Missing argument. Please use the --help argument to learn more.");
             Path = args[0];
         }
 

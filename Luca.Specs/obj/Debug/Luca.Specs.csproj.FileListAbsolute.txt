@@ -5,4 +5,10 @@ C:\Development\Code\Net4.0\Luca\Luca.Specs\obj\Debug\Luca.Specs.dll
 C:\Development\Code\Net4.0\Luca\Luca.Specs\obj\Debug\Luca.Specs.pdb
 C:\Development\Code\Net4.0\Luca\Luca.Specs\bin\Debug\Luca.Generators.dll
 C:\Development\Code\Net4.0\Luca\Luca.Specs\bin\Debug\Luca.Generators.pdb
-C:\Development\Code\Net4.0\Luca\Luca.Specs\bin\Debug\Machine.Specifications.pdb
+C:\Luca\Luca\Luca.Specs\bin\Debug\Luca.Specs.dll
+C:\Luca\Luca\Luca.Specs\bin\Debug\Luca.Specs.pdb
+C:\Luca\Luca\Luca.Specs\bin\Debug\Luca.Generators.dll
+C:\Luca\Luca\Luca.Specs\bin\Debug\Luca.Generators.pdb
+C:\Luca\Luca\Luca.Specs\obj\Debug\ResolveAssemblyReference.cache
+C:\Luca\Luca\Luca.Specs\obj\Debug\Luca.Specs.dll
+C:\Luca\Luca\Luca.Specs\obj\Debug\Luca.Specs.pdb

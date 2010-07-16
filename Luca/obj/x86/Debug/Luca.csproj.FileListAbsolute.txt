@@ -4,3 +4,13 @@ C:\Development\Code\Net4.0\Luca\Luca\obj\x86\Debug\ResolveAssemblyReference.cach
 C:\Development\Code\Net4.0\Luca\Luca\obj\x86\Debug\Luca.exe
 C:\Development\Code\Net4.0\Luca\Luca\obj\x86\Debug\Luca.pdb
 C:\Development\Code\Net4.0\Luca\Luca\bin\Debug\Luca.exe.config
+C:\Luca\Luca\Luca\bin\Debug\Luca.exe.config
+C:\Luca\Luca\Luca\obj\x86\Debug\Luca.exe
+C:\Luca\Luca\Luca\obj\x86\Debug\Luca.pdb
+C:\Luca\Luca\Luca\bin\Debug\Luca.exe
+C:\Luca\Luca\Luca\bin\Debug\Luca.pdb
+C:\Luca\Luca\Luca\bin\Debug\Luca.Generators.dll
+C:\Luca\Luca\Luca\bin\Debug\Luca.Generators.pdb
+C:\Luca\Luca\Luca\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Development\Code\Net4.0\Luca\Luca\bin\Debug\Luca.Generators.dll
+C:\Development\Code\Net4.0\Luca\Luca\bin\Debug\Luca.Generators.pdb

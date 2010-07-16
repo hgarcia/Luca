@@ -3,3 +3,8 @@ C:\Development\Code\Net4.0\Luca\Luca.Generators\bin\Debug\Luca.Generators.pdb
 C:\Development\Code\Net4.0\Luca\Luca.Generators\obj\Debug\ResolveAssemblyReference.cache
 C:\Development\Code\Net4.0\Luca\Luca.Generators\obj\Debug\Luca.Generators.dll
 C:\Development\Code\Net4.0\Luca\Luca.Generators\obj\Debug\Luca.Generators.pdb
+C:\Luca\Luca\Luca.Generators\bin\Debug\Luca.Generators.dll
+C:\Luca\Luca\Luca.Generators\bin\Debug\Luca.Generators.pdb
+C:\Luca\Luca\Luca.Generators\obj\Debug\ResolveAssemblyReference.cache
+C:\Luca\Luca\Luca.Generators\obj\Debug\Luca.Generators.dll
+C:\Luca\Luca\Luca.Generators\obj\Debug\Luca.Generators.pdb
