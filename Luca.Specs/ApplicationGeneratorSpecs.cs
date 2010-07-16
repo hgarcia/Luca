@@ -1,10 +1,28 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using Machine.Specifications;
 using Luca.Generators;
 
 namespace Luca.Specs
 {
+    [Subject("Running the generator with the --help parameter")]
+    public class HelpParameter
+    {
+        Establish context = () => { 
+            _args = new[] {"--help"};
+            _runner = new Runner(_args, output, new Dictionary<string, Type>{{"application", typeof(AppGenerator)}});
+        };
+
+        private It should_display_the_help = () => builder.ToString().ShouldContain("usage");
+
+        static string[] _args;
+        static Runner _runner;
+        static StringBuilder builder = new StringBuilder();
+        static TextWriter output = new StringWriter(builder);
+    }
+
     [Subject("Running the generator with no parameters")]
     public class ApplicationGeneratorSpecs
     {
@@ -32,14 +50,13 @@ namespace Luca.Specs
                                             _generator = new AppGenerator(new AppGeneratorParams(_args));
                                         };
 
-        Because of = () => Exception = Catch.Exception(()=>_generator.Generate());
+        Because of = () => _generator.Generate(output);
 
-        It should_fail = () => Exception.ShouldBeOfType<IOException>();
+        It should_fail_with_message = () => builder.ToString()
+            .ShouldContain("The folder needs to be empty to create a Luca application.");
 
-        It should_have_message =
-            () => Exception.Message.ShouldEqual("The folder needs to be empty to create a Luca application.");
-                                    
-        static Exception Exception { get; set; }
+        private static StringBuilder builder = new StringBuilder(); 
+        private static TextWriter output = new StringWriter(builder);
         static string[] _args;
         static AppGenerator _generator;
     }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Luca.Generators
 {
-    public class AppGenerator
+    public class AppGenerator : IGenerator
     {
         private readonly AppGeneratorParams _appGeneratorParams;
 
@@ -12,12 +12,14 @@ namespace Luca.Generators
             _appGeneratorParams = appGeneratorParams;
         }
 
-        public void Generate()
+        public void Generate(TextWriter output)
         {
             if (!IsNewFolder() && !IsFolderEmpty())
-                throw new IOException("The folder needs to be empty to create a Luca application.");
+            {
+                output.WriteLine("The folder needs to be empty to create a Luca application.");
+                return;
+            }
             CreateApplication();
-
         }
 
         private void CreateApplication()
@@ -30,7 +32,7 @@ namespace Luca.Generators
             }
         }
 
-        private IList<string> GetApplicationStructure()
+        private IEnumerable<string> GetApplicationStructure()
         {
             var list = new List<string>();
             list.Add("libs");
@@ -83,6 +85,16 @@ namespace Luca.Generators
         {
             var dirinfo = new DirectoryInfo(_appGeneratorParams.Path);
             return (dirinfo.Exists && dirinfo.GetFiles().Length == 0 && dirinfo.GetDirectories().Length == 0);
+        }
+
+        public void Help(TextWriter output)
+        {
+            output.WriteLine("usage");
+            output.WriteLine("Luca applicationName");
+            output.WriteLine("Creates a folder by the applicationName and creates the structure inside");
+            output.WriteLine("or");
+            output.WriteLine("Luca .");
+            output.WriteLine("Create the application structure in the folder where is been executed, the folder needs to be empty");
         }
     }
 }
