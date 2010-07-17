@@ -5,7 +5,7 @@ using System.Text;
 using Machine.Specifications;
 using Luca.Generators;
 
-namespace Luca.Specs
+namespace Luca.Specs.Generators
 {
     [Subject("Running the generator with the --help parameter")]
     public class HelpParameter

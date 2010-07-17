@@ -44,15 +44,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationGeneratorSpecs.cs" />
+    <Compile Include="Core\JavaScriptContext.cs" />
+    <Compile Include="Generators\ApplicationGeneratorSpecs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Luca.Core\Luca.Core.csproj">
+      <Project>{98152FAD-2DC4-489C-B394-BA15766D978A}</Project>
+      <Name>Luca.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Luca.Generators\Luca.Generators.csproj">
       <Project>{8185C751-06E2-4833-A323-26C25185F271}</Project>
       <Name>Luca.Generators</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

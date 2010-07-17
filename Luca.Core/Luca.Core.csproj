@@ -44,11 +44,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IScriptContext.cs" />
+    <Compile Include="IScriptRuntime.cs" />
+    <Compile Include="JintRuntime.cs" />
     <Compile Include="LucaHandler.cs" />
+    <Compile Include="LucaRequest.cs" />
+    <Compile Include="LucaResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScriptContext.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="core_js_libs\prototype.js" />
+    <EmbeddedResource Include="js\prototype.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

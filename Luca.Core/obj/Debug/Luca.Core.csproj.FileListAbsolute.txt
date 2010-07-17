@@ -4,3 +4,9 @@ C:\Luca\New\Luca\Luca.Core\bin\Debug\Jint.dll
 C:\Luca\New\Luca\Luca.Core\obj\Debug\ResolveAssemblyReference.cache
 C:\Luca\New\Luca\Luca.Core\obj\Debug\Luca.Core.dll
 C:\Luca\New\Luca\Luca.Core\obj\Debug\Luca.Core.pdb
+C:\Development\Code\Net4.0\Luca\Luca.Core\bin\Debug\Luca.Core.dll
+C:\Development\Code\Net4.0\Luca\Luca.Core\bin\Debug\Luca.Core.pdb
+C:\Development\Code\Net4.0\Luca\Luca.Core\bin\Debug\Jint.dll
+C:\Development\Code\Net4.0\Luca\Luca.Core\obj\Debug\ResolveAssemblyReference.cache
+C:\Development\Code\Net4.0\Luca\Luca.Core\obj\Debug\Luca.Core.dll
+C:\Development\Code\Net4.0\Luca\Luca.Core\obj\Debug\Luca.Core.pdb
