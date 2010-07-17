@@ -8,3 +8,8 @@ C:\Luca\Luca\Luca.Generators\bin\Debug\Luca.Generators.pdb
 C:\Luca\Luca\Luca.Generators\obj\Debug\ResolveAssemblyReference.cache
 C:\Luca\Luca\Luca.Generators\obj\Debug\Luca.Generators.dll
 C:\Luca\Luca\Luca.Generators\obj\Debug\Luca.Generators.pdb
+C:\Luca\New\Luca\Luca.Generators\bin\Debug\Luca.Generators.dll
+C:\Luca\New\Luca\Luca.Generators\bin\Debug\Luca.Generators.pdb
+C:\Luca\New\Luca\Luca.Generators\obj\Debug\ResolveAssemblyReference.cache
+C:\Luca\New\Luca\Luca.Generators\obj\Debug\Luca.Generators.dll
+C:\Luca\New\Luca\Luca.Generators\obj\Debug\Luca.Generators.pdb
