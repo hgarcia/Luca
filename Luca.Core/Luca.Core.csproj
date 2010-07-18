@@ -50,6 +50,7 @@
     <Compile Include="LucaHandler.cs" />
     <Compile Include="LucaRequest.cs" />
     <Compile Include="LucaResponse.cs" />
+    <Compile Include="NameValueToJsonSerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScriptContext.cs" />
   </ItemGroup>
