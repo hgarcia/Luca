@@ -1,6 +1,0 @@
-<Modules>
-  <Module PersistentId="9D9A4DB7-BB24-479E-AF7A-E8D51266316E" ModuleId="Luca" />
-  <Module PersistentId="26754A8E-306C-419E-8A84-26561D5B03CB" ModuleId="Luca.Specs" />
-  <Module PersistentId="8185C751-06E2-4833-A323-26C25185F271" ModuleId="Luca.Generators" />
-  <Module PersistentId="98152FAD-2DC4-489C-B394-BA15766D978A" ModuleId="Luca.Core" />
-</Modules>
