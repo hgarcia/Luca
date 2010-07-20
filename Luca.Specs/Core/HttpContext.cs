@@ -14,14 +14,13 @@ namespace Luca.Specs.Core
                                                 new HttpRequest(
                                                     "index", 
                                                     "http://localhost", 
-                                                    "Id=12&Name=Inception&CategId=65&Token=123456789")
+                                                    "Id=12&Name=Inception&CategId=65&Token=123456789"),
+                                                    new NameValueToJsonSerializer()
                                                     );
-                                            _serializer =  new NameValueToJsonSerializer();
                                         };
 
-        private It should_expose_qs = () => { _request.ToJson(_serializer).ShouldContain("query"); };
+        private It should_expose_qs = () => { _request.ToJson().ShouldContain("query"); };
         private static ILucaRequest _request;
-        private static NameValueToJsonSerializer _serializer;
     }
 
     [Subject("Serialize a name value collection to a Json object")]

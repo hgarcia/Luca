@@ -17,11 +17,12 @@ namespace Luca.Core
             var js = new JintEngine();
             var sb = new StringBuilder();
             js.SetParameter("response", sb);
-            js.SetParameter("request", Console.In);
 
             var script = new ScriptContext().GetCurrentContext;
-            script += @"var a = [1,2,3,4,5];
-                response.Append(a.first());";
+            var request = new LucaRequest(context.Request, new NameValueToJsonSerializer());
+            script += @"var app =  new Application(response," + request.ToJson() + ");";
+            script += @"app.Get(""*"", function(req,res){ req.Append(""hello cruel world""); } );\n";
+            script += @"app.Run();";
             js.Run(script);
             context.Response.Write(sb.ToString());
         }
