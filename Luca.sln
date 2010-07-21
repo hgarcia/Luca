@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Web Developer Express 2010
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luca", "Luca\Luca.csproj", "{9D9A4DB7-BB24-479E-AF7A-E8D51266316E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luca.Specs", "Luca.Specs\Luca.Specs.csproj", "{26754A8E-306C-419E-8A84-26561D5B03CB}"
@@ -8,6 +8,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luca.Generators", "Luca.Generators\Luca.Generators.csproj", "{8185C751-06E2-4833-A323-26C25185F271}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luca.Core", "Luca.Core\Luca.Core.csproj", "{98152FAD-2DC4-489C-B394-BA15766D978A}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Luca.Installer", "Luca.Installer\Luca.Installer.vdproj", "{70981404-8C3D-44E9-A28F-6BAE85946CD9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +61,12 @@ Global
 		{98152FAD-2DC4-489C-B394-BA15766D978A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{98152FAD-2DC4-489C-B394-BA15766D978A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{98152FAD-2DC4-489C-B394-BA15766D978A}.Release|x86.ActiveCfg = Release|Any CPU
+		{70981404-8C3D-44E9-A28F-6BAE85946CD9}.Debug|Any CPU.ActiveCfg = Debug
+		{70981404-8C3D-44E9-A28F-6BAE85946CD9}.Debug|Mixed Platforms.ActiveCfg = Debug
+		{70981404-8C3D-44E9-A28F-6BAE85946CD9}.Debug|x86.ActiveCfg = Debug
+		{70981404-8C3D-44E9-A28F-6BAE85946CD9}.Release|Any CPU.ActiveCfg = Release
+		{70981404-8C3D-44E9-A28F-6BAE85946CD9}.Release|Mixed Platforms.ActiveCfg = Release
+		{70981404-8C3D-44E9-A28F-6BAE85946CD9}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
