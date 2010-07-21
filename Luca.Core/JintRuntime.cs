@@ -18,9 +18,9 @@ namespace Luca.Core
             js.SetParameter("response", lucaResponse);
 
             var script = _scriptContext.GetCurrentContext;
-            script += @"var a = [1,2,3,4,5];
-                response.Write(a.first());";
-            js.Run(script);
+            script.Append(@"var a = [1,2,3,4,5];
+                response.Write(a.first());");
+            js.Run(script.ToString());
             return lucaResponse;
         }
     }

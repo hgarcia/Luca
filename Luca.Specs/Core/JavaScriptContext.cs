@@ -8,7 +8,7 @@ namespace Luca.Specs.Core
     {
         private Establish context = () => { _context = new ScriptContext(); };
         private Because loads_core_libraries = () => { };
-        private It should_containes_prototype = () => _context.GetCurrentContext.ShouldContain("prototype");
+        private It should_containes_prototype = () => _context.GetCurrentContext.ToString().ShouldContain("prototype");
         private static IScriptContext _context;
     }
 

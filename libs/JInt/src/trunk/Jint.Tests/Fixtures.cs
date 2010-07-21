@@ -49,7 +49,7 @@ namespace Jint.Tests
         {
             JintEngine jint = new JintEngine()
                 //.SetDebugMode(true)
-                .SetFunction("assert", new Action<object, object>(Assert.AreEqual))
+                .SetFunction("assert", new System.Action<object, object>(Assert.AreEqual))
                 .SetFunction("istrue", new Action<bool>(Assert.IsTrue))
                 .SetFunction("isfalse", new Action<bool>(Assert.IsFalse))
                 // .SetFunction("alert", new Func<string, System.Windows.Forms.DialogResult>(System.Windows.Forms.MessageBox.Show))
@@ -419,7 +419,7 @@ bar');
         public void ShouldNotWrapJsInstancesIfExpected()
         {
             JintEngine engine = new JintEngine()
-            .SetFunction("evaluate", new Func<JsNumber, JsInstance, JsString>(GiveMeJavascript));
+            .SetFunction("evaluate", new System.Func<JsNumber, JsInstance, JsString>(GiveMeJavascript));
 
             string script = @"
                 var r = evaluate(3, [1,2]);
@@ -516,7 +516,7 @@ bar');
         public void ShouldHandleCustomMethods()
         {
             Assert.AreEqual(9d, new JintEngine()
-                .SetFunction("square", new Func<double, double>(a => { return a * a; }))
+                .SetFunction("square", new System.Func<double, double>(a => { return a * a; }))
                 .Run("return square(3);"));
 
             new JintEngine()
@@ -533,7 +533,7 @@ bar');
 
             var result =
                 new JintEngine()
-                .SetFunction("multiply", new Func<double, double, double>((x, y) => { return x * y; }))
+                .SetFunction("multiply", new System.Func<double, double, double>((x, y) => { return x * y; }))
                 .Run(script);
 
             Assert.AreEqual(16d, result);
@@ -979,7 +979,7 @@ var fakeButton = new Test.FakeButton();");
 
             JintEngine jint = new JintEngine()
             .SetDebugMode(true)
-            .SetFunction("assert", new Action<object, object>(Assert.AreEqual))
+            .SetFunction("assert", new System.Action<object, object>(Assert.AreEqual))
             .SetFunction("print", new Action<string>(System.Console.WriteLine))
             .SetParameter("foo", "native string");
 
@@ -1128,7 +1128,7 @@ var fakeButton = new Test.FakeButton();");
         {
             //Strict mode enabled
             JintEngine engine = new JintEngine(Options.Strict)
-            .SetFunction("assert", new Action<object, object>(Assert.AreEqual))
+            .SetFunction("assert", new System.Action<object, object>(Assert.AreEqual))
             ;
             engine.Run(@"
             try{
@@ -1149,7 +1149,7 @@ var fakeButton = new Test.FakeButton();");
             }");
             //Strict mode disnabled
             engine = new JintEngine(Options.Ecmascript3)
-            .SetFunction("assert", new Action<object, object>(Assert.AreEqual))
+            .SetFunction("assert", new System.Action<object, object>(Assert.AreEqual))
             ;
             engine.Run(@"
             try{
@@ -1174,7 +1174,7 @@ var fakeButton = new Test.FakeButton();");
         public void ShouldHandleMultipleRunsInSameScope()
         {
             JintEngine jint = new JintEngine()
-                .SetFunction("assert", new Action<object, object>(Assert.AreEqual))
+                .SetFunction("assert", new System.Action<object, object>(Assert.AreEqual))
                 .SetFunction("print", new Action<string>(System.Console.WriteLine));
 
             jint.Run(@" var g = []; function foo() { assert(0, g.length); }");
@@ -1262,7 +1262,7 @@ var fakeButton = new Test.FakeButton();");
 
             Jint.JintEngine jint = new Jint.JintEngine()
             .SetDebugMode(true)
-            .SetFunction("assert", new Action<object, object>(Assert.AreEqual))
+            .SetFunction("assert", new System.Action<object, object>(Assert.AreEqual))
             .SetParameter("box", box);
 
             jint.Run(@"

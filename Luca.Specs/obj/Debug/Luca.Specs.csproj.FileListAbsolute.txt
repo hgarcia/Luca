@@ -24,3 +24,4 @@ C:\Luca\New\Luca\Luca.Specs\obj\Debug\Luca.Specs.pdb
 C:\Development\Code\Net4.0\Luca\Luca.Specs\bin\Debug\Luca.Core.dll
 C:\Development\Code\Net4.0\Luca\Luca.Specs\bin\Debug\Jint.dll
 C:\Development\Code\Net4.0\Luca\Luca.Specs\bin\Debug\Luca.Core.pdb
+C:\Development\Code\Net4.0\Luca\Luca.Specs\bin\Debug\controllers\main.js

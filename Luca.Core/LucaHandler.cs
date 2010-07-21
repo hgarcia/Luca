@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.IO;
+using System.Linq;
 using System.Text;
 using System.Web;
 using Jint;
@@ -17,14 +18,27 @@ namespace Luca.Core
             var js = new JintEngine();
             var sb = new StringBuilder();
             js.SetParameter("response", sb);
-
             var script = new ScriptContext().GetCurrentContext;
             var request = new LucaRequest(context.Request, new NameValueToJsonSerializer());
-            script += @"var app =  new Application(response," + request.ToJson() + ");";
-            script += @"app.Get(""*"", function(req,res){ req.Append(""hello cruel world""); } );\n";
-            script += @"app.Run();";
-            js.Run(script);
+            script.AppendLine(@"var app =  GetApplication(" + request.ToJson() + ", response);");
+            var controllerPath = context.Server.MapPath("controllers") ?? "controllers";
+
+            loadControllers(script, controllerPath);
+            
+            //script.AppendLine(@"app.Get(""movie/\d*"", function(req,res){ res.Append(""hello cruel world""); res.Append(req.query.id); } );");
+            script.AppendLine(@"app.Run();");
+            js.Run(script.ToString());
+
             context.Response.Write(sb.ToString());
+        }
+
+        private void loadControllers(StringBuilder script,string controllers)
+        {
+            Directory.GetFiles(controllers).ToList()
+                .ForEach( file => script.AppendLine(
+                    new StreamReader(file).ReadToEnd()
+                    ) 
+                );
         }
     }
 }

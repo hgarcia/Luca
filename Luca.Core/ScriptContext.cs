@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Reflection;
+using System.Text;
 
 namespace Luca.Core
 {
@@ -7,6 +8,7 @@ namespace Luca.Core
     {
         public ScriptContext()
         {
+            GetCurrentContext = new StringBuilder();
             loadCoreLibraries();
         }
 
@@ -19,11 +21,11 @@ namespace Luca.Core
                 using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resource))
                 {
                     if(stream!= null)
-                        GetCurrentContext += new StreamReader(stream).ReadToEnd();
+                        GetCurrentContext.AppendLine(new StreamReader(stream).ReadToEnd());
                 }   
             }
         }
 
-        public string GetCurrentContext{ get; private set;}
+        public StringBuilder GetCurrentContext{ get; private set;}
     }
 }

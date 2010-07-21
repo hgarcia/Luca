@@ -38,6 +38,7 @@ namespace Luca.Generators
             list.Add("libs");
 	        list.Add("tools");
 	        list.Add("ui-web");
+                list.Add("ui-web\\bin");
 		        list.Add("ui-web\\controllers");
 		        list.Add("ui-web\\views");
 		        list.Add("ui-web\\view-models");
