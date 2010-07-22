@@ -14,14 +14,33 @@ namespace Jint.PrototypeExtension
             Target.Prototype.DefineOwnProperty("collect", Target.Global.FunctionClass.New<JsObject>(CollectImpl), PropertyAttributes.DontEnum);
             Target.Prototype.DefineOwnProperty("clear", Target.Global.FunctionClass.New<JsArray>(ClearImpl), PropertyAttributes.DontEnum);
             Target.Prototype.DefineOwnProperty("clone", Target.Global.FunctionClass.New<JsArray>(CloneImpl), PropertyAttributes.DontEnum);
+            Target.Prototype.DefineOwnProperty("toArray", Target.Global.FunctionClass.New<JsArray>(CloneImpl), PropertyAttributes.DontEnum);
             Target.Prototype.DefineOwnProperty("compact", Target.Global.FunctionClass.New<JsArray>(CompactImpl), PropertyAttributes.DontEnum);
             Target.Prototype.DefineOwnProperty("first", Target.Global.FunctionClass.New<JsArray>(FirstImpl), PropertyAttributes.DontEnum);
             Target.Prototype.DefineOwnProperty("last", Target.Global.FunctionClass.New<JsArray>(LastImpl), PropertyAttributes.DontEnum);
             Target.Prototype.DefineOwnProperty("flatten", Target.Global.FunctionClass.New<JsArray>(FlattenImpl), PropertyAttributes.DontEnum);
             Target.Prototype.DefineOwnProperty("indexOf", Target.Global.FunctionClass.New<JsArray>(IndexOfImpl), PropertyAttributes.DontEnum);
             Target.Prototype.DefineOwnProperty("intersect", Target.Global.FunctionClass.New<JsArray>(IntersectImpl), PropertyAttributes.DontEnum);
-            
-            
+            Target.Prototype.DefineOwnProperty("lastIndexOf", Target.Global.FunctionClass.New<JsArray>(LastIndexOfImpl), PropertyAttributes.DontEnum);
+                        
+        }
+
+        public JsInstance LastIndexOfImpl(JsArray target, JsInstance[] parameters)
+        {
+            var result = Target.Global.NumberClass.New(-1);
+            if (parameters.Length == 0 || target.Length == 0) return result;
+            var valueToFind = parameters[0];
+            var offset = parameters.Length == 2 && parameters[1].GetType() == typeof(JsNumber) ? 
+                Convert.ToInt32(parameters[1].Value.ToString()) : 0;
+            var limit = target.Length - 1 - offset;
+            for (var i = limit; i >- 0 ; i--)
+            {
+                if (areEqual(target[i.ToString()],valueToFind))
+                {
+                    return Target.Global.NumberClass.New(i);    
+                }
+            }
+            return result;
         }
 
         public JsInstance IntersectImpl(JsArray target, JsInstance[] parameters)
@@ -45,8 +64,13 @@ namespace Jint.PrototypeExtension
             findItem(IEnumerable<KeyValuePair<string, JsInstance>> target, JsInstance valueToFind)
         {
             return target.Where(item =>
-                                item.Value.GetType() == valueToFind.GetType() &&
-                                item.Value.Value.ToString() == valueToFind.Value.ToString());
+                                areEqual(item.Value, valueToFind));
+        }
+
+        private bool areEqual(JsInstance itemValue, JsInstance valueToFind)
+        {
+            return itemValue.GetType() == valueToFind.GetType() &&
+                   itemValue.Value.ToString() == valueToFind.Value.ToString();
         }
 
         public JsInstance IndexOfImpl(JsArray target, JsInstance[] parameters)

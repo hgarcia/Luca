@@ -7,7 +7,82 @@ namespace Jint.Tests
     public class When_we_extend_arrays_with_PrototypeExtensions
     {
         public IList<IExtensionRegister> prototype = new List<IExtensionRegister> {new Jint.PrototypeExtension.Registration()};
-        
+
+        [TestMethod]
+        public void should_support_toArray()
+        {
+            var jint = new JintEngine(prototype);
+            dynamic result = jint.Run(@"var ar = [1,2,3,4];
+            var br = ar;
+            var cr = ar.toArray();
+            cr[0] = 3;
+            return [ar,br,cr]
+");
+            Assert.AreEqual(3, result.Count);
+            Assert.AreEqual(1, result[0][0]);
+            Assert.AreEqual(1, result[1][0]);
+            Assert.AreEqual(3, result[2][0]);
+        }
+
+        [TestMethod]
+        public void if_value_to_search_is_of_the_wrong_type_lastIndexOf_should_return_minus_one()
+        {
+            var jint = new JintEngine(prototype);
+            dynamic result = jint.Run(@"var ar = ['1','2','3'];
+return ar.lastIndexOf(2);
+");
+            Assert.AreEqual(-1, result);
+        }
+
+        [TestMethod]
+        public void if_value_to_search_is_not_found_lastIndexOf_should_return_minus_one()
+        {
+            var jint = new JintEngine(prototype);
+            dynamic result = jint.Run(@"var ar = ['frank','bob','mary'];
+return ar.lastIndexOf('joseph');
+");
+            Assert.AreEqual(-1, result);
+        }
+        [TestMethod]
+        public void if_value_to_search_is_not_passed_lastIndexOf_should_return_minus_one()
+        {
+            var jint = new JintEngine(prototype);
+            dynamic result = jint.Run(@"var ar = ['frank','bob','mary'];
+return ar.lastIndexOf();
+");
+            Assert.AreEqual(-1, result);
+        }
+
+        [TestMethod]
+        public void if_array_is_empty_lastIndexOf_should_return_minus_one()
+        {
+            var jint = new JintEngine(prototype);
+            dynamic result = jint.Run(@"var ar = [];
+return ar.lastIndexOf('bob');
+");
+            Assert.AreEqual(-1, result);
+        }
+
+        [TestMethod]
+        public void should_support_lastIndexOf_with_offset()
+        {
+            var jint = new JintEngine(prototype);
+            dynamic result = jint.Run(@"var ar = ['frank','bob','lisa','mark','bob',3];
+return ar.lastIndexOf('bob',2);
+");
+            Assert.AreEqual(1, result);
+        }
+
+        [TestMethod]
+        public void should_support_lastIndexOf()
+        {
+            var jint = new JintEngine(prototype);
+            dynamic result = jint.Run(@"var ar = ['frank','bob','lisa','mark','bob',3];
+return ar.lastIndexOf('bob');
+");
+            Assert.AreEqual(4, result);
+        }
+
         [TestMethod]
         public void should_support_intersect()
         {
@@ -22,8 +97,6 @@ return ar.intersect(br);
             Assert.AreEqual("bob", result[2]);
             Assert.AreEqual("esther", result[3]);
             Assert.AreEqual(3, result[4]);
-
-
         }
 
         [TestMethod]
