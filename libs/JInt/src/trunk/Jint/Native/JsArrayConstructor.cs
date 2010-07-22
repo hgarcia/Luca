@@ -33,7 +33,7 @@ namespace Jint.Native
             Prototype.DefineOwnProperty("sort", global.FunctionClass.New<JsObject>(Sort), PropertyAttributes.DontEnum);
             Prototype.DefineOwnProperty("splice", global.FunctionClass.New<JsObject>(Splice, 2), PropertyAttributes.DontEnum);
             Prototype.DefineOwnProperty("unshift", global.FunctionClass.New<JsObject>(UnShift, 1), PropertyAttributes.DontEnum);
-
+            
             #region ES5
             Prototype.DefineOwnProperty("indexOf", global.FunctionClass.New<JsObject>(IndexOfImpl, 1), PropertyAttributes.DontEnum);
             Prototype.DefineOwnProperty("lastIndexOf", global.FunctionClass.New<JsObject>(LastIndexOfImpl, 1), PropertyAttributes.DontEnum);
@@ -41,6 +41,7 @@ namespace Jint.Native
 
             #region Prototype_Extensions
             Prototype.DefineOwnProperty("collect", global.FunctionClass.New<JsObject>(CollectImpl,1), PropertyAttributes.DontEnum);
+            Prototype.DefineOwnProperty("clear", global.FunctionClass.New<JsArray>(ClearImpl), PropertyAttributes.DontEnum);
             #endregion
             #endregion
 
@@ -144,6 +145,15 @@ namespace Jint.Native
 
         }
 
+        public JsInstance ClearImpl(JsArray target, JsInstance[] parameters)
+        {
+            for (var i = target.Length-1; i >= 0; i--)
+            {
+                target.Delete(i.ToString());
+            }
+            return target;
+        }
+
         /// <summary>
         /// 15.4.4.3
         /// </summary>
@@ -166,7 +176,7 @@ namespace Jint.Native
 
         public JsInstance CollectImpl(JsObject target, JsInstance[] parameters)
         {
-            if (parameters.Length == 0 || parameters[0] == JsUndefined.Instance) return target;
+            if (parameters.Length == 0 || parameters[0].GetType() != typeof(JsFunction)) return target;
             var array = Global.ArrayClass.New();
             var func = parameters[0];
             for (var i = 0; i < target.Length; i++)
