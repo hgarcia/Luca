@@ -30,12 +30,12 @@ namespace Jint.Native
             }
             JsDictionaryObject _this;
             JsInstance[] _parameters;
-            if (parameters.Length >= 1 && parameters[0] != JsUndefined.Instance && parameters[0] != JsNull.Instance)
+            if (parameters.Length >= 1 && parameters[0] != JsUndefined.Instance && parameters[0] != JsNull.instance)
                 _this = parameters[0] as JsDictionaryObject;
             else
                 _this = visitor.Global as JsDictionaryObject;
 
-            if (parameters.Length >= 2 && parameters[1] != JsNull.Instance)
+            if (parameters.Length >= 2 && parameters[1] != JsNull.instance)
             {
                 JsObject arguments = parameters[1] as JsObject;
                 if (arguments == null)

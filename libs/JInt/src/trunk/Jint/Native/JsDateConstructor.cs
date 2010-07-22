@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Jint.Delegates;
+
 using System.Globalization;
 using System.Text.RegularExpressions;
 using Jint.Expressions;

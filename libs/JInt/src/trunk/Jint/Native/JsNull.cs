@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Jint.Delegates;
+
 
 namespace Jint.Native
 {
     [Serializable]
     public class JsNull : JsObject
     {
-        public static JsNull Instance = new JsNull();
+        public static JsNull instance = new JsNull();
 
         public JsNull()
         {

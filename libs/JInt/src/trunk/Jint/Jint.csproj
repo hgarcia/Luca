@@ -54,6 +54,7 @@
     <Compile Include="CachedReflectionPropertyGetter.cs" />
     <Compile Include="CachedTypeResolver.cs" />
     <Compile Include="CachedReflectionFieldGetter.cs" />
+    <Compile Include="IExtensionRegister.cs" />
     <Compile Include="Native\ClrMethodDescriptor.cs" />
     <Compile Include="PropertyBags\DictionaryPropertyBag.cs" />
     <Compile Include="PropertyBags\DoubleListPropertyBag.cs" />
@@ -169,7 +170,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PropertyBags\MiniCachedPropertyBag.cs" />
     <Compile Include="PropertyBags\ScopedPropertyBag.cs" />
+    <Compile Include="IExtension.cs" />
+    <Compile Include="PrototypeExtension\PrototypeArrays.cs" />
+    <Compile Include="PrototypeExtension\Registration.cs" />
     <Compile Include="ReflectionPropertyGetter.cs" />
+    <Compile Include="ExtensionRegister.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

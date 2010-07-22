@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Jint.Delegates;
+
 using Jint.Expressions;
 using System.Globalization;
 using System.Web;
@@ -18,12 +18,13 @@ namespace Jint.Native
 
         public Options Options { get; set; }
 
-        public JsGlobal(ExecutionVisitor visitor, Options options)
+        public JsGlobal(ExecutionVisitor visitor, Options options, IList<IExtensionRegister> extensions)
         {
+            this.Extensions = extensions;
             this.Options = options;
             this.Visitor = visitor;
 
-            this["null"] = JsNull.Instance;
+            this["null"] = JsNull.instance;
 
             #region Global Classes
             this["Object"] = ObjectClass = new JsObjectConstructor(this);
@@ -38,7 +39,7 @@ namespace Jint.Native
             this["ReferenceError"] = ReferenceErrorClass = new JsErrorConstructor(this, "ReferenceError");
             this["SyntaxError"] = SyntaxErrorClass = new JsErrorConstructor(this, "SyntaxError");
             this["TypeError"] = TypeErrorClass = new JsErrorConstructor(this, "TypeError");
-            this["URIError"] = URIErrorClass = new JsErrorConstructor(this, "URIError");
+            this["URIError"] = UriErrorClass = new JsErrorConstructor(this, "URIError");
 
             this["Number"] = NumberClass = new JsNumberConstructor(this);
             this["RegExp"] = RegExpClass = new JsRegExpConstructor(this);
@@ -92,7 +93,7 @@ namespace Jint.Native
         public JsErrorConstructor ReferenceErrorClass { get; private set; }
         public JsErrorConstructor SyntaxErrorClass { get; private set; }
         public JsErrorConstructor TypeErrorClass { get; private set; }
-        public JsErrorConstructor URIErrorClass { get; private set; }
+        public JsErrorConstructor UriErrorClass { get; private set; }
 
         public JsMathConstructor MathClass { get; private set; }
         public JsNumberConstructor NumberClass { get; private set; }
@@ -404,6 +405,11 @@ namespace Jint.Native
         public JsInstance NaN
         {
             get { return this["NaN"]; }
+        }
+
+        public IList<IExtensionRegister> Extensions
+        {
+            get; private set;
         }
 
         #endregion

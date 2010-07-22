@@ -56,7 +56,7 @@ namespace Jint
 
         public JsDictionaryObject CallTarget { get { return callTarget; } }
 
-        public ExecutionVisitor(Options options)
+        public ExecutionVisitor(Options options, IList<IExtensionRegister> extensions)
         {
             this.methodInvoker = new CachedMethodInvoker(this);
             this.propertyGetter = new CachedReflectionPropertyGetter(methodInvoker);
@@ -65,7 +65,7 @@ namespace Jint
             this.fieldGetter = new CachedReflectionFieldGetter(methodInvoker);
 
             GlobalScope = new JsObject();
-            Global = new JsGlobal(this, options);
+            Global = new JsGlobal(this, options, extensions);
             GlobalScope.Prototype = Global as JsDictionaryObject;
             EnterScope(GlobalScope);
             CallStack = new Stack<string>();
@@ -1075,18 +1075,18 @@ namespace Jint
                     break;
 
                 case BinaryExpressionType.Equal:
-                    if (left == JsUndefined.Instance && right == JsUndefined.Instance || left == JsNull.Instance && right == JsNull.Instance)
+                    if (left == JsUndefined.Instance && right == JsUndefined.Instance || left == JsNull.instance && right == JsNull.instance)
                     {
                         Result = JsBoolean.True;
                     }
                     else
                     {
-                        if (left == JsUndefined.Instance && right != JsUndefined.Instance || left == JsNull.Instance && right != JsNull.Instance)
+                        if (left == JsUndefined.Instance && right != JsUndefined.Instance || left == JsNull.instance && right != JsNull.instance)
                         {
                             Result = JsBoolean.False;
                         }
                         else
-                            if (left != JsUndefined.Instance && right == JsUndefined.Instance || left != JsNull.Instance && right == JsNull.Instance)
+                            if (left != JsUndefined.Instance && right == JsUndefined.Instance || left != JsNull.instance && right == JsNull.instance)
                             {
                                 Result = JsBoolean.False;
                             }
@@ -1155,18 +1155,18 @@ namespace Jint
 
                 case BinaryExpressionType.NotEqual:
 
-                    if (left == JsUndefined.Instance && right == JsUndefined.Instance || left == JsNull.Instance && right == JsNull.Instance)
+                    if (left == JsUndefined.Instance && right == JsUndefined.Instance || left == JsNull.instance && right == JsNull.instance)
                     {
                         Result = JsBoolean.False;
                     }
                     else
                     {
-                        if (left == JsUndefined.Instance && right != JsUndefined.Instance || left == JsNull.Instance && right != JsNull.Instance)
+                        if (left == JsUndefined.Instance && right != JsUndefined.Instance || left == JsNull.instance && right != JsNull.instance)
                         {
                             Result = JsBoolean.True;
                         }
                         else
-                            if (left != JsUndefined.Instance && right == JsUndefined.Instance || left != JsNull.Instance && right == JsNull.Instance)
+                            if (left != JsUndefined.Instance && right == JsUndefined.Instance || left != JsNull.instance && right == JsNull.instance)
                             {
                                 Result = JsBoolean.True;
                             }
@@ -1988,7 +1988,7 @@ namespace Jint
 
             if (propertyName == "null")
             {
-                Result = JsNull.Instance;
+                Result = JsNull.instance;
                 return;
             }
 

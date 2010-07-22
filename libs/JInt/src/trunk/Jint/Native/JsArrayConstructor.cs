@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
-using Jint.Delegates;
 using Jint.Expressions;
 
 namespace Jint.Native
@@ -17,7 +17,7 @@ namespace Jint.Native
 
         public override void InitPrototype(IGlobal global)
         {
-            Prototype = new JsObject() { Prototype = global.FunctionClass.Prototype };
+            Prototype = new JsObject { Prototype = global.FunctionClass.Prototype };
             Prototype.DefineOwnProperty("constructor", this, PropertyAttributes.DontEnum);
 
             #region Methods
@@ -39,21 +39,27 @@ namespace Jint.Native
             Prototype.DefineOwnProperty("lastIndexOf", global.FunctionClass.New<JsObject>(LastIndexOfImpl, 1), PropertyAttributes.DontEnum);
             #endregion
 
-            #region Prototype_Extensions
-            Prototype.DefineOwnProperty("collect", global.FunctionClass.New<JsObject>(CollectImpl,1), PropertyAttributes.DontEnum);
-            Prototype.DefineOwnProperty("clear", global.FunctionClass.New<JsArray>(ClearImpl), PropertyAttributes.DontEnum);
-            #endregion
             #endregion
 
             #region Properties
             Prototype.DefineOwnProperty("length", new PropertyDescriptor<JsObject>(global, Prototype, "length", GetLengthImpl, SetLengthImpl));
             #endregion
+
+            Extend<JsArray>();
+        }
+
+        public void Extend<TJsInstance>()
+        {
+            foreach (var register in
+                Global.Extensions.Where(register => register.Extensions.ContainsKey(typeof (TJsInstance))))
+            {
+                register.Extensions[typeof(TJsInstance)].ExtendTarget(this);
+            }
         }
 
         public JsArray New()
         {
-            JsArray array = new JsArray() { Prototype = this.Prototype };
-            //array.DefineOwnProperty("constructor", new ValueDescriptor(this) { Enumerable = false });
+            var array = new JsArray { Prototype = Prototype };
             return array;
         }
 
@@ -145,15 +151,6 @@ namespace Jint.Native
 
         }
 
-        public JsInstance ClearImpl(JsArray target, JsInstance[] parameters)
-        {
-            for (var i = target.Length-1; i >= 0; i--)
-            {
-                target.Delete(i.ToString());
-            }
-            return target;
-        }
-
         /// <summary>
         /// 15.4.4.3
         /// </summary>
@@ -174,18 +171,6 @@ namespace Jint.Native
             return Global.StringClass.New(result.ToString());
         }
 
-        public JsInstance CollectImpl(JsObject target, JsInstance[] parameters)
-        {
-            if (parameters.Length == 0 || parameters[0].GetType() != typeof(JsFunction)) return target;
-            var array = Global.ArrayClass.New();
-            var func = parameters[0];
-            for (var i = 0; i < target.Length; i++)
-            {
-                Global.Visitor.ExecuteFunction(func as JsFunction, target, new JsInstance[] {target[i.ToString()]});
-                array[i.ToString()] = Global.Visitor.Returned;
-            }
-            return array;
-        }
 
         /// <summary>
         /// 15.4.4.4
@@ -246,7 +231,7 @@ namespace Jint.Native
             JsInstance element0 = target[0.ToString()];
 
             StringBuilder r;
-            if (element0 == JsUndefined.Instance || element0 == JsNull.Instance)
+            if (element0 == JsUndefined.Instance || element0 == JsNull.instance)
             {
                 r = new StringBuilder(string.Empty);
             }
@@ -261,7 +246,7 @@ namespace Jint.Native
             {
                 r.Append(separator);
                 JsInstance element = target[k.ToString()];
-                if (element != JsUndefined.Instance && element != JsNull.Instance)
+                if (element != JsUndefined.Instance && element != JsNull.instance)
                     r.Append(element.Call(Global.Visitor, "toString").ToString());
             }
             return Global.StringClass.New(r.ToString());

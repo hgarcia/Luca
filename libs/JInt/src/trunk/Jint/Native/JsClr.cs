@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
-using Jint.Delegates;
+
 using System.Reflection;
 using Jint.Expressions;
 
@@ -154,7 +154,7 @@ namespace Jint.Native
             {
                 return parameter.Value;
             }
-            else if (parameter == JsNull.Instance)
+            else if (parameter == JsNull.instance)
             {
                 return null;
             }
@@ -230,7 +230,7 @@ namespace Jint.Native
             //}
             if (parameter == null)
             {
-                return JsNull.Instance;
+                return JsNull.instance;
             }
             else
             {

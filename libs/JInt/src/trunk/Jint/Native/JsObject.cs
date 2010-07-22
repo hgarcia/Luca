@@ -45,7 +45,7 @@ namespace Jint.Native
 
         public override bool ToBoolean()
         {
-            if (Prototype == null || Prototype == JsUndefined.Instance || Prototype == JsNull.Instance)
+            if (Prototype == null || Prototype == JsUndefined.Instance || Prototype == JsNull.instance)
             {
                 return false;
             }

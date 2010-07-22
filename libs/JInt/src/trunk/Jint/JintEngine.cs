@@ -2,31 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 using Jint.Expressions;
-using System.Threading;
-using System.Diagnostics;
 using Antlr.Runtime;
 using Jint.Native;
-using Jint.Delegates;
 using Jint.Debugger;
 using System.Security;
 using System.Security.Permissions;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-
-namespace Jint.Delegates
-{
-    /*
-    public delegate void Action();
-    public delegate void Action<T1, T2>(T1 t1, T2 t2);
-    public delegate void Action<T1, T2, T3>(T1 t1, T2 t2, T3 t3);
-
-    public delegate TResult Func<TResult>();
-    public delegate TResult Func<T, TResult>(T t);
-    public delegate TResult Func<T1, T2, TResult>(T1 t1, T2 t2);
-    public delegate TResult Func<T1, T2, T3, TResult>(T1 t1, T2 t2, T3 t3);
-    public delegate TResult Func<T1, T2, T3, T4, TResult>(T1 t1, T2 t2, T3 t3, T4 t4);
-     */
-}
 
 namespace Jint
 {
@@ -42,11 +24,25 @@ namespace Jint
         }
 
         [System.Diagnostics.DebuggerStepThrough]
-        public JintEngine(Options options)
+        public JintEngine(IList<IExtensionRegister> extensions)
+            : this(Options.Ecmascript5 | Options.Strict, extensions)
         {
-            visitor = new ExecutionVisitor(options);
+        }
+
+        [System.Diagnostics.DebuggerStepThrough]
+        public JintEngine(Options options)
+            : this(options, new List<IExtensionRegister>())
+        {
+            
+        }
+
+
+        [System.Diagnostics.DebuggerStepThrough]
+        public JintEngine(Options options, IList<IExtensionRegister> extensions)
+        {
+            visitor = new ExecutionVisitor(options, extensions);
             AllowClr = true;
-            permissionSet = new PermissionSet(PermissionState.None);
+            _permissionSet = new PermissionSet(PermissionState.None);
 
             visitor.GlobalScope.Prototype["ToBoolean"] = visitor.Global.FunctionClass.New(new Func<object, Boolean>(Convert.ToBoolean));
             visitor.GlobalScope.Prototype["ToByte"] = visitor.Global.FunctionClass.New(new Func<object, Byte>(Convert.ToByte));
@@ -79,7 +75,7 @@ namespace Jint
             set { visitor.AllowClr = value; }
         }
 
-        private PermissionSet permissionSet;
+        private PermissionSet _permissionSet;
 
         public static Program Compile(string source, bool debugInformation)
         {
@@ -138,14 +134,14 @@ namespace Jint
         /// <summary>
         /// Runs a set of JavaScript statements and optionally returns a value if return is called
         /// </summary>
-        /// <param name="program">The expression tree to execute</param>
+        /// <param name="script">The expression tree to execute</param>
         /// <returns>Optionaly, returns a value from the scripts</returns>
         /// <exception cref="System.ArgumentException" />
         /// <exception cref="System.Security.SecurityException" />
         /// <exception cref="Jint.JintException" />
-        public object Run(Program program)
+        public object Run(Program script)
         {
-            return Run(program, true);
+            return Run(script, true);
         }
 
         /// <summary>
@@ -202,20 +198,20 @@ namespace Jint
         /// <summary>
         /// Runs a set of JavaScript statements and optionally returns a value if return is called
         /// </summary>
-        /// <param name="program">The expression tree to execute</param>
+        /// <param name="script">The expression tree to execute</param>
         /// <param name="unwrap">Whether to unwrap the returned value to a CLR instance. <value>True</value> by default.</param>
         /// <returns>Optionaly, returns a value from the scripts</returns>
         /// <exception cref="System.ArgumentException" />
         /// <exception cref="System.Security.SecurityException" />
         /// <exception cref="Jint.JintException" />
-        public object Run(Program program, bool unwrap)
+        public object Run(Program script, bool unwrap)
         {
-            if (program == null)
+            if (script == null)
                 throw new
                     ArgumentException("Script can't be null", "script");
 
-            visitor.DebugMode = this.DebugMode;
-            visitor.PermissionSet = permissionSet;
+            visitor.DebugMode = DebugMode;
+            visitor.PermissionSet = _permissionSet;
 
             if (DebugMode)
             {
@@ -224,7 +220,7 @@ namespace Jint
 
             try
             {
-                visitor.Visit(program);
+                visitor.Visit(script);
             }
             catch (SecurityException)
             {
@@ -232,11 +228,11 @@ namespace Jint
             }
             catch (JsException e)
             {
-                string message = e.Message;
+                var message = e.Message;
                 if (e.Value.Class == JsError.TYPEOF)
-                    message = ((JsError)e.Value).Value.ToString();
-                StringBuilder stackTrace = new StringBuilder();
-                string source = String.Empty;
+                    message = e.Value.Value.ToString();
+                var stackTrace = new StringBuilder();
+                var source = String.Empty;
 
                 if (DebugMode)
                 {
@@ -253,7 +249,7 @@ namespace Jint
 
                 if (visitor.CurrentStatement.Source != null)
                 {
-                    source = Environment.NewLine + visitor.CurrentStatement.Source.ToString()
+                    source = Environment.NewLine + visitor.CurrentStatement.Source
                             + Environment.NewLine + visitor.CurrentStatement.Source.Code;
                 }
 
@@ -261,8 +257,8 @@ namespace Jint
             }
             catch (Exception e)
             {
-                StringBuilder stackTrace = new StringBuilder();
-                string source = String.Empty;
+                var stackTrace = new StringBuilder();
+                var source = String.Empty;
 
                 if (DebugMode)
                 {
@@ -279,7 +275,7 @@ namespace Jint
 
                 if (visitor.CurrentStatement.Source != null)
                 {
-                    source = Environment.NewLine + visitor.CurrentStatement.Source.ToString()
+                    source = Environment.NewLine + visitor.CurrentStatement.Source
                             + Environment.NewLine + visitor.CurrentStatement.Source.Code;
                 }
 
@@ -385,7 +381,7 @@ namespace Jint
 
         public JintEngine AddPermission(IPermission perm)
         {
-            permissionSet.AddPermission(perm);
+            _permissionSet.AddPermission(perm);
             return this;
         }
 
@@ -429,41 +425,37 @@ namespace Jint
                 Step(this, info);
             }
 
-            if (Break != null)
+            if (Break == null) return;
+            var breakpoint = BreakPoints.Find(l =>
+                                                  {
+                                                      bool afterStart = l.Line > info.CurrentStatement.Source.Start.Line
+                                                                        || (l.Line == info.CurrentStatement.Source.Start.Line && l.Char >= info.CurrentStatement.Source.Start.Char);
+
+                                                      if (!afterStart)
+                                                      {
+                                                          return false;
+                                                      }
+
+                                                      bool beforeEnd = l.Line < info.CurrentStatement.Source.Stop.Line
+                                                                       || (l.Line == info.CurrentStatement.Source.Stop.Line && l.Char <= info.CurrentStatement.Source.Stop.Char);
+
+                                                      if (!beforeEnd)
+                                                      {
+                                                          return false;
+                                                      }
+
+                                                      if (!String.IsNullOrEmpty(l.Condition))
+                                                      {
+                                                          return Convert.ToBoolean(Run(l.Condition));
+                                                      }
+
+                                                      return true;
+                                                  });
+
+
+            if (breakpoint != null)
             {
-                BreakPoint breakpoint = BreakPoints.Find(l =>
-                {
-                    bool afterStart, beforeEnd;
-
-                    afterStart = l.Line > info.CurrentStatement.Source.Start.Line
-                        || (l.Line == info.CurrentStatement.Source.Start.Line && l.Char >= info.CurrentStatement.Source.Start.Char);
-
-                    if (!afterStart)
-                    {
-                        return false;
-                    }
-
-                    beforeEnd = l.Line < info.CurrentStatement.Source.Stop.Line
-                        || (l.Line == info.CurrentStatement.Source.Stop.Line && l.Char <= info.CurrentStatement.Source.Stop.Char);
-
-                    if (!beforeEnd)
-                    {
-                        return false;
-                    }
-
-                    if (!String.IsNullOrEmpty(l.Condition))
-                    {
-                        return Convert.ToBoolean(this.Run(l.Condition));
-                    }
-
-                    return true;
-                });
-
-
-                if (breakpoint != null)
-                {
-                    Break(this, info);
-                }
+                Break(this, info);
             }
         }
 
@@ -477,32 +469,32 @@ namespace Jint
 
         public JintEngine DisableSecurity()
         {
-            permissionSet = new PermissionSet(PermissionState.Unrestricted);
+            _permissionSet = new PermissionSet(PermissionState.Unrestricted);
             return this;
         }
 
         public JintEngine EnableSecurity()
         {
-            permissionSet = new PermissionSet(PermissionState.None);
+            _permissionSet = new PermissionSet(PermissionState.None);
             return this;
         }
 
         public void Save(Stream s)
         {
-            BinaryFormatter formatter = new BinaryFormatter();
+            var formatter = new BinaryFormatter();
             formatter.Serialize(s, visitor);
         }
 
         public static void Load(JintEngine engine, Stream s)
         {
-            BinaryFormatter formatter = new BinaryFormatter();
+            var formatter = new BinaryFormatter();
             var visitor = (ExecutionVisitor)formatter.Deserialize(s);
             engine.visitor = visitor;
         }
 
         public static JintEngine Load(Stream s)
         {
-            JintEngine engine = new JintEngine();
+            var engine = new JintEngine();
             Load(engine, s);
             return engine;
         }

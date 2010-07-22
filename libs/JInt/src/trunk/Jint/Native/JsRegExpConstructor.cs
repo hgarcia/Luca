@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Text.RegularExpressions;
 using Jint.Expressions;
 
@@ -58,13 +56,13 @@ namespace Jint.Native
             if (i < 0 || i > length)
             {
                 lastIndex = 0;
-                return JsNull.Instance;
+                return JsNull.instance;
             }
             Match r = ((Regex)regexp.Value).Match(S, i);
             if (!r.Success)
             {
                 lastIndex = 0;
-                return JsNull.Instance;
+                return JsNull.instance;
             }
             int e = r.Index + r.Length;
             if (regexp["global"].ToBoolean())
@@ -84,7 +82,7 @@ namespace Jint.Native
 
         public JsInstance TestImpl(JsRegExp regex, JsInstance[] parameters)
         {
-            return new JsBoolean(ExecImpl(regex, parameters) != JsNull.Instance);
+            return new JsBoolean(ExecImpl(regex, parameters) != JsNull.instance);
         }
 
         public override JsInstance Execute(IJintVisitor visitor, JsDictionaryObject that, JsInstance[] parameters)

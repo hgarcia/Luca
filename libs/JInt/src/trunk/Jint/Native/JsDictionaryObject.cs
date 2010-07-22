@@ -45,7 +45,7 @@ namespace Jint.Native
 
                 obj = obj.Prototype;
 
-                if (obj == JsUndefined.Instance || obj == JsNull.Instance)
+                if (obj == JsUndefined.Instance || obj == JsNull.instance)
                 {
                     return false;
                 }
@@ -118,7 +118,7 @@ namespace Jint.Native
             }
 
             JsDictionaryObject prototype = Prototype;
-            if (prototype != JsUndefined.Instance && prototype != JsNull.Instance)
+            if (prototype != JsUndefined.Instance && prototype != JsNull.instance)
             {
                 result = Prototype.GetDescriptor(index);
                 if (result != null)
@@ -130,7 +130,7 @@ namespace Jint.Native
                     if (ctorDescriptor != null)
                     {
                         JsInstance ctor = ctorDescriptor.Get(this);
-                        if (ctor != JsUndefined.Instance && ctor != JsNull.Instance)
+                        if (ctor != JsUndefined.Instance && ctor != JsNull.instance)
                             return ((JsFunction)ctor).Scope.GetDescriptor(index);
                     }
                 }
@@ -315,7 +315,7 @@ namespace Jint.Native
         {
             var p = Prototype;
 
-            if (p != JsUndefined.Instance && p != JsNull.Instance && p != null)
+            if (p != JsUndefined.Instance && p != JsNull.instance && p != null)
             {
                 foreach (string key in p.GetKeys())
                 {
@@ -403,7 +403,7 @@ namespace Jint.Native
         {
             if (target == null)
                 return false;
-            if (target == JsUndefined.Instance || target == JsNull.Instance)
+            if (target == JsUndefined.Instance || target == JsNull.instance)
                 return false;
             if (target.Prototype == this)
                 return true;
