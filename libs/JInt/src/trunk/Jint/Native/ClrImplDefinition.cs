@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Jint.Expressions;
-using Jint.Delegates;
 using System.Reflection;
 
 namespace Jint.Native
@@ -14,13 +11,13 @@ namespace Jint.Native
     public class ClrImplDefinition<T> : JsFunction
         where T : JsInstance
     {
-        Delegate impl;
-        private int length;
-        bool hasParameters;
+        readonly Delegate _impl;
+        private readonly int _length;
+        readonly bool _hasParameters;
 
         private ClrImplDefinition(bool hasParameters)
         {
-            this.hasParameters = hasParameters;
+            _hasParameters = hasParameters;
         }
 
         public ClrImplDefinition(Func<T, JsInstance[], JsInstance> impl)
@@ -31,8 +28,8 @@ namespace Jint.Native
         public ClrImplDefinition(Func<T, JsInstance[], JsInstance> impl, int length)
             : this(true)
         {
-            this.impl = impl;
-            this.length = length;
+            _impl = impl;
+            _length = length;
         }
 
         public ClrImplDefinition(Func<T, JsInstance> impl)
@@ -43,8 +40,8 @@ namespace Jint.Native
         public ClrImplDefinition(Func<T, JsInstance> impl, int length)
             : this(false)
         {
-            this.impl = impl;
-            this.length = length;
+            this._impl = impl;
+            this._length = length;
         }
 
         public override JsInstance Execute(IJintVisitor visitor, JsDictionaryObject that, JsInstance[] parameters)
@@ -52,10 +49,10 @@ namespace Jint.Native
             try
             {
                 JsInstance result;
-                if (hasParameters)
-                    result = impl.DynamicInvoke(new object[] { that, parameters }) as JsInstance;
+                if (_hasParameters)
+                    result = _impl.DynamicInvoke(new object[] { that, parameters }) as JsInstance;
                 else
-                    result = impl.DynamicInvoke(new object[] { that }) as JsInstance;
+                    result = _impl.DynamicInvoke(new object[] { that }) as JsInstance;
 
                 visitor.Return(result);
                 return result;
@@ -84,15 +81,15 @@ namespace Jint.Native
         {
             get
             {
-                if (length == -1)
+                if (_length == -1)
                     return base.Length;
-                return length;
+                return _length;
             }
         }
 
         public override string ToString()
         {
-            return String.Format("function {0}() { [native code] }", impl.Method.Name);
+            return String.Format("function {0}() { [native code] }", _impl.Method.Name);
         }
 
     }

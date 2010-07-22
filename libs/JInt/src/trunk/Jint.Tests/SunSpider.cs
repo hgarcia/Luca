@@ -1,28 +1,15 @@
 ﻿using System;
-using System.Text;
-using System.Collections.Generic;
-
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics;
-using Jint.Delegates;
+//using Jint.Delegates;
 using System.IO;
 using System.Reflection;
 
 namespace Jint.Tests
 {
-    /// <summary>
-    /// Summary description for SunSpider
-    /// </summary>
     [TestClass]
     public class SunSpider
     {
-        public SunSpider()
-        {
-            //
-            // TODO: Add constructor logic here
-            //
-        }
-
         private TestContext testContextInstance;
 
         /// <summary>

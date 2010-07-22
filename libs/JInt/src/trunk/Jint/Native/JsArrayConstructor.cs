@@ -39,6 +39,9 @@ namespace Jint.Native
             Prototype.DefineOwnProperty("lastIndexOf", global.FunctionClass.New<JsObject>(LastIndexOfImpl, 1), PropertyAttributes.DontEnum);
             #endregion
 
+            #region Prototype_Extensions
+            Prototype.DefineOwnProperty("collect", global.FunctionClass.New<JsObject>(CollectImpl,1), PropertyAttributes.DontEnum);
+            #endregion
             #endregion
 
             #region Properties
@@ -159,6 +162,19 @@ namespace Jint.Native
             }
 
             return Global.StringClass.New(result.ToString());
+        }
+
+        public JsInstance CollectImpl(JsObject target, JsInstance[] parameters)
+        {
+            if (parameters.Length == 0 || parameters[0] == JsUndefined.Instance) return target;
+            var array = Global.ArrayClass.New();
+            var func = parameters[0];
+            for (var i = 0; i < target.Length; i++)
+            {
+                Global.Visitor.ExecuteFunction(func as JsFunction, target, new JsInstance[] {target[i.ToString()]});
+                array[i.ToString()] = Global.Visitor.Returned;
+            }
+            return array;
         }
 
         /// <summary>

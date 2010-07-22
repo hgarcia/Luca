@@ -39,6 +39,7 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
@@ -48,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Fixtures.cs" />
+    <Compile Include="Prototype_array_methods.cs" />
     <Compile Include="SunSpider.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -323,7 +325,9 @@
     <EmbeddedResource Include="ecma_3\Regress\regress-441477-01.js" />
     <EmbeddedResource Include="ecma_3\Regress\regress-469937.js" />
     <EmbeddedResource Include="ecma_3\Regress\shell.js" />
-    <EmbeddedResource Include="shell.js" />
+    <EmbeddedResource Include="shell.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="ecma_3\Statements\12.10-01.js" />
     <EmbeddedResource Include="ecma_3\Statements\12.6.3.js" />
     <EmbeddedResource Include="ecma_3\Statements\browser.js" />
@@ -366,7 +370,9 @@
     <EmbeddedResource Include="Scripts\String.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="extensions.js" />
+    <EmbeddedResource Include="extensions.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Scripts\Date.js" />
@@ -391,7 +397,9 @@
     <EmbeddedResource Include="env\env1.0.js" />
     <Content Include="env\ConflictingVariables.htm" />
     <Content Include="env\html5.detailed.js" />
-    <Content Include="include.js" />
+    <Content Include="include.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="SunSpider\simple.js" />
     <EmbeddedResource Include="SunSpider\3d-morph.js" />
     <EmbeddedResource Include="SunSpider\string-base64.js" />

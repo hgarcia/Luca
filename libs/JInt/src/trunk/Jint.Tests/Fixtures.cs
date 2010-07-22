@@ -3,30 +3,19 @@ using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Jint.Expressions;
-using Jint.Delegates;
+//using Jint.Delegates;
 using System.IO;
 using Jint.Native;
 using System.Reflection;
 using Jint.Debugger;
 using System.Security.Permissions;
 using System.Diagnostics;
-using System.Net;
 
 namespace Jint.Tests
 {
-    /// <summary>
-    /// Summary description for UnitTest1
-    /// </summary>
     [TestClass]
     public class Fixtures
     {
-        public Fixtures()
-        {
-            //
-            // TODO: Add constructor logic here
-            //
-        }
-
         private TestContext testContextInstance;
 
         /// <summary>
@@ -100,7 +89,7 @@ namespace Jint.Tests
             JintEngine engine = new JintEngine().AddPermission(new FileIOPermission(PermissionState.Unrestricted));
             engine.SetFunction("load", new Action<string>(delegate(string fileName) { using (var reader = File.OpenText(fileName)) { engine.Run(reader); } }));
             engine.SetFunction("print", new Action<string>(Console.WriteLine));
-            engine.Run("var a='foo'; load('../../../Jint.Tests/include.js'); print(a);");
+            engine.Run("var a='foo'; load('../../../include.js'); print(a);");
         }
 
         [TestMethod]
@@ -110,7 +99,7 @@ namespace Jint.Tests
             JintEngine engine = new JintEngine().AddPermission(new FileIOPermission(PermissionState.None));
             engine.SetFunction("load", new Action<string>(delegate(string fileName) { using (var reader = File.OpenText(fileName)) { engine.Run(reader); } }));
             engine.SetFunction("print", new Action<string>(Console.WriteLine));
-            engine.Run("var a='foo'; load('../../../Jint.Tests/include.js'); print(a);");
+            engine.Run("var a='foo'; load('../../../include.js'); print(a);");
         }
 
         [TestMethod]
@@ -468,13 +457,21 @@ bar');
         [ExpectedException(typeof(System.Security.SecurityException))]
         public void ShouldRunInLowTrustMode()
         {
-            string script = @"
+            try
+            {
+                //System.IO.Directory.GetFiles();
+                string script =
+                    @"
                 var a = System.Convert.ToInt32(1);
-                var b = System.IO.Directory.GetFiles('c:');
-            ";
+                var b = System.IO.Directory.GetFiles(""c:"");";
 
-            new JintEngine()
-                .Run(script);
+                new JintEngine()
+                    .Run(script);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
         [TestMethod]
@@ -1239,9 +1236,9 @@ var fakeButton = new Test.FakeButton();");
         {
             var box = new Box() { width = 10, height = 20 };
 
-            Jint.JintEngine jint = new Jint.JintEngine()
-            .SetDebugMode(true)
-            .SetParameter("box", box);
+            JintEngine jint = new Jint.JintEngine().AddPermission(new System.Security.Permissions.ReflectionPermission(PermissionState.Unrestricted));
+            jint.SetDebugMode(true);
+            jint.SetParameter("box", box);
 
             Assert.AreEqual(10, jint.Run("return box.width"));
             Assert.AreEqual(10, jint.Run("return box['width']"));
@@ -1346,6 +1343,7 @@ var fakeButton = new Test.FakeButton();");
 
     public class Box
     {
+        private readonly StringBuilder sb = new StringBuilder();
         // public fields
         public int width;
         public int height;
@@ -1372,7 +1370,7 @@ var fakeButton = new Test.FakeButton();");
 
         public void Write(object value)
         {
-            Console.WriteLine(value);
+            //sb.Append(value);
         }
     }
 }
