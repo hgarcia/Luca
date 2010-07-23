@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using Jint.Expressions;
 
@@ -46,15 +45,6 @@ namespace Jint.Native
             #endregion
 
             Extend<JsArray>();
-        }
-
-        public void Extend<TJsInstance>()
-        {
-            foreach (var register in
-                Global.Extensions.Where(register => register.Extensions.ContainsKey(typeof (TJsInstance))))
-            {
-                register.Extensions[typeof(TJsInstance)].ExtendTarget(this);
-            }
         }
 
         public JsArray New()

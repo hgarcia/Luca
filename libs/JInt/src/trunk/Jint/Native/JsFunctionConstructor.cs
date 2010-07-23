@@ -10,7 +10,7 @@ namespace Jint.Native
         public JsFunctionConstructor(IGlobal global)
             : base(global)
         {
-            Prototype = new JsFunctionWrapper(delegate(JsInstance[] arguments) { return JsUndefined.Instance; }) { Prototype = global.ObjectClass.Prototype, Name = "Function" };
+            Prototype = new JsFunctionWrapper(arguments => JsUndefined.Instance) { Prototype = global.ObjectClass.Prototype, Name = "Function" };
             Name = "Function";
         }
 
@@ -18,16 +18,13 @@ namespace Jint.Native
         {
             ((JsFunction)Prototype).Scope = global.ObjectClass.Scope;
             Prototype.DefineOwnProperty("constructor", this, PropertyAttributes.DontEnum);
-
-            Prototype.DefineOwnProperty(CALL.ToString(), new JsCallFunction(this), PropertyAttributes.DontEnum);
-            Prototype.DefineOwnProperty(APPLY.ToString(), new JsApplyFunction(this), PropertyAttributes.DontEnum);
-
+            Prototype.DefineOwnProperty(CALL, new JsCallFunction(this), PropertyAttributes.DontEnum);
+            Prototype.DefineOwnProperty(APPLY, new JsApplyFunction(this), PropertyAttributes.DontEnum);
             Prototype.DefineOwnProperty("toString", New<JsDictionaryObject>(ToString2), PropertyAttributes.DontEnum);
             Prototype.DefineOwnProperty("toLocaleString", New<JsDictionaryObject>(ToString2), PropertyAttributes.DontEnum);
             Prototype.DefineOwnProperty("length", new PropertyDescriptor<JsObject>(global, Prototype, "length", GetLengthImpl, SetLengthImpl));
+            Extend<JsFunction>();
         }
-
-
 
         public JsInstance GetLengthImpl(JsDictionaryObject target)
         {
@@ -36,15 +33,15 @@ namespace Jint.Native
 
         public JsInstance SetLengthImpl(JsInstance target, JsInstance[] parameters)
         {
-            int length = (int)parameters[0].ToNumber();
+            var number = (int)parameters[0].ToNumber();
 
-            if (length < 0 || double.IsNaN(length) || double.IsInfinity(length))
+            if (number < 0 || double.IsNaN(number) || double.IsInfinity(number))
             {
                 throw new JsException(Global.RangeErrorClass.New("invalid length"));
             }
 
-            JsDictionaryObject obj = (JsDictionaryObject)target;
-            obj.Length = length;
+            var obj = (JsDictionaryObject)target;
+            obj.Length = number;
 
             return parameters[0];
         }
@@ -56,7 +53,7 @@ namespace Jint.Native
 
         public JsFunction New()
         {
-            JsFunction function = new JsFunction();
+            var function = new JsFunction();
             function.Prototype = Global.ObjectClass.New(function);
             function.Scope.Prototype = Prototype;
             return function;
@@ -69,9 +66,9 @@ namespace Jint.Native
             function.Scope.Prototype = Prototype;
             return function;
         }
-        public JsFunction New<T>(Func<T, JsInstance> impl, int length) where T : JsInstance
+        public JsFunction New<T>(Func<T, JsInstance> impl, int size) where T : JsInstance
         {
-            JsFunction function = new ClrImplDefinition<T>(impl, length);
+            JsFunction function = new ClrImplDefinition<T>(impl, size);
             function.Prototype = Global.ObjectClass.New(function);
             function.Scope.Prototype = Prototype;
             return function;
@@ -84,9 +81,9 @@ namespace Jint.Native
             function.Scope.Prototype = Prototype;
             return function;
         }
-        public JsFunction New<T>(Func<T, JsInstance[], JsInstance> impl, int length) where T : JsInstance
+        public JsFunction New<T>(Func<T, JsInstance[], JsInstance> impl, int size) where T : JsInstance
         {
-            JsFunction function = new ClrImplDefinition<T>(impl, length);
+            JsFunction function = new ClrImplDefinition<T>(impl, size);
             function.Prototype = Global.ObjectClass.New(function);
             function.Scope.Prototype = Prototype;
             return function;
@@ -102,24 +99,23 @@ namespace Jint.Native
 
         public override JsInstance Execute(IJintVisitor visitor, JsDictionaryObject that, JsInstance[] parameters)
         {
-            JsFunction instance = New();
-
+            var instance = New();
             instance.Arguments = new List<string>();
 
-            for (int i = 0; i < parameters.Length - 1; i++)
+            for (var i = 0; i < parameters.Length - 1; i++)
             {
-                string arg = parameters[i].ToString();
+                var arguments = parameters[i].ToString();
 
-                foreach (string a in arg.Split(','))
+                foreach (var argument in arguments.Split(','))
                 {
-                    instance.Arguments.Add(a.Trim());
+                    instance.Arguments.Add(argument.Trim());
                 }
             }
 
             if (parameters.Length >= 1)
             {
-                Program p = JintEngine.Compile(parameters[parameters.Length - 1].Value.ToString(), visitor.DebugMode);
-                instance.Statement = new BlockStatement() { Statements = p.Statements };
+                var program = JintEngine.Compile(parameters[parameters.Length - 1].Value.ToString(), visitor.DebugMode);
+                instance.Statement = new BlockStatement { Statements = program.Statements };
             }
 
             return visitor.Return(instance);

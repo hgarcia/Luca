@@ -49,7 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CachedConstructorInvoker.cs" />
+    <Compile Include="PrototypeExtension\CachedConstructorInvoker.cs" />
     <Compile Include="CachedMethodInvoker.cs" />
     <Compile Include="CachedReflectionPropertyGetter.cs" />
     <Compile Include="CachedTypeResolver.cs" />

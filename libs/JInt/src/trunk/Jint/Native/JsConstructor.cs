@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 
 namespace Jint.Native
 {
@@ -17,5 +16,15 @@ namespace Jint.Native
         }
 
         public abstract void InitPrototype(IGlobal global);
+        
+
+        public void Extend<TJsInstance>()
+        {
+            foreach (var register in
+                Global.Extensions.Where(register => register.Extensions.ContainsKey(typeof(TJsInstance))))
+            {
+                register.Extensions[typeof(TJsInstance)].ExtendTarget(this);
+            }
+        }
     }
 }
