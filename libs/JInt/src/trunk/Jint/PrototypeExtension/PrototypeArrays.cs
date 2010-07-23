@@ -22,7 +22,84 @@ namespace Jint.PrototypeExtension
             Target.Prototype.DefineOwnProperty("indexOf", Target.Global.FunctionClass.New<JsArray>(IndexOfImpl), PropertyAttributes.DontEnum);
             Target.Prototype.DefineOwnProperty("intersect", Target.Global.FunctionClass.New<JsArray>(IntersectImpl), PropertyAttributes.DontEnum);
             Target.Prototype.DefineOwnProperty("lastIndexOf", Target.Global.FunctionClass.New<JsArray>(LastIndexOfImpl), PropertyAttributes.DontEnum);
+            Target.Prototype.DefineOwnProperty("without", Target.Global.FunctionClass.New<JsArray>(WithoutImpl), PropertyAttributes.DontEnum);
+            Target.Prototype.DefineOwnProperty("reverse", Target.Global.FunctionClass.New<JsArray>(ReverseImpl), PropertyAttributes.DontEnum);
+            Target.Prototype.DefineOwnProperty("size", Target.Global.FunctionClass.New<JsArray>(SizeImpl), PropertyAttributes.DontEnum);
+            Target.Prototype.DefineOwnProperty("uniq", Target.Global.FunctionClass.New<JsArray>(UniqImpl), PropertyAttributes.DontEnum);
                         
+        }
+
+        public JsInstance UniqImpl(JsArray target, JsInstance[] parameters)
+        {
+            if (parameters.Length > 0 && parameters[0].GetType() == typeof(JsBoolean) && parameters[0].ToBoolean())
+            {
+                return copyDistinctSorted(target);
+            }
+            return copyDistinct(target);
+        }
+
+        private JsInstance copyDistinctSorted(JsArray target)
+        {
+            var result = Target.Global.ArrayClass.New();
+            var comparer = new JsInstanceComparer();
+            for (var i = 0; i < target.Length; i++)
+            {
+                if (result.Length == 0 || !comparer.Equals(result[(result.Length-1).ToString()], target[i.ToString()]))
+                {
+                    result[result.Length.ToString()] = target[i.ToString()];
+                }
+            }
+            return result;
+        }
+
+        private JsInstance copyDistinct(JsArray target)
+        {
+            var result = Target.Global.ArrayClass.New();
+            for (var i = 0; i < target.Length; i++)
+            {
+                if (result.Length == 0 || findItem(result,target[i.ToString()]).Count() == 0)
+                {
+                    result[result.Length.ToString()] = target[i.ToString()];
+                }
+            }
+            return result;
+        }
+
+        public JsInstance SizeImpl(JsArray target)
+        {
+            return Target.Global.NumberClass.New(target.Length);
+        }
+
+        public JsInstance ReverseImpl(JsArray target, JsInstance[] parameters)
+        {
+            var reversed = target.Reverse().ToList();
+            if (parameters.Length>0 && parameters[0].GetType() == typeof(JsBoolean) && !parameters[0].ToBoolean())
+            {
+                return copyToArray(Target.Global.ArrayClass.New(), reversed);
+            }
+            return copyToArray(ClearImpl(target) as JsArray, reversed);
+        }
+
+        private JsArray copyToArray(JsArray target, IEnumerable<KeyValuePair<string, JsInstance>> keyValuePairs)
+        {   
+            foreach (var pair in keyValuePairs)
+            {
+                target[target.Length.ToString()] = pair.Value;
+            }
+            return target;
+        }
+
+        public JsInstance WithoutImpl(JsArray target, JsInstance[] parameters)
+        {
+            var result = Target.Global.ArrayClass.New();
+            for (var i = 0; i < target.Length; i++)
+            {
+                if (!parameters.Contains(target[i.ToString()],new JsInstanceComparer()))
+                {
+                    result[result.Length.ToString()] = target[i.ToString()];  
+                }
+            }
+            return result;
         }
 
         public JsInstance LastIndexOfImpl(JsArray target, JsInstance[] parameters)
@@ -33,9 +110,10 @@ namespace Jint.PrototypeExtension
             var offset = parameters.Length == 2 && parameters[1].GetType() == typeof(JsNumber) ? 
                 Convert.ToInt32(parameters[1].Value.ToString()) : 0;
             var limit = target.Length - 1 - offset;
+            var comparer = new JsInstanceComparer();
             for (var i = limit; i >- 0 ; i--)
             {
-                if (areEqual(target[i.ToString()],valueToFind))
+                if (comparer.Equals(target[i.ToString()],valueToFind))
                 {
                     return Target.Global.NumberClass.New(i);    
                 }
@@ -63,14 +141,7 @@ namespace Jint.PrototypeExtension
         private IEnumerable<KeyValuePair<string, JsInstance>> 
             findItem(IEnumerable<KeyValuePair<string, JsInstance>> target, JsInstance valueToFind)
         {
-            return target.Where(item =>
-                                areEqual(item.Value, valueToFind));
-        }
-
-        private bool areEqual(JsInstance itemValue, JsInstance valueToFind)
-        {
-            return itemValue.GetType() == valueToFind.GetType() &&
-                   itemValue.Value.ToString() == valueToFind.Value.ToString();
+            return target.Where(item => new JsInstanceComparer().Equals(item.Value, valueToFind));
         }
 
         public JsInstance IndexOfImpl(JsArray target, JsInstance[] parameters)
@@ -100,24 +171,24 @@ namespace Jint.PrototypeExtension
             }
         }
 
-        public JsInstance FlattenImpl(JsArray target, JsInstance[] parameters)
+        public JsInstance FlattenImpl(JsArray target)
         {
             var result = Target.Global.ArrayClass.New();
             flattenTargetIntoResult(target, result);
             return result;
         }
 
-        public JsInstance LastImpl(JsArray target, JsInstance[] parameters)
+        public JsInstance LastImpl(JsArray target)
         {
             return target[(target.Length-1).ToString()];
         }
 
-        public JsInstance FirstImpl(JsArray target, JsInstance[] parameters)
+        public JsInstance FirstImpl(JsArray target)
         {
             return target[0.ToString()];
         }
 
-        public JsInstance CompactImpl(JsArray target, JsInstance[] parameters)
+        public JsInstance CompactImpl(JsArray target)
         {
             var result = Target.Global.ArrayClass.New();
             for (var i = 0; i < target.Length; i++)
@@ -141,7 +212,7 @@ namespace Jint.PrototypeExtension
             return array;
         }
 
-        public JsInstance CloneImpl(JsArray target, JsInstance[] parameters)
+        public JsInstance CloneImpl(JsArray target)
         {
             var result = Target.Global.ArrayClass.New();
             for (var i = 0; i < target.Length; i++)
@@ -151,7 +222,7 @@ namespace Jint.PrototypeExtension
             return result;
         }
 
-        public JsInstance ClearImpl(JsArray target, JsInstance[] parameters)
+        public JsInstance ClearImpl(JsArray target)
         {
             for (var i = target.Length - 1; i >= 0; i--)
             {

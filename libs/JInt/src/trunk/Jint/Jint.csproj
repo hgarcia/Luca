@@ -171,6 +171,7 @@
     <Compile Include="PropertyBags\MiniCachedPropertyBag.cs" />
     <Compile Include="PropertyBags\ScopedPropertyBag.cs" />
     <Compile Include="IExtension.cs" />
+    <Compile Include="PrototypeExtension\JsInstanceComparer.cs" />
     <Compile Include="PrototypeExtension\PrototypeArrays.cs" />
     <Compile Include="PrototypeExtension\Registration.cs" />
     <Compile Include="ReflectionPropertyGetter.cs" />

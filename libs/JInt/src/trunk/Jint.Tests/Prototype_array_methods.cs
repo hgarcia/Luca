@@ -9,6 +9,74 @@ namespace Jint.Tests
         public IList<IExtensionRegister> prototype = new List<IExtensionRegister> {new Jint.PrototypeExtension.Registration()};
 
         [TestMethod]
+        public void should_support_uniq()
+        {
+            var jint = new JintEngine(prototype);
+            dynamic result = jint.Run(@"return [[1, 3, 2, 1].uniq(), ['A','a'].uniq(),[1,2,2,3,3,3,4,5].uniq(true)];");
+            Assert.AreEqual(1, result[0][0]);
+            Assert.AreEqual(3, result[0][1]);
+            Assert.AreEqual(2, result[0][2]);
+            Assert.AreEqual("A", result[1][0]);
+            Assert.AreEqual("a", result[1][1]);
+            Assert.AreEqual(1, result[2][0]);
+            Assert.AreEqual(2, result[2][1]);
+            Assert.AreEqual(3, result[2][2]);
+            Assert.AreEqual(4, result[2][3]);
+            Assert.AreEqual(5, result[2][4]);
+
+        }
+
+        [TestMethod]
+        public void should_support_size()
+        {
+            var jint = new JintEngine(prototype);
+            dynamic result = jint.Run(@"return [3, 6, 1, 20].size();");
+            Assert.AreEqual(4,result);
+        }
+
+        [TestMethod]
+        public void should_support_reverse()
+        {
+            var jint = new JintEngine(prototype);
+            dynamic result = jint.Run(@"var nums = [3, 6, 1, 20];
+var rev = nums.reverse(false);
+var nums2 = [3, 5, 6, 1];
+nums2.reverse();
+return [nums,rev, nums2];
+");
+            Assert.AreEqual(3, result[0][0]);
+            Assert.AreEqual(6, result[0][1]);
+            Assert.AreEqual(1, result[0][2]);
+            Assert.AreEqual(20, result[0][3]);
+            Assert.AreEqual(20, result[1][0]);
+            Assert.AreEqual(1, result[1][1]);
+            Assert.AreEqual(6, result[1][2]);
+            Assert.AreEqual(3, result[1][3]); 
+            Assert.AreEqual(1, result[2][0]);
+            Assert.AreEqual(6, result[2][1]);
+            Assert.AreEqual(5, result[2][2]);
+            Assert.AreEqual(3, result[2][3]);
+        }
+
+        [TestMethod]
+        public void should_support_without()
+        {
+            var jint = new JintEngine(prototype);
+            dynamic result = jint.Run(@"var ar = [3, 5, 6].without(3);
+                var br = [3, 5, 6, 20].without(20, 6)
+                var cr = [1,2,3].without(4);
+return [ar,br,cr];
+");
+            Assert.AreEqual(5,result[0][0]);
+            Assert.AreEqual(6, result[0][1]);
+            Assert.AreEqual(3, result[1][0]);
+            Assert.AreEqual(5, result[1][1]);
+            Assert.AreEqual(1, result[2][0]);
+            Assert.AreEqual(2, result[2][1]);
+            Assert.AreEqual(3, result[2][2]);
+        }
+
+        [TestMethod]
         public void should_support_toArray()
         {
             var jint = new JintEngine(prototype);
