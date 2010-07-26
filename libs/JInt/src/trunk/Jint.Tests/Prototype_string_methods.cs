@@ -7,7 +7,22 @@ namespace Jint.Tests
     public class Prototype_string_methods
     {
         public IList<IExtensionRegister> prototype = new List<IExtensionRegister> { new PrototypeExtension.Registration() };
-
+        
+        [TestMethod]
+        public void should_support_empty()
+        {
+            var jint = new JintEngine(prototype);
+            dynamic result = jint.Run(@"return [' '.empty(),''.empty()];");
+            Assert.IsFalse(result[0]);
+            Assert.IsTrue(result[1]);
+        }
+        [TestMethod]
+        public void should_support_capitalize()
+        {
+            var jint = new JintEngine(prototype);
+            dynamic result = jint.Run(@"return 'HELLO WOrlD!'.capitalize();");
+            Assert.AreEqual("Hello world!",result);
+        }
         [TestMethod]
         public void should_support_blank()
         {
