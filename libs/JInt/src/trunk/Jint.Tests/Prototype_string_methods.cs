@@ -9,6 +9,17 @@ namespace Jint.Tests
         public IList<IExtensionRegister> prototype = new List<IExtensionRegister> { new PrototypeExtension.Registration() };
         
         [TestMethod]
+        public void should_suppot_endsWith()
+        {
+            var jint = new JintEngine(prototype);
+            dynamic result = jint.Run(@"return ['corporate'.endsWith('fun'),'open source'.endsWith('rce'),'numbers'.endsWith(5),'no-params'.endsWith()];");
+            Assert.IsFalse(result[0]);
+            Assert.IsTrue(result[1]);
+            Assert.IsFalse(result[2]);
+            Assert.IsFalse(result[3]);
+        }
+        
+        [TestMethod]
         public void should_support_empty()
         {
             var jint = new JintEngine(prototype);
