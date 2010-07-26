@@ -17,9 +17,7 @@ namespace Jint.Native
 
         public override void InitPrototype(IGlobal global)
         {
-            //Prototype = global.FunctionClass.Prototype;
             Prototype.DefineOwnProperty("constructor", this, PropertyAttributes.DontEnum);
-
             Prototype.DefineOwnProperty("split", global.FunctionClass.New<JsDictionaryObject>(SplitImpl), PropertyAttributes.DontEnum);
             Prototype.DefineOwnProperty("replace", global.FunctionClass.New<JsDictionaryObject>(ReplaceImpl, 2), PropertyAttributes.DontEnum);
             Prototype.DefineOwnProperty("toString", global.FunctionClass.New<JsDictionaryObject>(ToStringImpl), PropertyAttributes.DontEnum);
@@ -45,6 +43,7 @@ namespace Jint.Native
             #region Properties
             Prototype.DefineOwnProperty("length", new PropertyDescriptor<JsDictionaryObject>(global, Prototype, "length", LengthImpl));
             #endregion
+            Extend<JsString>();
         }
 
         public JsString New()

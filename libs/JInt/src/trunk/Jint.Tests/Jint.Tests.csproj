@@ -51,6 +51,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Fixtures.cs" />
     <Compile Include="Prototype_array_methods.cs" />
+    <Compile Include="Prototype_string_methods.cs" />
     <Compile Include="SunSpider.cs" />
   </ItemGroup>
   <ItemGroup>

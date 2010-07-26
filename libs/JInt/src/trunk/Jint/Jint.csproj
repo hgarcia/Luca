@@ -49,7 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PrototypeExtension\CachedConstructorInvoker.cs" />
+    <Compile Include="CachedConstructorInvoker.cs" />
     <Compile Include="CachedMethodInvoker.cs" />
     <Compile Include="CachedReflectionPropertyGetter.cs" />
     <Compile Include="CachedTypeResolver.cs" />
@@ -173,6 +173,7 @@
     <Compile Include="IExtension.cs" />
     <Compile Include="PrototypeExtension\JsInstanceComparer.cs" />
     <Compile Include="PrototypeExtension\PrototypeArrays.cs" />
+    <Compile Include="PrototypeExtension\PrototypeString.cs" />
     <Compile Include="PrototypeExtension\Registration.cs" />
     <Compile Include="ReflectionPropertyGetter.cs" />
     <Compile Include="ExtensionRegister.cs" />
