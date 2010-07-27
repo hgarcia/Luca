@@ -12,7 +12,7 @@ JavaScript web development in .NET
 ### Overview
 
 At the moment, Luca uses a modified version of [Jint](http://jint.codeplex.com) as it's javascript engine.
-The modifications in the engine allows to extend JavaScript with native implementation of common libraries like [Prototype](http://prototype.js) or [underscore](http://underscore.js).
+The modifications in the engine allows to extend JavaScript with native implementation of common libraries like [Prototype](http://www.prototypejs.org/) or [underscore](http://documentcloud.github.com/underscore/).
 
 Luca tries to incorporate different aspects of different frameworks that I like. 
 
