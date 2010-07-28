@@ -7,7 +7,7 @@ function GetApplication(request,response) {
         puts: [],
         deletes: [],
         getRequestedPath: function () {
-            return this.request.path;
+          return this.request.path;    
         },
         process: function (routes) {
             var path = this.getRequestedPath();
