@@ -55,6 +55,10 @@
     <Compile Include="SunSpider.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\Jint.LucaExtensions\Jint.LucaExtensions.csproj">
+      <Project>{97A2F69A-D88D-4D50-80E4-A83BCBCA7981}</Project>
+      <Name>Jint.LucaExtensions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Jint.Env\Jint.Env.csproj">
       <Project>{871858FB-6900-45EC-B8C9-979FB48B5001}</Project>
       <Name>Jint.Env</Name>

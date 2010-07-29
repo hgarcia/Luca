@@ -1,4 +1,5 @@
-﻿using Jint.Native;
+﻿using System.Reflection;
+using Jint.Native;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Jint.Tests

@@ -7,18 +7,19 @@ namespace Jint
 {
     public class ExtensionRegister : IExtensionRegister
     {
+        private readonly Assembly _assemblyWithExtensions;
         private readonly IDictionary<Type, IExtension> _extensions;
 
-        protected ExtensionRegister()
+        protected ExtensionRegister(Assembly assemblyWithExtensions)
         {
+            _assemblyWithExtensions = assemblyWithExtensions;
             _extensions = new Dictionary<Type, IExtension>();
             registerExtensions();
         }
 
         private void registerExtensions()
         {
-            var asm = Assembly.GetExecutingAssembly();
-            var types = asm.GetTypes()
+            var types = _assemblyWithExtensions.GetTypes()
                 .Where(t => t.Namespace == GetType().Namespace && 
                     t.GetInterface("IExtension") != null);
 
