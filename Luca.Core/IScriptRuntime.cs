@@ -1,7 +1,9 @@
+using System.Text;
+
 namespace Luca.Core
 {
     public interface IScriptRuntime
     {
-        ILucaResponse Execute(ILucaRequest lucaRequest);
+        dynamic Execute(ILucaRequest lucaRequest);
     }
 }

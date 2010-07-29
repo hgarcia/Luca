@@ -1,7 +1,8 @@
 ﻿using System;
+using Jint;
 using Jint.Native;
 
-namespace Jint.PrototypeExtension
+namespace Luca.Jint.PrototypeExtension
 {
     public class PrototypeString : IExtension
     {

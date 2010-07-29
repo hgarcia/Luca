@@ -1,14 +1,17 @@
 ﻿using System.Collections.Generic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Jint;
+using Luca.Jint.PrototypeExtension;
+using NUnit.Framework;
+using SharpTestsEx;
 
-namespace Jint.Tests
+namespace Luca.Jint.Specs
 {
-    [TestClass]
+    [TestFixture]
     public class When_we_extend_arrays_with_PrototypeExtensions
     {
-        public IList<IExtensionRegister> prototype = new List<IExtensionRegister> {new Jint.PrototypeExtension.Registration()};
+        public IList<IExtensionRegister> prototype = new List<IExtensionRegister> {new Registration()};
 
-        [TestMethod]
+        [Test]
         public void should_support_uniq()
         {
             var jint = new JintEngine(prototype);
@@ -26,7 +29,7 @@ namespace Jint.Tests
 
         }
 
-        [TestMethod]
+        [Test]
         public void should_support_size()
         {
             var jint = new JintEngine(prototype);
@@ -34,7 +37,7 @@ namespace Jint.Tests
             Assert.AreEqual(4,result);
         }
 
-        [TestMethod]
+        [Test]
         public void should_support_reverse()
         {
             var jint = new JintEngine(prototype);
@@ -58,7 +61,7 @@ return [nums,rev, nums2];
             Assert.AreEqual(3, result[2][3]);
         }
 
-        [TestMethod]
+        [Test]
         public void should_support_without()
         {
             var jint = new JintEngine(prototype);
@@ -76,7 +79,7 @@ return [ar,br,cr];
             Assert.AreEqual(3, result[2][2]);
         }
 
-        [TestMethod]
+        [Test]
         public void should_support_toArray()
         {
             var jint = new JintEngine(prototype);
@@ -92,7 +95,7 @@ return [ar,br,cr];
             Assert.AreEqual(3, result[2][0]);
         }
 
-        [TestMethod]
+        [Test]
         public void if_value_to_search_is_of_the_wrong_type_lastIndexOf_should_return_minus_one()
         {
             var jint = new JintEngine(prototype);
@@ -102,7 +105,7 @@ return ar.lastIndexOf(2);
             Assert.AreEqual(-1, result);
         }
 
-        [TestMethod]
+        [Test]
         public void if_value_to_search_is_not_found_lastIndexOf_should_return_minus_one()
         {
             var jint = new JintEngine(prototype);
@@ -111,7 +114,7 @@ return ar.lastIndexOf('joseph');
 ");
             Assert.AreEqual(-1, result);
         }
-        [TestMethod]
+        [Test]
         public void if_value_to_search_is_not_passed_lastIndexOf_should_return_minus_one()
         {
             var jint = new JintEngine(prototype);
@@ -121,7 +124,7 @@ return ar.lastIndexOf();
             Assert.AreEqual(-1, result);
         }
 
-        [TestMethod]
+        [Test]
         public void if_array_is_empty_lastIndexOf_should_return_minus_one()
         {
             var jint = new JintEngine(prototype);
@@ -131,7 +134,7 @@ return ar.lastIndexOf('bob');
             Assert.AreEqual(-1, result);
         }
 
-        [TestMethod]
+        [Test]
         public void should_support_lastIndexOf_with_offset()
         {
             var jint = new JintEngine(prototype);
@@ -141,7 +144,7 @@ return ar.lastIndexOf('bob',2);
             Assert.AreEqual(1, result);
         }
 
-        [TestMethod]
+        [Test]
         public void should_support_lastIndexOf()
         {
             var jint = new JintEngine(prototype);
@@ -151,7 +154,7 @@ return ar.lastIndexOf('bob');
             Assert.AreEqual(4, result);
         }
 
-        [TestMethod]
+        [Test]
         public void should_support_intersect()
         {
             var jint = new JintEngine(prototype);
@@ -167,7 +170,7 @@ return ar.intersect(br);
             Assert.AreEqual(3, result[4]);
         }
 
-        [TestMethod]
+        [Test]
         public void if_value_to_search_is_of_the_wrong_type_indexOf_should_return_minus_one()
         {
             var jint = new JintEngine(prototype);
@@ -177,7 +180,7 @@ return ar.indexOf(2);
             Assert.AreEqual(-1, result);            
         }
 
-        [TestMethod]
+        [Test]
         public void if_value_to_search_is_not_found_indexOf_should_return_minus_one()
         {
             var jint = new JintEngine(prototype);
@@ -186,7 +189,7 @@ return ar.indexOf('joseph');
 ");
             Assert.AreEqual(-1, result);
         }
-        [TestMethod]
+        [Test]
         public void if_value_to_search_is_not_passed_indexOf_should_return_minus_one()
         {
             var jint = new JintEngine(prototype);
@@ -196,7 +199,7 @@ return ar.indexOf();
             Assert.AreEqual(-1, result);
         }
 
-        [TestMethod]
+        [Test]
         public void if_array_is_empty_indexOf_should_return_minus_one()
         {
             var jint = new JintEngine(prototype);
@@ -206,7 +209,7 @@ return ar.indexOf('bob');
             Assert.AreEqual(-1, result);
         }
 
-        [TestMethod]
+        [Test]
         public void should_support_indexOf()
         {
             var jint = new JintEngine(prototype);
@@ -216,7 +219,7 @@ return ar.indexOf('bob');
             Assert.AreEqual(1, result);
         }
 
-        [TestMethod]
+        [Test]
         public void should_support_flattern()
         {
             var jint = new JintEngine(prototype);
@@ -242,7 +245,7 @@ return [a,b];
             Assert.AreEqual("sally", b[5]);
         }
 
-        [TestMethod]
+        [Test]
         public void if_array_is_empty_last_should_return_null()
         {
             var jint = new JintEngine(prototype);
@@ -251,7 +254,7 @@ return ar.last();
 ");
             Assert.IsNull(result);
         }
-        [TestMethod]
+        [Test]
         public void should_support_last()
         {
             var jint = new JintEngine(prototype);
@@ -261,7 +264,7 @@ return ar.last();
             Assert.AreEqual(4,result);            
         }
 
-        [TestMethod]
+        [Test]
         public void if_array_is_empty_first_should_return_null()
         {
             var jint = new JintEngine(prototype);
@@ -270,7 +273,7 @@ return ar.first();
 ");
             Assert.IsNull(result);
         }
-        [TestMethod]
+        [Test]
         public void should_support_first()
         {
             var jint = new JintEngine(prototype);
@@ -280,7 +283,7 @@ return ar.first();
             Assert.AreEqual(1,result);
         }
 
-        [TestMethod]
+        [Test]
         public void should_support_compact()
         {
             var jint = new JintEngine(prototype);
@@ -295,7 +298,7 @@ return ar.compact()");
 
         }
 
-        [TestMethod]
+        [Test]
         public void should_support_clone()
         {
             var jint = new JintEngine(prototype);
@@ -310,7 +313,7 @@ return ar.compact()");
             Assert.AreEqual(1, result[1][0]);
             Assert.AreEqual(3, result[2][0]);
         }
-        [TestMethod]
+        [Test]
         public void should_supports_clear()
         {
             var jint = new JintEngine(prototype);
@@ -321,7 +324,7 @@ return ar.compact()");
             Assert.AreEqual(0,result.Count);
         }
 
-        [TestMethod]
+        [Test]
         public void should_support_collect()
         {
             var jint = new JintEngine(prototype);
@@ -334,7 +337,7 @@ return ar.collect(function(a){
             Assert.AreEqual(4, result[2]);
             Assert.AreEqual(5, result[3]);
         }
-        [TestMethod]
+        [Test]
         public void if_collect_dont_get_a_func_should_return_same_array()
         {
             var jint = new JintEngine(prototype);
@@ -345,7 +348,7 @@ return ar.collect();");
             Assert.AreEqual(3, result[2]);
             Assert.AreEqual(4, result[3]);
         }
-        [TestMethod]
+        [Test]
         public void if_collect_gets_a_null_func_should_return_same_array()
         {
             var jint = new JintEngine(prototype);
@@ -356,7 +359,7 @@ return ar.collect(null);");
             Assert.AreEqual(3, result[2]);
             Assert.AreEqual(4, result[3]);
         }
-        [TestMethod]
+        [Test]
         public void if_collect_gets_another_object_instead_of_a_func_should_return_same_array()
         {
             var jint = new JintEngine(prototype);

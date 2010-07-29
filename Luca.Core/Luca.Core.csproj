@@ -31,9 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Jint">
-      <HintPath>..\libs\JInt\Jint.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
@@ -62,7 +59,17 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="js\underscore.js" />
-    <EmbeddedResource Include="js\jade.js" />
+    <None Include="js\jade.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\libs\JInt\src\trunk\Jint\Jint.csproj">
+      <Project>{DBF3AEF6-9D13-4E03-899B-561BCFDD9920}</Project>
+      <Name>Jint</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Luca.Jint\Luca.Jint.csproj">
+      <Project>{2387225A-2B1F-4B02-86DD-3CAE089C490D}</Project>
+      <Name>Luca.Jint</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

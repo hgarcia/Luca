@@ -1,14 +1,16 @@
 ﻿using System.Collections.Generic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Jint;
+using Luca.Jint.PrototypeExtension;
+using NUnit.Framework;
 
-namespace Jint.Tests
+namespace Luca.Jint.Specs
 {
-    [TestClass]
+    [TestFixture]
     public class Prototype_string_methods
     {
-        public IList<IExtensionRegister> prototype = new List<IExtensionRegister> { new PrototypeExtension.Registration() };
+        public IList<IExtensionRegister> prototype = new List<IExtensionRegister> { new Registration() };
         
-        [TestMethod]
+        [Test]
         public void should_suppot_endsWith()
         {
             var jint = new JintEngine(prototype);
@@ -19,7 +21,7 @@ namespace Jint.Tests
             Assert.IsFalse(result[3]);
         }
         
-        [TestMethod]
+        [Test]
         public void should_support_empty()
         {
             var jint = new JintEngine(prototype);
@@ -27,14 +29,14 @@ namespace Jint.Tests
             Assert.IsFalse(result[0]);
             Assert.IsTrue(result[1]);
         }
-        [TestMethod]
+        [Test]
         public void should_support_capitalize()
         {
             var jint = new JintEngine(prototype);
             dynamic result = jint.Run(@"return 'HELLO WOrlD!'.capitalize();");
             Assert.AreEqual("Hello world!",result);
         }
-        [TestMethod]
+        [Test]
         public void should_support_blank()
         {
             var jint = new JintEngine(prototype);
@@ -42,7 +44,7 @@ namespace Jint.Tests
             Assert.IsTrue(result);
         }
 
-        [TestMethod]
+        [Test]
         public void if_string_contain_only_spaces_blank_is_true()
         {
             var jint = new JintEngine(prototype);
@@ -50,7 +52,7 @@ namespace Jint.Tests
             Assert.IsTrue(result);           
         }
 
-        [TestMethod]
+        [Test]
         public void if_string_contains_characters_blank_is_false()
         {
             var jint = new JintEngine(prototype);

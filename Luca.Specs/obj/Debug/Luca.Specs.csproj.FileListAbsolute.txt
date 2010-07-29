@@ -25,3 +25,7 @@ C:\Development\Code\Net4.0\Luca\Luca.Specs\bin\Debug\Luca.Core.dll
 C:\Development\Code\Net4.0\Luca\Luca.Specs\bin\Debug\Jint.dll
 C:\Development\Code\Net4.0\Luca\Luca.Specs\bin\Debug\Luca.Core.pdb
 C:\Development\Code\Net4.0\Luca\Luca.Specs\bin\Debug\controllers\main.js
+C:\Development\Code\Net4.0\Luca\Luca.Specs\bin\Debug\Antlr3.Runtime.dll
+C:\Development\Code\Net4.0\Luca\Luca.Specs\bin\Debug\Jint.pdb
+C:\Development\Code\Net4.0\Luca\Luca.Specs\bin\Debug\Luca.Jint.dll
+C:\Development\Code\Net4.0\Luca\Luca.Specs\bin\Debug\Luca.Jint.pdb

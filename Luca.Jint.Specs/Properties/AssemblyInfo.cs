@@ -1,16 +1,16 @@
 ﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using System.Security;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Luca.Core")]
+[assembly: AssemblyTitle("Luca.Jint.Specs")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("Luca.Core")]
-[assembly: AssemblyCopyright("Copyright ©  2010")]
+[assembly: AssemblyProduct("Luca.Jint.Specs")]
+[assembly: AssemblyCopyright("Copyright © Microsoft 2010")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Security;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("65717e49-a619-4730-b5d4-4d719a36fdfd")]
+[assembly: Guid("e06832f9-0380-4315-933f-3b93052099c8")]
 
 // Version information for an assembly consists of the following four values:
 //

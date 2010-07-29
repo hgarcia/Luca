@@ -1,27 +1,39 @@
-﻿using Jint;
+﻿using System.Collections.Generic;
+using Jint;
+using Luca.Jint.PrototypeExtension;
 
 namespace Luca.Core
 {
     public class JintRuntime : IScriptRuntime
     {
         private readonly IScriptContext _scriptContext;
-
-        public JintRuntime(IScriptContext scriptContext)
+        private IList<IExtensionRegister> _extensions;
+        
+        public JintRuntime(IScriptContext scriptContext) 
         {
-            _scriptContext = scriptContext;
+            addDefaultExtensions();            
+            _scriptContext = scriptContext;   
         }
 
-        public ILucaResponse Execute(ILucaRequest lucaRequest)
+        private void addDefaultExtensions()
         {
-            var js = new JintEngine();
-            var lucaResponse = new LucaResponse();
-            js.SetParameter("response", lucaResponse);
+            _extensions = new List<IExtensionRegister> { new Registration() };            
+        }
 
+        public void AddCustomExtensions(IEnumerable<IExtensionRegister> extensions)
+        {
+            if (extensions == null) return;
+            foreach (var register in extensions)
+            {
+                _extensions.Add(register);
+            }
+        }
+
+        public dynamic Execute(ILucaRequest lucaRequest)
+        {
+            var js = new JintEngine(_extensions);
             var script = _scriptContext.GetCurrentContext;
-            script.Append(@"var a = [1,2,3,4,5];
-                response.Write(a.first());");
-            js.Run(script.ToString());
-            return lucaResponse;
+            return js.Run(script.ToString());
         }
     }
 }

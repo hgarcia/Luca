@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{97A2F69A-D88D-4D50-80E4-A83BCBCA7981}</ProjectGuid>
+    <ProjectGuid>{9E2F48B9-3D5B-4AAE-A29B-9F604BA901C9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Jint.LucaExtensions</RootNamespace>
-    <AssemblyName>Jint.LucaExtensions</AssemblyName>
+    <RootNamespace>Luca.Jint.Specs</RootNamespace>
+    <AssemblyName>Luca.Jint.Specs</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="nunit.framework, Version=2.5.2.9222, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL" />
+    <Reference Include="SharpTestsEx.NUnit">
+      <HintPath>..\libs\NUnit\SharpTestsEx.NUnit.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,12 +44,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExtensionPoints.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Prototype_array_methods.cs" />
+    <Compile Include="Prototype_string_methods.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\libs\JInt\src\trunk\Jint\Jint.csproj">
       <Project>{DBF3AEF6-9D13-4E03-899B-561BCFDD9920}</Project>
       <Name>Jint</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Luca.Jint\Luca.Jint.csproj">
+      <Project>{2387225A-2B1F-4B02-86DD-3CAE089C490D}</Project>
+      <Name>Luca.Jint</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

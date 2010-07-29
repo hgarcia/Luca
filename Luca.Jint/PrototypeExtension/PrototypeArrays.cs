@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Jint;
 using Jint.Native;
 
-namespace Jint.PrototypeExtension
+namespace Luca.Jint.PrototypeExtension
 {
     public class PrototypeArrays : IExtension
     {

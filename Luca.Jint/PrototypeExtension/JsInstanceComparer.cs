@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Jint.Native;
 
-namespace Jint.PrototypeExtension
+namespace Luca.Jint.PrototypeExtension
 {
     public class JsInstanceComparer : IEqualityComparer<JsInstance>
     {
