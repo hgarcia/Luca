@@ -15,3 +15,4 @@ C:\Development\Code\Net4.0\Luca\Luca.Core\bin\Debug\Luca.Jint.dll
 C:\Development\Code\Net4.0\Luca\Luca.Core\bin\Debug\Antlr3.Runtime.dll
 C:\Development\Code\Net4.0\Luca\Luca.Core\bin\Debug\Jint.pdb
 C:\Development\Code\Net4.0\Luca\Luca.Core\bin\Debug\Luca.Jint.pdb
+C:\Development\Code\Net4.0\Luca\Luca.Core\bin\Debug\views\home\get.js

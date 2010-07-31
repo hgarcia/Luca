@@ -29,10 +29,12 @@ namespace Luca.Core
             }
         }
 
-        public dynamic Execute(ILucaRequest lucaRequest)
+        public dynamic Execute()
         {
             var js = new JintEngine(_extensions);
+            js.SetDebugMode(true);
             var script = _scriptContext.GetCurrentContext;
+            script.AppendLine(@"app.Run();");
             return js.Run(script.ToString());
         }
     }

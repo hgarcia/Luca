@@ -5,27 +5,29 @@ using System.Web;
 
 namespace Luca.Core
 {
-    public interface ILucaRequest
-    {
-        string ToJson();
-    }
-
     public class LucaRequest : ILucaRequest
     {
-        private readonly NameValueToJsonSerializer _jsonSerializer;
+        private NameValueToJsonSerializer _jsonSerializer = new NameValueToJsonSerializer();
+        private NameValueCollection _form = new NameValueCollection();
+        private NameValueCollection _qs = new NameValueCollection();
+        private HttpCookieCollection _cookies = new HttpCookieCollection();
+        private NameValueCollection _headers = new NameValueCollection();
+        private NameValueCollection _serverVariables = new NameValueCollection();
+        private Uri _url = new Uri("http://localhost");
+        private string _httpMethod = "GET";
 
-        public LucaRequest(HttpRequest request, NameValueToJsonSerializer jsonSerializer) : 
-            this(request.Form, request.QueryString, request.Cookies, request.Headers,
-                                              request.ServerVariables, request.Url, request.HttpMethod, jsonSerializer )
-        {}
+        public LucaRequest()
+        {
+        }
 
-        private readonly NameValueCollection _form;
-        private readonly NameValueCollection _qs;
-        private readonly HttpCookieCollection _cookies;
-        private readonly NameValueCollection _headers;
-        private readonly NameValueCollection _serverVariables;
-        private readonly Uri _url;
-        private readonly string _httpMethod;
+        public LucaRequest(HttpRequest request, NameValueToJsonSerializer jsonSerializer)  
+        {
+            if (request == null) throw new ArgumentNullException("request", "The request can't be null");
+            if (jsonSerializer == null)
+                throw new ArgumentNullException("jsonSerializer", "The serializer can't be null");
+            initialize(request.Form, request.QueryString, request.Cookies, request.Headers,
+                                              request.ServerVariables, request.Url, request.HttpMethod, jsonSerializer);
+        }
 
         public LucaRequest(NameValueCollection form, 
             NameValueCollection qs,
@@ -35,6 +37,11 @@ namespace Luca.Core
             Uri url,
             string httpMethod,
             NameValueToJsonSerializer jsonSerializer)
+        {
+            initialize(form, qs, cookies, headers, serverVariables, url, httpMethod, jsonSerializer);
+        }
+
+        private void initialize(NameValueCollection form, NameValueCollection qs, HttpCookieCollection cookies, NameValueCollection headers, NameValueCollection serverVariables, Uri url, string httpMethod, NameValueToJsonSerializer jsonSerializer)
         {
             _form = form;
             _qs = qs;

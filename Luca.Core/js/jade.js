@@ -100,7 +100,7 @@
         * Wrap text with script and CDATA tags.
         */
         javascript: function (str) {
-            return '<script type="text/javascript">\\n//<![CDATA[\\n' + str + '\\n//]]></script>';
+            return '<scri'+'pt type="text/javascript">\\n//<![CDATA[\\n' + str + '\\n//]]></scri'+'pt>';
         },
 
         /**

@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luca.Jint", "Luca.Jint\Luca
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luca.Jint.Specs", "Luca.Jint.Specs\Luca.Jint.Specs.csproj", "{9E2F48B9-3D5B-4AAE-A29B-9F604BA901C9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luca.Prg", "Luca.Prg\Luca.Prg.csproj", "{E3A731B9-EA5C-4B91-97D3-E0A12216C983}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -119,6 +121,16 @@ Global
 		{9E2F48B9-3D5B-4AAE-A29B-9F604BA901C9}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{9E2F48B9-3D5B-4AAE-A29B-9F604BA901C9}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{9E2F48B9-3D5B-4AAE-A29B-9F604BA901C9}.Release|x86.ActiveCfg = Release|Any CPU
+		{E3A731B9-EA5C-4B91-97D3-E0A12216C983}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3A731B9-EA5C-4B91-97D3-E0A12216C983}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3A731B9-EA5C-4B91-97D3-E0A12216C983}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{E3A731B9-EA5C-4B91-97D3-E0A12216C983}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{E3A731B9-EA5C-4B91-97D3-E0A12216C983}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E3A731B9-EA5C-4B91-97D3-E0A12216C983}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3A731B9-EA5C-4B91-97D3-E0A12216C983}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3A731B9-EA5C-4B91-97D3-E0A12216C983}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{E3A731B9-EA5C-4B91-97D3-E0A12216C983}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{E3A731B9-EA5C-4B91-97D3-E0A12216C983}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

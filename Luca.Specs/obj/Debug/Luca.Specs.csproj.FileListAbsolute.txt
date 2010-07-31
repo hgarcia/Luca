@@ -29,3 +29,12 @@ C:\Development\Code\Net4.0\Luca\Luca.Specs\bin\Debug\Antlr3.Runtime.dll
 C:\Development\Code\Net4.0\Luca\Luca.Specs\bin\Debug\Jint.pdb
 C:\Development\Code\Net4.0\Luca\Luca.Specs\bin\Debug\Luca.Jint.dll
 C:\Development\Code\Net4.0\Luca\Luca.Specs\bin\Debug\Luca.Jint.pdb
+C:\Development\Code\Net4.0\Luca\Luca.Specs\bin\Debug\nunit.framework.dll
+C:\Development\Code\Net4.0\Luca\Luca.Specs\bin\Debug\SharpTestsEx.NUnit.dll
+C:\Development\Code\Net4.0\Luca\Luca.Specs\bin\Debug\nunit.framework.xml
+C:\Development\Code\Net4.0\Luca\Luca.Specs\bin\Debug\views\home\get.js
+C:\Development\Code\Net4.0\Luca\Luca.Specs\bin\Debug\Luca.Prg.dll
+C:\Development\Code\Net4.0\Luca\Luca.Specs\bin\Debug\Microsoft.Scripting.dll
+C:\Development\Code\Net4.0\Luca\Luca.Specs\bin\Debug\IronRuby.dll
+C:\Development\Code\Net4.0\Luca\Luca.Specs\bin\Debug\Microsoft.Dynamic.dll
+C:\Development\Code\Net4.0\Luca\Luca.Specs\bin\Debug\Luca.Prg.pdb

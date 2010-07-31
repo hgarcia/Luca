@@ -1,6 +1,6 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
-using System.Text;
 using System.Web;
 using Jint;
 
@@ -8,6 +8,7 @@ namespace Luca.Core
 {
     public class LucaHandler : IHttpHandler
     {
+        private LucaRequest _request;
         public bool IsReusable
         {
             get { return false; }
@@ -15,29 +16,31 @@ namespace Luca.Core
 
         public void ProcessRequest(HttpContext context)
         {
-            var js = new JintEngine();
-            var sb = new StringBuilder();
-            js.SetParameter("response", sb);
-            var script = new ScriptContext().GetCurrentContext;
-            var request = new LucaRequest(context.Request, new NameValueToJsonSerializer());
-            script.AppendLine(@"var app =  GetApplication(" + request.ToJson() + ", response);");
+            _request = new LucaRequest(context.Request, new NameValueToJsonSerializer());
+            var scriptContext = new ScriptContext(_request);
             var controllerPath = context.Server.MapPath("controllers") ?? "controllers";
-
-            loadControllers(script, controllerPath);
-            
-            //script.AppendLine(@"app.Get(""movie/\d*"", function(req,res){ res.Append(""hello cruel world""); res.Append(req.query.id); } );");
-            script.AppendLine(@"app.Run();");
-            js.Run(script.ToString());
-
-            context.Response.Write(sb.ToString());
+            //var viewPath = context.Server.MapPath("views") ?? "views";
+            loadJsFiles(scriptContext, controllerPath);
+            var js = new JintRuntime(scriptContext);
+            dynamic response = js.Execute();
+            encode(response, context);
         }
 
-        private void loadControllers(StringBuilder script,string controllers)
+        private void encode(dynamic response, HttpContext context)
         {
-            Directory.GetFiles(controllers).ToList()
-                .ForEach( file => script.AppendLine(
+           //if (context.Request.ContentType.Contains("text/plain")) 
+           //{
+                context.Response.Write(response.ToString());
+                return;
+           //}
+        }
+
+        private void loadJsFiles(IScriptContext scriptContext, string pathToFiles)
+        {
+            Directory.GetFiles(pathToFiles).ToList()
+                .ForEach(file => scriptContext.GetCurrentContext.AppendLine(
                     new StreamReader(file).ReadToEnd()
-                    ) 
+                    )
                 );
         }
     }

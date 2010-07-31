@@ -4,6 +4,6 @@ namespace Luca.Core
 {
     public interface IScriptRuntime
     {
-        dynamic Execute(ILucaRequest lucaRequest);
+        dynamic Execute();
     }
 }

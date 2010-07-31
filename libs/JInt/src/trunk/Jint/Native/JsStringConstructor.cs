@@ -491,17 +491,16 @@ namespace Jint.Native
 
             JsInstance separator = parameters[0];
             int limit = parameters.Length > 1 ? Convert.ToInt32(parameters[1].ToNumber()) : Int32.MaxValue;
-            int s = S.Length;
             string[] result;
 
             if (separator.Class == JsRegExp.TYPEOF)
             {
-                var regexp = (Regex)((JsRegExp)separator).Value;
+                var regexp = (Regex)separator.Value;
                 result = regexp.Split(S, limit);
             }
             else
             {
-                result = S.Split(new string[] { separator.ToString() }, limit, StringSplitOptions.None);
+                result = S.Split(new[] { separator.ToString() }, limit, StringSplitOptions.None);
             }
 
             for (int i = 0; i < result.Length; i++)
@@ -547,7 +546,7 @@ namespace Jint.Native
 
             if (parameters.Length > 0 && !double.IsNaN(parameters[0].ToNumber()))
             {
-                start = Convert.ToInt32(parameters[0].ToNumber());
+                start = Convert.ToInt32(parameters[0].ToNumber())-1;
             }
 
             if (parameters.Length > 1 && parameters[1] != JsUndefined.Instance && !double.IsNaN(parameters[1].ToNumber()))
@@ -556,7 +555,7 @@ namespace Jint.Native
             }
 
             start = Math.Min(Math.Max(start, 0), Math.Max(0, str.Length - 1));
-            end = Math.Min(Math.Max(end, 0), str.Length);
+            end = Math.Min(Math.Max(end, 0), str.Length-start);
             str = str.Substring(start, end);
 
             return New(str);

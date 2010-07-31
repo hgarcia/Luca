@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ILucaRequest.cs" />
     <Compile Include="IScriptContext.cs" />
     <Compile Include="IScriptRuntime.cs" />
     <Compile Include="JintRuntime.cs" />
@@ -58,7 +59,12 @@
     <Content Include="controllers\main.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="js\underscore.js" />
+    <Content Include="views\home\get.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="js\ejs.js" />
+    <None Include="js\underscore.js" />
+    <None Include="js\ejs_helpers.js" />
     <None Include="js\jade.js" />
   </ItemGroup>
   <ItemGroup>
@@ -71,6 +77,7 @@
       <Name>Luca.Jint</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -32,8 +32,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Machine.Specifications, Version=0.3.0.0, Culture=neutral, PublicKeyToken=5c474de7a495cff1, processorArchitecture=MSIL" />
+    <Reference Include="nunit.framework, Version=2.5.2.9222, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL" />
     <Reference Include="Rhino.Mocks">
       <HintPath>..\libs\Rhino.Mocks\Rhino.Mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpTestsEx.NUnit">
+      <HintPath>..\libs\NUnit\SharpTestsEx.NUnit.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -49,6 +53,12 @@
     <Compile Include="Core\JavaScriptContext.cs" />
     <Compile Include="Core\LucaHandlerTest.cs" />
     <Compile Include="Generators\ApplicationGeneratorSpecs.cs" />
+    <Compile Include="Prg\Luca_Prg_dynamic_data.cs" />
+    <Compile Include="Prg\Luca_Prg_IronRubyExecutor_Tests.cs" />
+    <Compile Include="Prg\Luca_Prg_IronRubyViewParser_Tests.cs" />
+    <Compile Include="Prg\Luca_Prg_CSharp_Visitors_Tests.cs" />
+    <Compile Include="Prg\Luca_Prg_IronRuby_Visitors_Tests.cs" />
+    <Compile Include="Prg\Luca_Prg_NodeParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -60,8 +70,14 @@
       <Project>{8185C751-06E2-4833-A323-26C25185F271}</Project>
       <Name>Luca.Generators</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Luca.Prg\Luca.Prg.csproj">
+      <Project>{E3A731B9-EA5C-4B91-97D3-E0A12216C983}</Project>
+      <Name>Luca.Prg</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Prg\templates\WalletFtu.htm" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

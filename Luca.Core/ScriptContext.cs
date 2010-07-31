@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 
@@ -6,10 +7,19 @@ namespace Luca.Core
 {
     public class ScriptContext : IScriptContext
     {
-        public ScriptContext()
+        private readonly ILucaRequest _lucaRequest;
+
+        public ScriptContext(ILucaRequest lucaRequest)
         {
+            _lucaRequest = lucaRequest;
             GetCurrentContext = new StringBuilder();
             loadCoreLibraries();
+            loadApplication();
+        }
+
+        private void loadApplication()
+        {
+            GetCurrentContext.AppendLine(@"var app = GetApplication(" + _lucaRequest.ToJson() + ");");
         }
 
         private void loadCoreLibraries()

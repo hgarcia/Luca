@@ -1,6 +1,5 @@
-function GetApplication(request,response) {
+function GetApplication(request) {
     return {
-        response: response,
         request: request,
         gets: [],
         posts: [],
@@ -18,7 +17,7 @@ function GetApplication(request,response) {
                     break;
                 }
             }
-            if (handler) handler(this.request, this.response);
+            if (handler) handler(this.request);
         },
         Get: function (pattern, handler) {
             this.gets[this.gets.length] = [pattern, handler];

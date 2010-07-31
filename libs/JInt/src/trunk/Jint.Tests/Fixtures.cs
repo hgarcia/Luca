@@ -74,6 +74,22 @@ namespace Jint.Tests
         }
 
         [TestMethod]
+        public void ShouldHandleSubstrWithOnlyTheStartProperly()
+        {
+            var engine = new JintEngine();
+            var result = engine.Run(@" return 'hello'.substr(3);");
+            Assert.AreEqual("llo", result);
+        }
+
+        [TestMethod]
+        public void ShouldHandleSubstrWithStartAndEnd()
+        {
+            var engine = new JintEngine();
+            var result = engine.Run(@" return 'hello'.substr(3,2);");
+            Assert.AreEqual("ll", result);
+        }
+
+        [TestMethod]
         public void ShouldHandleDictionaryObjects()
         {
             JsObject dic = new JsObject();

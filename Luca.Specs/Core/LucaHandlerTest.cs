@@ -12,13 +12,17 @@ namespace Luca.Specs.Core
                                         {
                                             _handler = new LucaHandler();
                                             _sb = new StringBuilder();
+                                            var request = new HttpRequest("home.asp", "http://localhost/movie/12",
+                                                                          "id=18");
+                                            request.RequestType = "GET";
+                                            request.ContentType = "text/plain";
                                             _context = new HttpContext(
-                                                new HttpRequest("home.asp", "http://localhost/movie/12", "id=18")
+                                                request
                                                 , new HttpResponse(new StringWriter(_sb)));
                                         };
 
         Because the_handler_is_called = () => _handler.ProcessRequest(_context);
-        private It test = () => _sb.ToString()
+        private It should_return_a_string = () => _sb.ToString()
             .ShouldContain("hello cruel world");
 
         private static LucaHandler _handler;
