@@ -7,7 +7,7 @@ namespace Luca.Specs.Prg
 	[TestFixture]
 	public class Luca_Prg_IronRubyViewParser_Tests
 	{
-		private string _templatePath = "templates/WalletFtu";
+		private string _templatePath = "Prg/templates/WalletFtu";
 		
 		const string RubyCode = @"self.output += ""		<div class=\""SureSidebarSectionTitle SureWalletLabel\"">\r\n""
 self.output += ""			#{__.phrases.new_users}\r\n""
@@ -15,7 +15,7 @@ self.output += ""		</div>\r\n""
 self.output += ""		<table class=\""SureSidebarSectionFrame\"" cellspacing=\""0\"" cellpadding=\""0\"">\r\n""
 self.output += ""			<tr>\r\n""
 self.output += ""				<td class=\""SureSidebarSectionInnerFrame\"" style=\""cursor:pointer\"" onclick=\""javascript:self.location='#{__.ftuUrl}'\"">\r\n""
-self.output += ""					<p class=\""WalletFTUPromtionDisplay1\"">#{__.ftuValue} #{__.phrases.FREE}*</p>\r\n""
+self.output += ""					<p class=\""WalletFTUPromtionDisplay1\"">#{__.ftuValue} #{__.phrases.free}*</p>\r\n""
 self.output += ""					<p class=\""WalletFTUPromtionDisplay2\"">#{__.phrases.viewing_credit}</p>\r\n""
 self.output += ""					<p class=\""WalletFTUPromtionDisplay3\"">*#{__.phrases.no_purchase_required}</p>\r\n""
 self.output += ""				</td>\r\n""

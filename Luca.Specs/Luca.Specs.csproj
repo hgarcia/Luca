@@ -31,7 +31,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="IronRuby, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="IronRuby.Libraries">
+      <HintPath>..\libs\IronRuby\IronRuby.Libraries.dll</HintPath>
+    </Reference>
+    <Reference Include="IronRuby.Libraries.YAML">
+      <HintPath>..\libs\IronRuby\IronRuby.Libraries.YAML.dll</HintPath>
+    </Reference>
     <Reference Include="Machine.Specifications, Version=0.3.0.0, Culture=neutral, PublicKeyToken=5c474de7a495cff1, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Dynamic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Scripting, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Scripting.Debugging">
+      <HintPath>..\libs\IronRuby\Microsoft.Scripting.Debugging.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework, Version=2.5.2.9222, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL" />
     <Reference Include="Rhino.Mocks">
       <HintPath>..\libs\Rhino.Mocks\Rhino.Mocks.dll</HintPath>
@@ -56,12 +68,15 @@
     <Compile Include="Prg\Luca_Prg_dynamic_data.cs" />
     <Compile Include="Prg\Luca_Prg_IronRubyExecutor_Tests.cs" />
     <Compile Include="Prg\Luca_Prg_IronRubyViewParser_Tests.cs" />
-    <Compile Include="Prg\Luca_Prg_CSharp_Visitors_Tests.cs" />
     <Compile Include="Prg\Luca_Prg_IronRuby_Visitors_Tests.cs" />
     <Compile Include="Prg\Luca_Prg_NodeParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\libs\JInt\src\trunk\Jint\Jint.csproj">
+      <Project>{DBF3AEF6-9D13-4E03-899B-561BCFDD9920}</Project>
+      <Name>Jint</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Luca.Core\Luca.Core.csproj">
       <Project>{98152FAD-2DC4-489C-B394-BA15766D978A}</Project>
       <Name>Luca.Core</Name>
@@ -76,7 +91,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Prg\templates\WalletFtu.htm" />
+    <Content Include="Prg\templates\WalletFtu.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

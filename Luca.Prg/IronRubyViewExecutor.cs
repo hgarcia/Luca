@@ -25,9 +25,13 @@ namespace Luca.Prg
 			_globalVars.Add(variableName, value);
 		}
 
-		private void loadModel(dynamic model)
+		private void loadModel(object model)
 		{
 			//var propertiesInfos = model.GetType().GetProperties();
+		    //foreach (var info in propertiesInfos)
+		    //{
+		    //   _scope.SetVariable(info.Name, info.GetValue(model,null));
+		    //}
 			_scope.SetVariable("__", model);
 		}
 
@@ -43,10 +47,7 @@ namespace Luca.Prg
 			startEngine();
 			loadModel(model);
 			loadGlobalVars();
-			
-			code += @"  def method_missing(id, *args)
-	return ""___METHOD_MISSING__""
-  end";
+
 			_engine.Execute(code, _scope);
 			return _scope.GetVariable(_outputVariableName).ToString();
 		}
