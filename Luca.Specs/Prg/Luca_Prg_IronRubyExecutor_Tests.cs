@@ -74,16 +74,16 @@ self.output += ""		</table>\r\n""
 		[Test]
 		public void if_getting_a_json_object_from_Jint_should_be_able_to_consume_it()
 		{
-            var jint = new JintEngine();
-		    dynamic result =
-		        jint.Run(
-		            @"function get() { return {ftuUrl: 'LaunchPage', idModifier: 'modifier', phrases: { free:'FREE', viewing_credit:'Viewing Credit', new_users:'new users', no_purchase_required:'no purchase required', start_here:'start here'} };} get();"); 
-            IViewExecutor ironRubyViewExecutor = new IronRubyViewExecutor();
-            //var parser = new IronRubyViewParser();
-            //var code = parser.Parse(_templatePath);
-            //var model = new { ftuUrl = "LaunchPage", idModifier = "modifier", phrases = new { free = "FREE", viewing_credit = "Viewing Credit", new_users = "new users", no_purchase_required = "no purchase required", start_here = "start here" } };
-            var html = ironRubyViewExecutor.Execute(RubyCode, result);
-            html.Should().Not.Contain("100 USD");
+			var jint = new JintEngine();
+			dynamic result =
+				jint.Run(
+					@"function get() { return {ftuUrl: 'LaunchPage', idModifier: 'modifier', phrases: { free:'FREE', viewing_credit:'Viewing Credit', new_users:'new users', no_purchase_required:'no purchase required', start_here:'start here'} };} get();"); 
+			IViewExecutor ironRubyViewExecutor = new IronRubyViewExecutor();
+			//var parser = new IronRubyViewParser();
+			//var code = parser.Parse(_templatePath);
+			//var model = new { ftuUrl = "LaunchPage", idModifier = "modifier", phrases = new { free = "FREE", viewing_credit = "Viewing Credit", new_users = "new users", no_purchase_required = "no purchase required", start_here = "start here" } };
+			var html = ironRubyViewExecutor.Execute(RubyCode, result);
+			html.Should().Not.Contain("100 USD");
 		}
 	}
 }

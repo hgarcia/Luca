@@ -11,6 +11,19 @@ namespace Luca.Jint.Specs
         public IList<IExtensionRegister> prototype = new List<IExtensionRegister> { new Registration() };
         
         [Test]
+        public void should_return_an_object()
+        {
+            var jint = new JintEngine(prototype);
+            dynamic result = jint.Run(@"return {
+        request: 'hello',
+        gets: [],
+        posts: [],
+        puts: [],
+        deletes: []};");
+            Assert.IsNotNull(result);    
+        }
+
+        [Test]
         public void should_suppot_endsWith()
         {
             var jint = new JintEngine(prototype);

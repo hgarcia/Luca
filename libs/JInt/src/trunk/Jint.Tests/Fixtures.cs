@@ -3,7 +3,6 @@ using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Jint.Expressions;
-//using Jint.Delegates;
 using System.IO;
 using Jint.Native;
 using System.Reflection;
@@ -16,56 +15,30 @@ namespace Jint.Tests
     [TestClass]
     public class Fixtures
     {
-        private TestContext testContextInstance;
-
-        /// <summary>
-        ///Gets or sets the test context which provides
-        ///information about and functionality for the current test run.
-        ///</summary>
-        public TestContext TestContext
-        {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
-        }
+        public TestContext TestContext { get; set; }
 
         protected object Test(Options options, params string[] scripts)
         {
-            JintEngine jint = new JintEngine()
-                //.SetDebugMode(true)
-                .SetFunction("assert", new System.Action<object, object>(Assert.AreEqual))
+            var jint = new JintEngine()
+                .SetFunction("assert", new Action<object, object>(Assert.AreEqual))
                 .SetFunction("istrue", new Action<bool>(Assert.IsTrue))
                 .SetFunction("isfalse", new Action<bool>(Assert.IsFalse))
-                // .SetFunction("alert", new Func<string, System.Windows.Forms.DialogResult>(System.Windows.Forms.MessageBox.Show))
-                .SetFunction("print", new Action<string>(System.Console.WriteLine))
-                .SetFunction("alert", new Action<string>(System.Console.WriteLine))
-                .SetFunction("loadAssembly", new Action<string>(delegate(string assemblyName) { Assembly.Load(assemblyName); }))
+                .SetFunction("print", new Action<string>(Console.WriteLine))
+                .SetFunction("alert", new Action<string>(Console.WriteLine))
+                .SetFunction("loadAssembly", new Action<string>(assemblyName => Assembly.Load(assemblyName)))
                 .DisableSecurity();
-            //jint.BreakPoints.Add(new BreakPoint(3741, 9));
-            //jint.Break += new EventHandler<DebugInformation>(jint_Break);
 
             object result = null;
 
-            Stopwatch sw = new Stopwatch();
+            var sw = new Stopwatch();
             sw.Start();
 
-            foreach (string script in scripts)
+            foreach (var script in scripts)
                 result = jint.Run(script);
 
             Console.WriteLine(sw.Elapsed);
 
             return result;
-        }
-
-        void jint_Break(object sender, DebugInformation e)
-        {
-            if (System.Diagnostics.Debugger.IsAttached)
-                System.Diagnostics.Debugger.Break();
         }
 
         protected object Test(params string[] scripts)
@@ -92,7 +65,7 @@ namespace Jint.Tests
         [TestMethod]
         public void ShouldHandleDictionaryObjects()
         {
-            JsObject dic = new JsObject();
+            var dic = new JsObject();
             dic["prop1"] = new JsNumber(1);
             Assert.IsTrue(dic.HasProperty(new JsString("prop1")));
             Assert.IsTrue(dic.HasProperty("prop1"));
@@ -121,23 +94,20 @@ namespace Jint.Tests
         [TestMethod]
         public void ShouldSupportCasting()
         {
-            Stopwatch sw = new Stopwatch();
-            var script = @";
+            const string script = @";
                 var value = Number(3);
                 assert('number', typeof value);
                 value = String(value); // casting
                 assert('string', typeof value);
                 assert('3', value);
             ";
-
             Test(script);
-
         }
 
         [TestMethod]
         public void ShouldCompareNullValues()
         {
-            var script = @";
+            string script = @";
                 if(null == 1) 
                     assert(true, false); 
 
@@ -154,7 +124,7 @@ namespace Jint.Tests
         [TestMethod]
         public void ShouldModifyIteratedCollection()
         {
-            var script = @";
+            const string script = @";
                 var values = [ 0, 1, 2 ];
 
                 for (var v in values)
@@ -310,7 +280,7 @@ namespace Jint.Tests
         }
 
         [TestMethod]
-        public void ShouldHandleNETObjects()
+        public void ShouldHandleNetObjects()
         {
             Assert.AreEqual("1",
                 new JintEngine() // call Int32.ToString() 
@@ -416,9 +386,9 @@ bar');
             Test(script);
         }
 
-        private JsString GiveMeJavascript(JsNumber number, JsInstance instance)
+        private static JsString GiveMeJavascript(JsNumber number, JsInstance instance)
         {
-            return new JsString(number.ToString() + instance.ToString());
+            return new JsString(number + instance.ToString());
         }
 
         [TestMethod]
@@ -475,33 +445,20 @@ bar');
         [Ignore]
         public void ShouldRunInLowTrustMode()
         {
-            try
-            {
-                //System.IO.Directory.GetFiles();
-                string script =
-                    @"
-                var a = System.Convert.ToInt32(1);
-                var b = System.IO.Directory.GetFiles(""c:"");";
-
-                new JintEngine()
-                    .Run(script);
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
+            new JintEngine()
+                .Run(@"
+            var a = System.Convert.ToInt32(1);
+            var b = System.IO.Directory.GetFiles(""c:"");");
         }
 
         [TestMethod]
         public void ShouldAllowSecuritySandBox()
         {
-            string userDirectory = "c:\\temp";
+            const string userDirectory = "c:\\temp";
 
-            string script = @"
-                var b = System.IO.Directory.GetFiles(userDir);
-            ";
+            const string script = @"var b = System.IO.Directory.GetFiles(userDir);";
 
-            var engine = new JintEngine()
+            new JintEngine()
                 .SetParameter("userDir", userDirectory)
                 .AddPermission(new FileIOPermission(FileIOPermissionAccess.PathDiscovery, userDirectory))
                 .Run(script);
@@ -1199,16 +1156,29 @@ var fakeButton = new Test.FakeButton();");
         }
 
         [TestMethod]
+        public void ShouldReturnMultiDimensionalArray()
+        {
+            var values = new [] { new[]{1, 2, 3}, new[]{ 4,5} };
+            var jint = new JintEngine()
+            .SetDebugMode(true)
+            .SetParameter("a", values);
+            dynamic result = jint.Run("return a;");
+            Assert.AreEqual(3, result[0][2]);  
+            Assert.AreEqual(4,result[1][0]);
+        }
+
+        [TestMethod]
         public void ShouldHandleClrArrays()
         {
             int[] values = new int[] { 2, 3, 4, 5, 6, 7 };
-            Jint.JintEngine jint = new Jint.JintEngine()
+            JintEngine jint = new Jint.JintEngine()
             .SetDebugMode(true)
             .SetParameter("a", values);
-
-            Assert.AreEqual(3, jint.Run("return a[1];"));
+            var result1 = jint.Run("return a[1];");
+            Assert.AreEqual(3, result1);
             jint.Run("a[1] = 4");
-            Assert.AreEqual(4, jint.Run("return a[1];"));
+            var result2 = jint.Run("return a[1];");
+            Assert.AreEqual(4, result2);
             Assert.AreEqual(4, values[1]);
 
         }

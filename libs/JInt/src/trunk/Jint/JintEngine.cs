@@ -126,7 +126,7 @@ namespace Jint
         /// <exception cref="System.ArgumentException" />
         /// <exception cref="System.Security.SecurityException" />
         /// <exception cref="Jint.JintException" />
-        public object Run(string script)
+        public dynamic Run(string script)
         {
             return Run(script, true);
         }
@@ -139,7 +139,7 @@ namespace Jint
         /// <exception cref="System.ArgumentException" />
         /// <exception cref="System.Security.SecurityException" />
         /// <exception cref="Jint.JintException" />
-        public object Run(Program script)
+        public dynamic Run(Program script)
         {
             return Run(script, true);
         }
@@ -152,7 +152,7 @@ namespace Jint
         /// <exception cref="System.ArgumentException" />
         /// <exception cref="System.Security.SecurityException" />
         /// <exception cref="Jint.JintException" />
-        public object Run(TextReader reader)
+        public dynamic Run(TextReader reader)
         {
             return Run(reader.ReadToEnd());
         }
@@ -166,7 +166,7 @@ namespace Jint
         /// <exception cref="System.ArgumentException" />
         /// <exception cref="System.Security.SecurityException" />
         /// <exception cref="Jint.JintException" />
-        public object Run(TextReader reader, bool unwrap)
+        public dynamic Run(TextReader reader, bool unwrap)
         {
             return Run(reader.ReadToEnd(), unwrap);
         }
@@ -180,7 +180,7 @@ namespace Jint
         /// <exception cref="System.ArgumentException" />
         /// <exception cref="System.Security.SecurityException" />
         /// <exception cref="Jint.JintException" />
-        public object Run(string script, bool unwrap)
+        public dynamic Run(string script, bool unwrap)
         {
 
             if (script == null)
@@ -204,7 +204,7 @@ namespace Jint
         /// <exception cref="System.ArgumentException" />
         /// <exception cref="System.Security.SecurityException" />
         /// <exception cref="Jint.JintException" />
-        public object Run(Program script, bool unwrap)
+        public dynamic Run(Program script, bool unwrap)
         {
             if (script == null)
                 throw new
@@ -286,7 +286,9 @@ namespace Jint
                 visitor.Step -= OnStep;
             }
 
-            return visitor.Result == null ? null : unwrap ? JsClr.ConvertParameter(visitor.Result) : visitor.Result;
+            if (visitor.Result == null) return null;
+            if (unwrap) return JsClr.ConvertParameter(visitor.Result);
+            return visitor.Result;
         }
 
         #region Debugger
