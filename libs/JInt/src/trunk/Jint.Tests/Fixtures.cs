@@ -47,6 +47,17 @@ namespace Jint.Tests
         }
 
         [TestMethod]
+        public void ShouldReturnADynamicMethodFromAJsonObject()
+        {
+            var jint = new JintEngine();
+            dynamic result =
+                jint.Run(
+                    @"function get() { return {ftuUrl: 'LaunchPage', idModifier: 'modifier', phrases: { free:'FREE', viewing_credit:'Viewing Credit', new_users:'new users', no_purchase_required:'no purchase required', start_here:'start here'} };} get();");
+            Assert.AreEqual("LaunchPage",result.ftuUrl);
+            Assert.AreEqual("FREE",result.phrases.free);
+        }
+
+        [TestMethod]
         public void ShouldHandleSubstrWithOnlyTheStartProperly()
         {
             var engine = new JintEngine();

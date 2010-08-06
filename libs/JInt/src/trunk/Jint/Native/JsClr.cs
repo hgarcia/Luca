@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using Jint.Expressions;
 
@@ -187,12 +186,29 @@ namespace Jint.Native
                     if (parameter.Value != null)
                         return parameter.Value;
 
-                    var result = ((JsObject) parameter)
-                        .properties.Select(e => e.Key + ":" + e.Value).ToArray();
+                    var result = jsInstanceToDynamic((JsObject)parameter,  new JsonExpando());
                     return result;
                 default:
                     return parameter;
             }
+        }
+
+
+        private static dynamic jsInstanceToDynamic(JsObject jsObject, JsonExpando result)
+        {
+            var props = jsObject.properties;
+            foreach (var prop in props)
+            {
+                if (prop.Value.Value.GetType() == typeof(JsObject))
+                {
+                    result.SetMember(prop.Key, jsInstanceToDynamic((JsObject) prop.Value.Value, new JsonExpando()));
+                }
+                else
+                {
+                    result.SetMember(prop.Key, prop.Value.ToSource());
+                }
+            }
+            return result;
         }
 
         /// <summary>

@@ -10,7 +10,7 @@ namespace Luca.Prg
 		private ScriptEngine _engine;
 		private ScriptScope _scope;
 		private readonly string _outputVariableName;
-		private IDictionary<string,object> _globalVars = new Dictionary<string, object>();
+		private readonly IDictionary<string,object> _globalVars = new Dictionary<string, object>();
 
 		public IronRubyViewExecutor():this("output"){}
 
@@ -27,11 +27,6 @@ namespace Luca.Prg
 
 		private void loadModel(object model)
 		{
-			//var propertiesInfos = model.GetType().GetProperties();
-		    //foreach (var info in propertiesInfos)
-		    //{
-		    //   _scope.SetVariable(info.Name, info.GetValue(model,null));
-		    //}
 			_scope.SetVariable("__", model);
 		}
 
