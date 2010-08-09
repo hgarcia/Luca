@@ -13,9 +13,35 @@ body {
   padding-top: 20px;
   text-align: center;
 }
+#menu{
+  list-style: none;
+  padding: 10px;
+  background-color: #002233;
+  -moz-border-radius: 5px 5px 5px 5px;
+}
+#menu li {
+  display:inline;
+}
+#menu li a {
+  color: #000000;
+  -moz-border-radius:5px 5px 5px 5px;
+  background-color:#336699;
+  margin:0 0 0 5px;
+  padding:5px 50px;  
+  text-decoration: none;
+  font-weight: bold; 
+}
 #container {
   margin: 0 auto;
   width: 700px;
   background-color: #FFFFFF;
+  -moz-border-radius: 5px 5px 5px 5px;
+}
+#wrapper-container{
   padding: 0.5em;
+}
+h2{
+  color: #002233;
+  font-size: large;
+  font-style: italic;
 }
