@@ -1,33 +1,14 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using System.Diagnostics;
-//using Jint.Delegates;
 using System.IO;
 using System.Reflection;
 
 namespace Jint.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class SunSpider
     {
-        private TestContext testContextInstance;
-
-        /// <summary>
-        ///Gets or sets the test context which provides
-        ///information about and functionality for the current test run.
-        ///</summary>
-        public TestContext TestContext
-        {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
-        }
-
         #region Additional test attributes
         //
         // You can use the following additional attributes as you write your tests:
@@ -50,7 +31,7 @@ namespace Jint.Tests
         //
         #endregion
 
-        [TestMethod]
+        [Test]
         public void TestPerformance()
         {
             string[] tests = { "access-binary-trees" };
