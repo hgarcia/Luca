@@ -6,57 +6,45 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
 	<title>hgarcia/Luca @ GitHub</title>
-	
-	<style type="text/css">
-		body {
-  		margin-top: 1.0em;
-  		background-color: #132fa4;
-		  font-family: "Helvetica,Arial,FreeSans";
-  		color: #ffffff;
-    }
-    #container {
-      margin: 0 auto;
-      width: 700px;
-    }
-		h1 { font-size: 3.8em; color: #ecd05b; margin-bottom: 3px; }
-		h1 .small { font-size: 0.4em; }
-		h1 a { text-decoration: none }
-		h2 { font-size: 1.5em; color: #ecd05b; }
-    h3 { text-align: center; color: #ecd05b; }
-    a { color: #ecd05b; }
-    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
-    .download { float: right; }
-		pre { background: #000; color: #fff; padding: 15px;}
-    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
-    .footer { text-align:center; padding-top:30px; font-style: italic; }
-	</style>
-	
+	<link type="text/css" href="style.css" rel="stylesheet"></link>
 </head>
 
 <body>
   <a href="http://github.com/hgarcia/Luca"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
-
+  
+  <div id="logo">
+    <a img="http://github.com/hgarcia/Luca" title="Luca - The Js server side framework for .Net">
+        <img src="images/logo.png" border="0" alt="Luca - The Js server side framework for .Net" /></a>
+    <a href="http://github.com/hgarcia/Luca/zipball/master" title="Download the zip file for Luca">
+        <img border="0" width="90" src="images/zip.png" alt="Download the zip file for Luca"></a>
+    <a href="http://github.com/hgarcia/Luca/tarball/master" title="Download the tar file for Luca">
+        <img border="0" width="90" src="images/tar.png" alt="Download the tar file for Luca"></a>
+  </div>
+  
   <div id="container">
+    <p>
+      JavaScript web development in .NET
+      <ul>
+        <li>a Sinatra like server side DSL.</li>
+        <li>a javascript Framework to write web applications in the .net platform.</li>
+        <li>a set of generators and tools to jump start your development (inspired by Rails)</li>
+      </ul>
+    </p>
 
-    <div class="download">
-      <a href="http://github.com/hgarcia/Luca/zipball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
-      <a href="http://github.com/hgarcia/Luca/tarball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
-    </div>
-
-    <h1><a href="http://github.com/hgarcia/Luca">Luca</a>
-      <span class="small">by <a href="http://github.com/hgarcia">hgarcia</a></span></h1>
-
-    <div class="description">
-      
-    </div>
-
-    <h2>Authors</h2>
-<p>hgarcia (hernan@dynamicprogrammer.com)<br/><br/>      </p>
-<h2>Contact</h2>
-<p>Hernan Garcia (hernan@dynamicprogrammer.com)<br/>      </p>
-
+    <h2>Overview</h2>
+    <p>At the moment, Luca uses a modified version of Jint as it's javascript engine. The modifications in the engine allows to extend JavaScript with native implementation of common libraries like Prototype or underscore.<br/>
+    Luca tries to incorporate different aspects of different frameworks that I like.<br/>
+      <ul>
+        <li>Command line generators to do common or repetitive tasks (from Rails).</li>
+        <li>A simple sintax to map requests to handlers based on route and HTTP verb (from Sinatra).</li>
+        <li>Decoupling the resource and presentation (from OpenRasta).</li>
+        <li>A DSL for more expressive code.</li>
+        <li>The ability to use any .net class available.</li>
+        <li>Integrated Test-framework and Test-runner for BDD.</li>
+        <li>A simple templating engine.</li>
+        <li>Default serialization for some common content-types: html, csv, xml, json.</li>
+      </ul>
+    </p>
 
     <h2>Download</h2>
     <p>
@@ -74,7 +62,6 @@
     </div>
 
   </div>
-
   
 </body>
 </html>
