@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="Newtonsoft.Json">
+</Property><Property Name="Solution File" Value="C:\Development\Code\Net4.0\Luca\libs\Json.Net\Source\Src\Newtonsoft.Json.sln">
+</Property><Property Name="Date" Value="August-18-10">
+</Property><Property Name="Time" Value="16:46 PM">
+</Property></Properties><Event ErrorLevel="0" Project="Newtonsoft.Json" Source="Newtonsoft.Json\Newtonsoft.Json.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="Newtonsoft.Json" Source="Newtonsoft.Json\Newtonsoft.Json.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Newtonsoft.Json.Tests" Source="Newtonsoft.Json.Tests\Newtonsoft.Json.Tests.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="Newtonsoft.Json.Tests" Source="Newtonsoft.Json.Tests\Newtonsoft.Json.Tests.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="Newtonsoft.Json.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="Newtonsoft.Json.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Newtonsoft.Json" Source="Newtonsoft.Json\Newtonsoft.Json.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="Newtonsoft.Json" Source="Newtonsoft.Json\Newtonsoft.Json.csproj" Description="The following Code Analysis rules were removed from the project: Microsoft.Rules.Managed.CA1805. They are obsolete in the current version of Visual Studio.">
+</Event><Event ErrorLevel="0" Project="Newtonsoft.Json" Source="Newtonsoft.Json\Newtonsoft.Json.csproj" Description="Created rule set file &quot;C:\Development\Code\Net4.0\Luca\libs\Json.Net\Source\Src\Newtonsoft.Json\Migrated rules for Newtonsoft.Json.ruleset&quot; for the &quot;Debug (Any CPU)&quot; configuration.">
+</Event><Event ErrorLevel="0" Project="Newtonsoft.Json.Tests" Source="Newtonsoft.Json.Tests\Newtonsoft.Json.Tests.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

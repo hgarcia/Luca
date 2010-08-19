@@ -65,7 +65,7 @@
     <Compile Include="Core\JavaScriptContext.cs" />
     <Compile Include="Core\LucaHandlerTest.cs" />
     <Compile Include="Generators\ApplicationGeneratorSpecs.cs" />
-    <Compile Include="Prg\Luca_Prg_dynamic_data.cs" />
+    <Compile Include="Json\Json_Serialization.cs" />
     <Compile Include="Prg\Luca_Prg_IronRubyExecutor_Tests.cs" />
     <Compile Include="Prg\Luca_Prg_IronRubyViewParser_Tests.cs" />
     <Compile Include="Prg\Luca_Prg_IronRuby_Visitors_Tests.cs" />
@@ -95,6 +95,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

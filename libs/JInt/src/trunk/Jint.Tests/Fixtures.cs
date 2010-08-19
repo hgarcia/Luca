@@ -87,7 +87,7 @@ namespace Jint.Tests
             JintEngine engine = new JintEngine().AddPermission(new FileIOPermission(PermissionState.Unrestricted));
             engine.SetFunction("load", new Action<string>(delegate(string fileName) { using (var reader = File.OpenText(fileName)) { engine.Run(reader); } }));
             engine.SetFunction("print", new Action<string>(Console.WriteLine));
-            engine.Run("var a='foo'; load('../../../include.js'); print(a);");
+            engine.Run("var a='foo'; load('include.js'); print(a);");
         }
 
         [Test]
@@ -97,7 +97,7 @@ namespace Jint.Tests
             JintEngine engine = new JintEngine().AddPermission(new FileIOPermission(PermissionState.None));
             engine.SetFunction("load", new Action<string>(delegate(string fileName) { using (var reader = File.OpenText(fileName)) { engine.Run(reader); } }));
             engine.SetFunction("print", new Action<string>(Console.WriteLine));
-            engine.Run("var a='foo'; load('../../../include.js'); print(a);");
+            engine.Run("var a='foo'; load('include.js'); print(a);");
         }
 
         [Test]

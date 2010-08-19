@@ -9,13 +9,19 @@ namespace Jint.Native
         private readonly Dictionary<string, object> _members =
             new Dictionary<string, object>();
 
-        protected internal void SetMember(string name, object value)
+        public void SetMember(string name, object value)
         {
             var escapedName = GetEscapedName(name);
             if (!_members.ContainsKey(escapedName))
                 _members.Add(escapedName, value);
             else
                 _members[escapedName] = value;
+        }
+
+        public object GetMember(string name)
+        {
+            var escapedName = GetEscapedName(name);
+            return _members.ContainsKey(escapedName) ? _members[escapedName] : null;
         }
 
         private static string GetEscapedName(string name)
