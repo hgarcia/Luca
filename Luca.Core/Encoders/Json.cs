@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections;
-using System.Text;
+﻿using System.Text;
 using Jint.Native;
 using Newtonsoft.Json;
 
-namespace Luca.Core.Serializers
+namespace Luca.Core.Encoders
 {
-    public class Json
+    public class Json : IEncoder
     {
         public string SerializeObject(object toSerialize)
         {

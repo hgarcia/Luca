@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\ContenNegotiation.cs" />
     <Compile Include="Core\HttpContext.cs" />
     <Compile Include="Core\JavaScriptContext.cs" />
     <Compile Include="Core\LucaHandlerTest.cs" />

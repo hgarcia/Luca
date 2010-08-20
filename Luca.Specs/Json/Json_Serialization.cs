@@ -12,7 +12,7 @@ namespace Luca.Specs.Json
             _encoded = string.Empty;
         };
 
-        private Because of = () => _encoded = new Luca.Core.Serializers.Json().SerializeObject(_dynamicResult);
+        private Because of = () => _encoded = new Luca.Core.Encoders.Json().SerializeObject(_dynamicResult);
 
         private It should_be_an_empty_object = () => _encoded.ShouldEqual("{}");
         private static JsonExpando _dynamicResult;
@@ -29,7 +29,7 @@ namespace Luca.Specs.Json
             _encoded = string.Empty;
         };
 
-        private Because of = () => _encoded = new Luca.Core.Serializers.Json().SerializeObject(_dynamicResult);
+        private Because of = () => _encoded = new Luca.Core.Encoders.Json().SerializeObject(_dynamicResult);
 
         private It should_contain_an_attribute = () => _encoded.ShouldEqual("{\"name\":\"Hello World\"}");
         private static JsonExpando _dynamicResult;
@@ -47,7 +47,7 @@ namespace Luca.Specs.Json
             _encoded = string.Empty;
         };
 
-        private Because of = () => _encoded = new Luca.Core.Serializers.Json().SerializeObject(_dynamicResult);
+        private Because of = () => _encoded = new Luca.Core.Encoders.Json().SerializeObject(_dynamicResult);
 
         private It should_contain_two_attributes_separated_by_comma = () => _encoded.ShouldEqual("{\"name\":\"Dynamic\",\"lastname\":\"Programmer\"}");
         private static JsonExpando _dynamicResult;
@@ -68,7 +68,7 @@ namespace Luca.Specs.Json
             _encoded = string.Empty;
         };
 
-        private Because of = () => _encoded = new Luca.Core.Serializers.Json().SerializeObject(_dynamicResult);
+        private Because of = () => _encoded = new Luca.Core.Encoders.Json().SerializeObject(_dynamicResult);
 
         private It should_contain_an_object_for_locations = () => _encoded.ShouldEqual("{\"name\":\"Dynamic\",\"lastname\":\"Programmer\",\"location\":{\"province\":\"Ontario\"}}");
         private static JsonExpando _dynamicResult;
@@ -88,7 +88,7 @@ namespace Luca.Specs.Json
             _encoded = string.Empty;
         };
 
-        private Because of = () => _encoded = new Luca.Core.Serializers.Json().SerializeObject(_dynamicResult);
+        private Because of = () => _encoded = new Luca.Core.Encoders.Json().SerializeObject(_dynamicResult);
 
         private It should_contain_cities_and_dimensions = () => _encoded.ShouldEqual("{\"id\":\"3\",\"cities\":[\"London\",\"Budapest\",\"New york\",\"Toronto\"],\"dimensions\":[[2,3],[4,5]]}");
         private static JsonExpando _dynamicResult;

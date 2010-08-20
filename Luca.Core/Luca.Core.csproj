@@ -44,6 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Encoders\EncoderFactory.cs" />
+    <Compile Include="Encoders\HeaderComparer.cs" />
+    <Compile Include="Encoders\IEncoder.cs" />
+    <Compile Include="Encoders\Html.cs" />
     <Compile Include="ILucaRequest.cs" />
     <Compile Include="IScriptContext.cs" />
     <Compile Include="IScriptRuntime.cs" />
@@ -53,7 +57,7 @@
     <Compile Include="NameValueToJsonSerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScriptContext.cs" />
-    <Compile Include="Serializers\Json.cs" />
+    <Compile Include="Encoders\Json.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="js\application.js" />
