@@ -10,6 +10,9 @@ namespace Luca.Core.Encoders
             if (acceptHeaders.Contains("application/json", new HeaderComparer()))
                 return new Json();
 
+            if (acceptHeaders.Contains("plain/txt", new HeaderComparer()))
+                return new PlainText();
+
             return new Html();
         }
     }

@@ -2,6 +2,6 @@
 {
     public interface IEncoder
     {
-        string SerializeObject(object toSerialize);
+        string Encode(object toSerialize);
     }
 }

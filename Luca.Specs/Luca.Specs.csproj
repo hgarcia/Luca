@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Core\ContenNegotiation.cs" />
     <Compile Include="Core\HttpContext.cs" />
+    <Compile Include="SpecHelpers\HttpContextFactory.cs" />
     <Compile Include="Core\JavaScriptContext.cs" />
     <Compile Include="Core\LucaHandlerTest.cs" />
     <Compile Include="Generators\ApplicationGeneratorSpecs.cs" />

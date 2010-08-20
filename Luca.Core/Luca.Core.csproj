@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Encoders\PlainText.cs" />
     <Compile Include="Encoders\EncoderFactory.cs" />
     <Compile Include="Encoders\HeaderComparer.cs" />
     <Compile Include="Encoders\IEncoder.cs" />

@@ -6,7 +6,7 @@ namespace Luca.Core.Encoders
 {
     public class Json : IEncoder
     {
-        public string SerializeObject(object toSerialize)
+        public string Encode(object toSerialize)
         {
             if (toSerialize.GetType() == typeof(JsonExpando)) return SerializeObject(toSerialize as JsonExpando);
             return JsonConvert.SerializeObject(toSerialize);

@@ -1,8 +1,6 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 using System.Web;
-using Jint;
 
 namespace Luca.Core
 {
@@ -28,11 +26,12 @@ namespace Luca.Core
 
         private void encode(dynamic response, HttpContext context)
         {
-           //if (context.Request.ContentType.Contains("text/plain")) 
-           //{
-                context.Response.Write(response.ToString());
-                return;
-           //}
+            var enconder = new Encoders.EncoderFactory()
+                .GetEncoderForContentType(context.Request.AcceptTypes);
+
+            var encodedResponse = enconder.Encode(response);
+            context.Response.Write(encodedResponse);
+            return;
         }
 
         private void loadJsFiles(IScriptContext scriptContext, string pathToFiles)
