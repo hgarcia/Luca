@@ -73,6 +73,11 @@
     <Compile Include="Prg\Luca_Prg_IronRuby_Visitors_Tests.cs" />
     <Compile Include="Prg\Luca_Prg_NodeParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpecHelpers\HttpSimulator.cs" />
+    <Compile Include="SpecHelpers\HttpVerb.cs" />
+    <Compile Include="SpecHelpers\ReflectionHelper.cs" />
+    <Compile Include="SpecHelpers\SimulatedHttpRequest.cs" />
+    <Compile Include="SpecHelpers\HttpMock.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\libs\JInt\src\trunk\Jint\Jint.csproj">

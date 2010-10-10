@@ -11,19 +11,14 @@ namespace Luca.Specs.Core
         private Establish context = () =>
                                         {
                                             _handler = new LucaHandler();
-                                            _sb = new StringBuilder();
-                                            _context = HttpContextFactory.GetHttpContext(_sb);
+                                            _context = HttpContextFactory.GetHttpContext();
                                         };
 
-       
-
         Because the_handler_is_called = () => _handler.ProcessRequest(_context);
-        private It should_return_a_string = () => _sb.ToString()
-            .ShouldContain("hello cruel world");
+        private It should_return_a_string = () => _context.Response.Output.ToString()
+            .ShouldContain("hello cruel world18");
 
         private static LucaHandler _handler;
-
         private static HttpContext _context;
-        private static StringBuilder _sb;
     }
 }

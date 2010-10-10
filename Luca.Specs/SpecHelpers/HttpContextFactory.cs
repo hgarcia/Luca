@@ -4,17 +4,16 @@ using System.Web;
 
 namespace Luca.Specs.SpecHelpers
 {
-    public class HttpContextFactory
+    public static class HttpContextFactory
     {
-        public static HttpContext GetHttpContext(StringBuilder output)
+        public static HttpContext GetHttpContext()
         {
-            var request = new HttpRequest("home.asp", "http://localhost/movie/12",
-                                          "id=18");
-            request.RequestType = "GET";
-            request.Headers.Add("Accept", "text/plain");
-            return new HttpContext(
-                request
-                , new HttpResponse(new StringWriter(output)));
+            return new HttpMock("home.asp", "http://localhost/movie/12", "id=18")
+                              {
+                                  Response = new HttpResponse(new StringWriter( new StringBuilder())),
+                                  AcceptTypes = new[] { "plain/txt" }                              
+                              }
+                              .GetContext();
         }
     }
 }

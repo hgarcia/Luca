@@ -11,9 +11,13 @@ namespace Luca.Core
         {
             var sb = new StringBuilder();
             sb.Append("{");
-            foreach (string key in collection.Keys)
+            for (int i = 0; i < collection.Keys.Count; i++)
             {
-                sb.AppendFormat("\"{0}\":\"{1}\"", key.ToLower(), collection[key]);
+                sb.AppendFormat("\"{0}\":\"{1}\"", collection.Keys[i].ToLower(), collection[i]);
+                if (i < collection.Keys.Count - 1)
+                {
+                    sb.Append(",");
+                }
             }
             sb.Append("}");
             return sb.ToString();
@@ -22,9 +26,13 @@ namespace Luca.Core
         {
             var sb = new StringBuilder();
             sb.Append("{");
-            foreach (string key in collection.Keys)
+            for (int i = 0; i < collection.Keys.Count; i++)
             {
-                sb.AppendFormat("\"{0}\":\"{1}\"", key.ToLower(), collection[key]); 
+                sb.AppendFormat("\"{0}\":\"{1}\"", collection.Keys[i].ToLower(), collection[i]);
+                if (i < collection.Keys.Count-1)
+                {
+                    sb.Append(",");
+                }
             }
             sb.Append("}");
             return sb.ToString();
