@@ -1,5 +1,4 @@
-﻿using System.Text;
-using Luca.Specs.SpecHelpers;
+﻿using Luca.Specs.SpecHelpers;
 using Machine.Specifications;
 using Luca.Core;
 using System.Web;
