@@ -6,7 +6,12 @@ namespace Luca.Core.Encoders
     {
         public string Encode(object toSerialize)
         {
-            throw new NotImplementedException();
+            return toSerialize.ToString();
+        }
+
+        public string ContentType
+        {
+            get { return "text/html"; }
         }
     }
 }

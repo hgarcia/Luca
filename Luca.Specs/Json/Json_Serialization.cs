@@ -75,7 +75,6 @@ namespace Luca.Specs.Json
         private static string _encoded;
     }
 
-
     [Subject("Serialize to Json a JsonExpando")]
     public class With_an_array_as_an_attribute
     {
@@ -93,5 +92,24 @@ namespace Luca.Specs.Json
         private It should_contain_cities_and_dimensions = () => _encoded.ShouldEqual("{\"id\":\"3\",\"cities\":[\"London\",\"Budapest\",\"New york\",\"Toronto\"],\"dimensions\":[[2,3],[4,5]]}");
         private static JsonExpando _dynamicResult;
         private static string _encoded;
+    }
+
+    [Subject("Serialize to Json a JsonExpando")]
+    public class With_a_path
+    {
+        Establish context = () =>
+        {
+            _dynamicResult = new JsonExpando();
+            _dynamicResult.SetMember("Name", "Dynamic");
+            _dynamicResult.SetMember("Path", @"C:\inetpub\wwwroot\luca\movie\10\");
+            _encoded = string.Empty;
+        };
+
+        private Because of = () => _encoded = new Luca.Core.Encoders.Json().Encode(_dynamicResult);
+
+        private It should_contain_two_attributes_separated_by_comma = () => _encoded
+            .ShouldEqual("{\"name\":\"Dynamic\",\"path\":\"C:/inetpub/wwwroot/luca/movie/10/\"}");
+        private static JsonExpando _dynamicResult;
+        private static string _encoded;        
     }
 }

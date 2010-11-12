@@ -19,7 +19,10 @@ namespace Luca.Specs.Core
                                                     );
                                         };
 
-        private It should_expose_qs = () => { _request.ToJson().ShouldContain("query"); };
+        private It should_expose_qs = () =>
+                                          {
+                                              _request.ToJson().ShouldContain("query");
+                                          };
         private static ILucaRequest _request;
     }
 

@@ -23,6 +23,7 @@ namespace Luca.Specs.SpecHelpers
         {
             _qs = qs;
             _request = new HttpRequest(fileName, string.Format("{0}?{1}", urlWithoutQs, qs), qs);
+            
             Method = HttpVerb.GET;
             ServerVariables = new NameValueCollection
                                   {
@@ -49,7 +50,6 @@ namespace Luca.Specs.SpecHelpers
             setForm(context);
             setServerVariables(context);
             setFields(context);
-
             return context;
         }
 
@@ -85,7 +85,6 @@ namespace Luca.Specs.SpecHelpers
         {
             var fields = context.Request.GetType().GetFields(Flags);
             fields.First(f => f.Name == "_httpMethod").SetValue(context.Request, Method.ToString());
-            if (AcceptTypes != null) fields.First(f => f.Name == "_acceptTypes").SetValue(context.Request, AcceptTypes);
         }
     }
 }

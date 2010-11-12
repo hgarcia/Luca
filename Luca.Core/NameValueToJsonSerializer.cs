@@ -20,7 +20,7 @@ namespace Luca.Core
                 }
             }
             sb.Append("}");
-            return sb.ToString();
+            return sb.ToString().Replace("\\", "/");
         }
         public string ToString(NameValueCollection collection)
         {
@@ -35,7 +35,7 @@ namespace Luca.Core
                 }
             }
             sb.Append("}");
-            return sb.ToString();
+            return sb.ToString().Replace("\\", "/");
         }
     }
 }

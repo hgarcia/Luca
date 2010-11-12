@@ -13,7 +13,7 @@ namespace Luca.Specs.Core
 
 		private Because accept_json = () =>
 								{
-									_encoder = _encoderFactory.GetEncoderForContentType(new[] { "application/json" });
+									_encoder = _encoderFactory.GetEncoderForContentType("application/json");
 								};
 
 		private It should_be_of_type_json_encoder = () => _encoder.ShouldBe(typeof(Luca.Core.Encoders.Json));

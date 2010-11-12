@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 using Jint.Native;
 using Newtonsoft.Json;
 
@@ -9,7 +10,12 @@ namespace Luca.Core.Encoders
         public string Encode(object toSerialize)
         {
             if (toSerialize.GetType() == typeof(JsonExpando)) return SerializeObject(toSerialize as JsonExpando);
-            return JsonConvert.SerializeObject(toSerialize);
+            return JsonConvert.SerializeObject(toSerialize).Replace('\\', '^').Replace("^^", "/");
+        }
+
+        public string ContentType
+        {
+            get { return "application/json"; }
         }
 
         private string SerializeObject(JsonExpando objectToSerialize)
@@ -31,21 +37,22 @@ namespace Luca.Core.Encoders
 
         private bool serializeIEnumerable(object value, StringBuilder serialized, string name)
         {
-            if (value.GetType().GetInterface("IEnumerable") == null) return false;
-            serialized.AppendFormat("\"{0}\":{1}", name, JsonConvert.SerializeObject(value));
+            if (value ==null || value.GetType().GetInterface("IEnumerable") == null) return false;
+            serialized.AppendFormat("\"{0}\":{1}", name, JsonConvert.SerializeObject(value).Replace('\\','^').Replace("^^","/"));
             return true;
         }
 
         private bool serializeJsonExpando(object value, StringBuilder serialized, string name)
         {
-            if (value.GetType() != typeof(JsonExpando)) return false;
+            if (value == null || value.GetType() != typeof(JsonExpando)) return false;
             serialized.AppendFormat("\"{0}\":{1}", name, SerializeObject((JsonExpando)value));
             return true;
         }
 
         private bool serializeDefault(object value, StringBuilder serialized, string name)
         {
-            serialized.AppendFormat("\"{0}\":\"{1}\"",name,value);
+            if (value == null) return false;
+            serialized.AppendFormat("\"{0}\":\"{1}\"",name,value.ToString().Replace('\\','^').Replace("^^","/"));
             return true;
         }
     }

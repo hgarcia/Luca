@@ -1,5 +1,4 @@
 using Jint;
-using Luca.Core;
 using Luca.Prg;
 using NUnit.Framework;
 using SharpTestsEx;
@@ -11,24 +10,24 @@ namespace Luca.Specs.Prg
 	{
 		private string _templatePath = "Prg/templates/WalletFtu";
 
-		private string RubyCode = @"self.output += ""		<div class=\""SureSidebarSectionTitle SureWalletLabel\"">\r\n""
-self.output += ""			#{__.phrases.new_users}\r\n""
-self.output += ""		</div>\r\n""
-self.output += ""		<table class=\""SureSidebarSectionFrame\"" cellspacing=\""0\"" cellpadding=\""0\"">\r\n""
-self.output += ""			<tr>\r\n""
-self.output += ""				<td class=\""SureSidebarSectionInnerFrame\"" style=\""cursor:pointer\"" onclick=\""javascript:self.location='#{__.ftuUrl}'\"">\r\n""
-self.output += ""					<p class=\""WalletFTUPromtionDisplay1\"">#{__.ftuValue} #{__.phrases.free}*</p>\r\n""
-self.output += ""					<p class=\""WalletFTUPromtionDisplay2\"">#{__.phrases.viewing_credit}</p>\r\n""
-self.output += ""					<p class=\""WalletFTUPromtionDisplay3\"">*#{__.phrases.no_purchase_required}</p>\r\n""
-self.output += ""				</td>\r\n""
-self.output += ""			</tr>\r\n""
-self.output += ""			<tr>\r\n""
-self.output += ""				<td class=\""SureSidebarSectionInnerFrame\"">\r\n""
-self.output += ""					<a id=\""SureWalletBulletStartHere#{__.idModifier}\"" class=\""SureWalletBullet\"" href=\""javascript:WalletLink('#{__.ftuUrl}')\"">#{__.phrases.start_here}</a>\r\n""
-self.output += ""				</td>\r\n""
-self.output += ""			</tr>\r\n""
-self.output += ""		</table>\r\n""
-";
+//        private string RubyCode = @"self.output += ""		<div class=\""SureSidebarSectionTitle SureWalletLabel\"">\r\n""
+//self.output += ""			#{__.phrases.new_users}\r\n""
+//self.output += ""		</div>\r\n""
+//self.output += ""		<table class=\""SureSidebarSectionFrame\"" cellspacing=\""0\"" cellpadding=\""0\"">\r\n""
+//self.output += ""			<tr>\r\n""
+//self.output += ""				<td class=\""SureSidebarSectionInnerFrame\"" style=\""cursor:pointer\"" onclick=\""javascript:self.location='#{__.ftuUrl}'\"">\r\n""
+//self.output += ""					<p class=\""WalletFTUPromtionDisplay1\"">#{__.ftuValue} #{__.phrases.free}*</p>\r\n""
+//self.output += ""					<p class=\""WalletFTUPromtionDisplay2\"">#{__.phrases.viewing_credit}</p>\r\n""
+//self.output += ""					<p class=\""WalletFTUPromtionDisplay3\"">*#{__.phrases.no_purchase_required}</p>\r\n""
+//self.output += ""				</td>\r\n""
+//self.output += ""			</tr>\r\n""
+//self.output += ""			<tr>\r\n""
+//self.output += ""				<td class=\""SureSidebarSectionInnerFrame\"">\r\n""
+//self.output += ""					<a id=\""SureWalletBulletStartHere#{__.idModifier}\"" class=\""SureWalletBullet\"" href=\""javascript:WalletLink('#{__.ftuUrl}')\"">#{__.phrases.start_here}</a>\r\n""
+//self.output += ""				</td>\r\n""
+//self.output += ""			</tr>\r\n""
+//self.output += ""		</table>\r\n""
+//";
 
 		private const string HtmlCode =
 			@"		<div class=""SureSidebarSectionTitle SureWalletLabel"">

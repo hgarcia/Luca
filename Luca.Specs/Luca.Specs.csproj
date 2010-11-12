@@ -98,6 +98,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="payload.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Prg\templates\WalletFtu.htm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

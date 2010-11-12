@@ -42,3 +42,4 @@ C:\Development\Code\Net4.0\Luca\Luca.Specs\bin\Debug\Microsoft.Scripting.Debuggi
 C:\Development\Code\Net4.0\Luca\Luca.Specs\bin\Debug\Newtonsoft.Json.dll
 C:\Development\Code\Net4.0\Luca\Luca.Specs\bin\Debug\Newtonsoft.Json.pdb
 C:\Development\Code\Net4.0\Luca\Luca.Specs\bin\Debug\Newtonsoft.Json.xml
+C:\Development\Code\Net4.0\Luca\Luca.Specs\bin\Debug\payload.txt

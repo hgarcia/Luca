@@ -3,5 +3,6 @@
     public interface IEncoder
     {
         string Encode(object toSerialize);
+        string ContentType { get; }
     }
 }
