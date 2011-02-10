@@ -62,7 +62,7 @@ namespace Luca.Core
             sb.AppendFormat("\"form\":{0},", _jsonSerializer.ToString(_form));
             sb.AppendFormat("\"query\":{0},", _jsonSerializer.ToString(_qs));
             sb.AppendFormat("\"headers\":{0},", _jsonSerializer.ToString(_headers));
-            //sb.AppendFormat("\"serverVars\":{0},", _jsonSerializer.ToString(_serverVariables));
+            //sb.AppendFormat("\"server\":{0},", _jsonSerializer.ToString(_serverVariables));
             sb.AppendFormat("\"cookies\":{0}", _jsonSerializer.ToString(_cookies));
             sb.Append("}");
             return sb.ToString();            
