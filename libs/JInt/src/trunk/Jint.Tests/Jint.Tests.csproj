@@ -56,14 +56,6 @@
       <Project>{2387225A-2B1F-4B02-86DD-3CAE089C490D}</Project>
       <Name>Luca.Jint</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Jint.Env\Jint.Env.csproj">
-      <Project>{871858FB-6900-45EC-B8C9-979FB48B5001}</Project>
-      <Name>Jint.Env</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Jint\Jint.csproj">
-      <Project>{DBF3AEF6-9D13-4E03-899B-561BCFDD9920}</Project>
-      <Name>Jint</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Scripts\Comments.js" />

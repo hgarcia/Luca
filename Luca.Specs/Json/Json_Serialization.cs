@@ -1,4 +1,4 @@
-﻿using Jint.Native;
+﻿using Luca.Core.Encoders;
 using Machine.Specifications;
 
 namespace Luca.Specs.Json

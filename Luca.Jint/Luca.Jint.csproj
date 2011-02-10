@@ -46,12 +46,6 @@
     <Compile Include="PrototypeExtension\PrototypeString.cs" />
     <Compile Include="PrototypeExtension\Registration.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\libs\JInt\src\trunk\Jint\Jint.csproj">
-      <Project>{DBF3AEF6-9D13-4E03-899B-561BCFDD9920}</Project>
-      <Name>Jint</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

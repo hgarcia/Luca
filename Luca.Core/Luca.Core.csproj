@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Encoders\JsonExpando.cs" />
     <Compile Include="Encoders\PlainText.cs" />
     <Compile Include="Encoders\EncoderFactory.cs" />
     <Compile Include="Encoders\HeaderComparer.cs" />
@@ -52,7 +53,6 @@
     <Compile Include="ILucaRequest.cs" />
     <Compile Include="IScriptContext.cs" />
     <Compile Include="IScriptRuntime.cs" />
-    <Compile Include="JintRuntime.cs" />
     <Compile Include="LucaHandler.cs" />
     <Compile Include="LucaRequest.cs" />
     <Compile Include="NameValueToJsonSerializer.cs" />
@@ -74,16 +74,6 @@
     <None Include="js\underscore.js" />
     <None Include="js\ejs_helpers.js" />
     <None Include="js\jade.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\libs\JInt\src\trunk\Jint\Jint.csproj">
-      <Project>{DBF3AEF6-9D13-4E03-899B-561BCFDD9920}</Project>
-      <Name>Jint</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Luca.Jint\Luca.Jint.csproj">
-      <Project>{2387225A-2B1F-4B02-86DD-3CAE089C490D}</Project>
-      <Name>Luca.Jint</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -22,7 +22,7 @@ namespace Luca.Specs.Core
                                         {
                                             var scriptContext = new ScriptContext(new LucaRequest());
                                             scriptContext.GetCurrentContext.Append("return 'hello world!';");
-                                            _context = new JintRuntime(scriptContext);
+                                            //_context = new JintRuntime(scriptContext);
                                         };
         private Because is_run = () => _response = _context.Execute();
 

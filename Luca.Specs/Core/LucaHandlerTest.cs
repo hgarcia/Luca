@@ -1,6 +1,5 @@
 ﻿using System.IO;
 using System.Text;
-using Jint;
 using Luca.Specs.SpecHelpers;
 using Machine.Specifications;
 using Luca.Core;
@@ -32,17 +31,17 @@ namespace Luca.Specs.Core
         private Establish context = () =>
                                         {
                                             _payload = File.ReadAllText("payload.txt",Encoding.ASCII);
-                                            _jint = new JintEngine();
+    //                                        _jint = new JintEngine();
                                         };
 
-        private Because we_pass_the_the_payload = () => _jint.SetDebugMode(true);
+      //  private Because we_pass_the_the_payload = () => _jint.SetDebugMode(true);
 
         private It should_work_as_expected = () =>
                                                  {
-                                                     var response = _jint.Run(_payload);
-                                                     var content = response.ToString();
+        //                                             var response = _jint.Run(_payload);
+        //                                             var content = response.ToString();
                                                  };
         private static  string _payload;
-        private static JintEngine _jint;
+        //private static JintEngine _jint;
     }
 }

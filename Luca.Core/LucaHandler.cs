@@ -25,9 +25,9 @@ namespace Luca.Core
             loadJsFiles(scriptContext, controllerPath);
             try
             {
-                var js = new JintRuntime(scriptContext);
-                dynamic response = js.Execute();
-                encode(response, context);
+                //var js = new JintRuntime(scriptContext);
+                //dynamic response = js.Execute();
+                //encode(response, context);
             }catch(Exception e)
             {
                 _context.Response.Write(scriptContext.GetCurrentContext.ToString());

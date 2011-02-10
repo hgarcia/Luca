@@ -31,13 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="IronRuby, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="IronRuby.Libraries">
-      <HintPath>..\libs\IronRuby\IronRuby.Libraries.dll</HintPath>
-    </Reference>
-    <Reference Include="IronRuby.Libraries.YAML">
-      <HintPath>..\libs\IronRuby\IronRuby.Libraries.YAML.dll</HintPath>
-    </Reference>
     <Reference Include="Machine.Specifications, Version=0.3.0.0, Culture=neutral, PublicKeyToken=5c474de7a495cff1, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Dynamic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Scripting, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -68,10 +61,6 @@
     <Compile Include="Core\LucaHandlerTest.cs" />
     <Compile Include="Generators\ApplicationGeneratorSpecs.cs" />
     <Compile Include="Json\Json_Serialization.cs" />
-    <Compile Include="Prg\Luca_Prg_IronRubyExecutor_Tests.cs" />
-    <Compile Include="Prg\Luca_Prg_IronRubyViewParser_Tests.cs" />
-    <Compile Include="Prg\Luca_Prg_IronRuby_Visitors_Tests.cs" />
-    <Compile Include="Prg\Luca_Prg_NodeParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpecHelpers\HttpSimulator.cs" />
     <Compile Include="SpecHelpers\HttpVerb.cs" />
@@ -80,10 +69,6 @@
     <Compile Include="SpecHelpers\HttpMock.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\libs\JInt\src\trunk\Jint\Jint.csproj">
-      <Project>{DBF3AEF6-9D13-4E03-899B-561BCFDD9920}</Project>
-      <Name>Jint</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Luca.Core\Luca.Core.csproj">
       <Project>{98152FAD-2DC4-489C-B394-BA15766D978A}</Project>
       <Name>Luca.Core</Name>
@@ -92,16 +77,9 @@
       <Project>{8185C751-06E2-4833-A323-26C25185F271}</Project>
       <Name>Luca.Generators</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Luca.Prg\Luca.Prg.csproj">
-      <Project>{E3A731B9-EA5C-4B91-97D3-E0A12216C983}</Project>
-      <Name>Luca.Prg</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="payload.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Prg\templates\WalletFtu.htm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

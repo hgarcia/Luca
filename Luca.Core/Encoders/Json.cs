@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Text;
-using Jint.Native;
 using Newtonsoft.Json;
 
 namespace Luca.Core.Encoders
