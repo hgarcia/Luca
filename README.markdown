@@ -10,3 +10,5 @@ JavaScript web development in .NET
 *	a set of generators and tools to jump start your development (inspired by Rails).
 
 For more information go to [Luca](http://hgarcia.github.com/Luca/index.html)
+
+v0.1
