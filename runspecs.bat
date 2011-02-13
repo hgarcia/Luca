@@ -1,0 +1,1 @@
+libs\NUnit\nunit-console.exe Generators.Specs\bin\Debug\Generators.Specs.dll

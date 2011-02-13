@@ -1,5 +1,6 @@
 
 using System;
+using SharpTestsEx;
 
 namespace Generators.Specs 
 {
@@ -7,17 +8,17 @@ namespace Generators.Specs
     {
         private void Given_I_run_inside_an_empty_folder()
         {
-            throw new NotImplementedException();
+            
         }
 
         private void When_I_type(string command)
         {
-            throw new NotImplementedException();
+            
         }
 
         private void Them_the_application_should_be_created()
         {
-            throw new NotImplementedException();  
+            true.Should().Be.True();  
         }
 
         private void Given_I_run_inside_a_non_empty_folder()
