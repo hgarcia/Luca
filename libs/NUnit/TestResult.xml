@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="c:\Development\Code\Net4.0\Luca\Generators.Specs\bin\Debug\Generators.Specs.dll" total="7" errors="7" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2011-02-13" time="01:41:50">
+  <environment nunit-version="2.5.9.10348" clr-version="4.0.30319.1" os-version="Microsoft Windows NT 6.1.7600.0" platform="Win32NT" cwd="c:\Development\Code\Net4.0\Luca\libs\NUnit" machine-name="HERNAN-STUDIO" user="hernan" user-domain="HERNAN-STUDIO" />
+  <culture-info current-culture="en-CA" current-uiculture="en-US" />
+  <test-suite type="Assembly" name="c:\Development\Code\Net4.0\Luca\Generators.Specs\bin\Debug\Generators.Specs.dll" executed="True" result="Failure" success="False" time="0.101" asserts="0">
+    <results>
+      <test-suite type="Namespace" name="Generators" executed="True" result="Failure" success="False" time="0.082" asserts="0">
+        <results>
+          <test-suite type="Namespace" name="Specs" executed="True" result="Failure" success="False" time="0.081" asserts="0">
+            <results>
+              <test-suite type="TestFixture" name="CreateApplication" executed="True" result="Failure" success="False" time="0.069" asserts="0">
+                <results>
+                  <test-case name="Generators.Specs.CreateApplication.OnAnEmptyFolder" executed="True" result="Error" success="False" time="0.037" asserts="0">
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[at Generators.Specs.CreateApplication.Given_I_run_inside_an_empty_folder() in C:\Development\Code\Net4.0\Luca\Generators.Specs\CreateApplication.steps.cs:line 10
+at Generators.Specs.CreateApplication.OnAnEmptyFolder() in C:\Development\Code\Net4.0\Luca\Generators.Specs\CreateApplication.runner.cs:line 11
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case name="Generators.Specs.CreateApplication.OnANonEmptyFolder" executed="True" result="Error" success="False" time="0.001" asserts="0">
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[at Generators.Specs.CreateApplication.Given_I_run_inside_a_non_empty_folder() in C:\Development\Code\Net4.0\Luca\Generators.Specs\CreateApplication.steps.cs:line 25
+at Generators.Specs.CreateApplication.OnANonEmptyFolder() in C:\Development\Code\Net4.0\Luca\Generators.Specs\CreateApplication.runner.cs:line 19
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case name="Generators.Specs.CreateApplication.OnANonEmptyFolderPassingAnApplicationName" executed="True" result="Error" success="False" time="0.001" asserts="0">
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[at Generators.Specs.CreateApplication.Given_I_run_inside_a_non_empty_folder() in C:\Development\Code\Net4.0\Luca\Generators.Specs\CreateApplication.steps.cs:line 25
+at Generators.Specs.CreateApplication.OnANonEmptyFolderPassingAnApplicationName() in C:\Development\Code\Net4.0\Luca\Generators.Specs\CreateApplication.runner.cs:line 27
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case name="Generators.Specs.CreateApplication.PassingAnInvalidAppName" executed="True" result="Error" success="False" time="0.001" asserts="0">
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[at Generators.Specs.CreateApplication.Given_I_run_inside_a_non_empty_folder() in C:\Development\Code\Net4.0\Luca\Generators.Specs\CreateApplication.steps.cs:line 25
+at Generators.Specs.CreateApplication.PassingAnInvalidAppName() in C:\Development\Code\Net4.0\Luca\Generators.Specs\CreateApplication.runner.cs:line 36
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Server" executed="True" result="Failure" success="False" time="0.005" asserts="0">
+                <results>
+                  <test-case name="Generators.Specs.Server.RunningTheServerOnACustomPort" executed="True" result="Error" success="False" time="0.001" asserts="0">
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[at Generators.Specs.Server.Given_I_m_in_the_root_of_a_Luca_app() in C:\Development\Code\Net4.0\Luca\Generators.Specs\Server.steps.cs:line 10
+at Generators.Specs.Server.RunningTheServerOnACustomPort() in C:\Development\Code\Net4.0\Luca\Generators.Specs\Server.runner.cs:line 20
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case name="Generators.Specs.Server.RunningTheServerOnTheDefaultPort" executed="True" result="Error" success="False" time="0.000" asserts="0">
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[at Generators.Specs.Server.Given_I_m_in_the_root_of_a_Luca_app() in C:\Development\Code\Net4.0\Luca\Generators.Specs\Server.steps.cs:line 10
+at Generators.Specs.Server.RunningTheServerOnTheDefaultPort() in C:\Development\Code\Net4.0\Luca\Generators.Specs\Server.runner.cs:line 12
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case name="Generators.Specs.Server.StoppingTheServer" executed="True" result="Error" success="False" time="0.001" asserts="0">
+                    <failure>
+                      <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+                      <stack-trace><![CDATA[at Generators.Specs.Server.Given_the_server_is_running() in C:\Development\Code\Net4.0\Luca\Generators.Specs\Server.steps.cs:line 25
+at Generators.Specs.Server.StoppingTheServer() in C:\Development\Code\Net4.0\Luca\Generators.Specs\Server.runner.cs:line 28
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>
