@@ -34,42 +34,34 @@ namespace Luca.Generators
 
         private IEnumerable<string> GetApplicationStructure()
         {
-            var list = new List<string>();
-            list.Add("libs");
-	        list.Add("tools");
-	        list.Add("ui-web");
-                list.Add("ui-web\\bin");
-		        list.Add("ui-web\\controllers");
-		        list.Add("ui-web\\views");
-		        list.Add("ui-web\\view-models");
-		        list.Add("ui-web\\config");
-	        list.Add("app");
-		        list.Add("app\\data");
-		        list.Add("app\\services");
-	        list.Add("specs");
-		        list.Add("specs\\app");
-			        list.Add("specs\\app\\data");
-			        list.Add("specs\\app\\services");
-		        list.Add("specs\\ui-web");
-			        list.Add("specs\\ui-web\\controllers");
-			        list.Add("specs\\ui-web\\config");
-	        list.Add("behaviours");
-		        list.Add("behaviours\\helpers");
-	        list.Add("logs");
-		        list.Add("logs\\app");
-		        list.Add("logs\\specs");
-		        list.Add("logs\\builds");
-		        list.Add("logs\\behaviour");
-		        list.Add("logs\\generators");
-		        list.Add("logs\\migrations");
-	        list.Add("reports");
-		        list.Add("reports\\specs");
-		        list.Add("reports\\behaviours");
-	        list.Add("scripts");
-		        list.Add("scripts\\builds");
-		        list.Add("scripts\\generators");
-		        list.Add("scripts\\migrations");		
-	        list.Add("build");
+            var list = new List<string>
+                           {
+                               "libs",
+                               "tools",
+                               "app",
+                               "app\\data",
+                               "app\\services",
+                               "app\\config",                               
+                               "app\\controllers",
+                               "app\\web",
+                               "app\\web\\views",
+                               "app\\web\\view-models",
+                               "specs",
+                               "logs",
+                               "logs\\app",
+                               "logs\\specs",
+                               "logs\\builds",
+                               "logs\\generators",
+                               "logs\\migrations",
+                               "reports",
+                               "reports\\specs",
+                               "reports\\behaviours",
+                               "scripts",
+                               "scripts\\builds",
+                               "scripts\\generators",
+                               "scripts\\migrations",
+                               "build"
+                           };
             return list;
         }
 
@@ -82,6 +74,7 @@ namespace Luca.Generators
         {
             return !new DirectoryInfo(_appGeneratorParams.Path).Exists;
         }
+        
         private bool IsFolderEmpty()
         {
             var dirinfo = new DirectoryInfo(_appGeneratorParams.Path);
@@ -91,11 +84,11 @@ namespace Luca.Generators
         public void Help(TextWriter output)
         {
             output.WriteLine("usage");
-            output.WriteLine("Luca applicationName");
-            output.WriteLine("Creates a folder by the applicationName and creates the structure inside");
+            output.WriteLine("Luca create-app");
+            output.WriteLine("Create the application structure in the folder where is been executed, the folder needs to be empty.");
             output.WriteLine("or");
-            output.WriteLine("Luca .");
-            output.WriteLine("Create the application structure in the folder where is been executed, the folder needs to be empty");
+            output.WriteLine("Luca create-app applicationName");
+            output.WriteLine("Creates a folder by the applicationName and creates the structure inside.");
         }
     }
 }

@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{1F25C1BD-6BA5-4327-B9A1-D14FD435D7DE}</ProjectGuid>
+    <ProjectGuid>{015590AA-4501-4300-8162-0DF291EDCC81}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Generators.Specs</RootNamespace>
-    <AssemblyName>Generators.Specs</AssemblyName>
+    <RootNamespace>Luca.Core.Specs</RootNamespace>
+    <AssemblyName>Luca.Core.Specs</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -47,57 +47,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Features\CreateApplication.runner.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CreateApplication.feature</DependentUpon>
-    </Compile>
-    <Compile Include="Features\CreateApplication.steps.cs">
-      <DependentUpon>CreateApplication.feature</DependentUpon>
-    </Compile>
-    <Compile Include="Features\DiscoveringGenerators.runner.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DiscoveringGenerators.feature</DependentUpon>
-    </Compile>
-    <Compile Include="Features\DiscoveringGenerators.steps.cs">
-      <DependentUpon>DiscoveringGenerators.feature</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Features\Server.runner.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Server.feature</DependentUpon>
-    </Compile>
-    <Compile Include="Features\Server.steps.cs">
-      <DependentUpon>Server.feature</DependentUpon>
-    </Compile>
-    <Compile Include="Units\BuilderTests.cs" />
+    <Compile Include="Units\StringExtensionsTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Features\CreateApplication.feature">
-      <Generator>RaconteurSingleFileGenerator</Generator>
-      <LastGenOutput>CreateApplication.runner.cs</LastGenOutput>
-    </None>
-    <None Include="Features\DiscoveringGenerators.feature">
-      <Generator>RaconteurSingleFileGenerator</Generator>
-      <LastGenOutput>DiscoveringGenerators.runner.cs</LastGenOutput>
-    </None>
-    <None Include="Features\Server.feature">
-      <Generator>RaconteurSingleFileGenerator</Generator>
-      <LastGenOutput>Server.runner.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="raconteur.settings.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Luca.Generators\Luca.Generators.csproj">
-      <Project>{8185C751-06E2-4833-A323-26C25185F271}</Project>
-      <Name>Luca.Generators</Name>
+    <ProjectReference Include="..\Luca.Core\Luca.Core.csproj">
+      <Project>{B792BD49-6610-46AC-9886-93E6E5B68D80}</Project>
+      <Name>Luca.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

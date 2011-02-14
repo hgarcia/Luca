@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{8185C751-06E2-4833-A323-26C25185F271}</ProjectGuid>
+    <ProjectGuid>{B792BD49-6610-46AC-9886-93E6E5B68D80}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Luca.Generators</RootNamespace>
-    <AssemblyName>Luca.Generators</AssemblyName>
+    <RootNamespace>Luca.Core</RootNamespace>
+    <AssemblyName>Luca.Core</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,23 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppGenerator.cs" />
-    <Compile Include="AppGeneratorParams.cs" />
-    <Compile Include="Builder.cs" />
-    <Compile Include="CreateAppParams.cs" />
-    <Compile Include="IGenerator.cs" />
-    <Compile Include="GeneratorParams.cs" />
-    <Compile Include="MissingGeneratorException.cs" />
-    <Compile Include="ModelParams.cs" />
-    <Compile Include="NullParams.cs" />
+    <Compile Include="StringExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Runner.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Luca.Core\Luca.Core.csproj">
-      <Project>{B792BD49-6610-46AC-9886-93E6E5B68D80}</Project>
-      <Name>Luca.Core</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

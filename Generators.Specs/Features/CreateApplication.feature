@@ -9,7 +9,7 @@ Scenario: On an empty folder
 	Them the application should be created
 
 Scenario: On a non empty folder
-	Given I run inside a folder that isn't empty
+	Given I run inside a non empty folder
 	When I type "create-app"
 	Then I should receive a message that contains "the folder is not empty"
 

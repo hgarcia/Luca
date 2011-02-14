@@ -1,19 +1,18 @@
-
 using System;
+using Luca.Generators;
 using SharpTestsEx;
 
-namespace Generators.Specs 
+namespace Generators.Specs.Features 
 {
     public partial class CreateApplication 
     {
         private void Given_I_run_inside_an_empty_folder()
         {
-            
+
         }
 
         private void When_I_type(string command)
         {
-            
         }
 
         private void Them_the_application_should_be_created()

@@ -1,10 +1,11 @@
 using NUnit.Framework;
 
-namespace Generators.Specs 
+namespace Generators.Specs.Features 
 {
     [TestFixture]
     public partial class CreateApplication 
-    {        
+    {
+        
         [Test]
         public void OnAnEmptyFolder()
         {         
@@ -23,7 +24,7 @@ namespace Generators.Specs
         
         [Test]
         public void OnANonEmptyFolderPassingAnApplicationName()
-        {         
+        {
             Given_I_run_inside_a_non_empty_folder();        
             When_I_type("create-app myapp");        
             Then_a_new_folder_named__should_be_created("myapp");        
@@ -37,5 +38,6 @@ namespace Generators.Specs
             When_I_type("create-app my app");        
             Then_I_should_receive_a_message_that_contains("invalid application name");
         }
+
     }
 }

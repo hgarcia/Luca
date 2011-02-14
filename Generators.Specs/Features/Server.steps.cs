@@ -1,7 +1,7 @@
 
 using System;
 
-namespace Generators.Specs 
+namespace Generators.Specs.Features 
 {
     public partial class Server 
     {

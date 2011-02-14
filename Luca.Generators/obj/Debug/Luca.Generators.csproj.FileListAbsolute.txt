@@ -13,3 +13,5 @@ C:\Luca\New\Luca\Luca.Generators\bin\Debug\Luca.Generators.pdb
 C:\Luca\New\Luca\Luca.Generators\obj\Debug\ResolveAssemblyReference.cache
 C:\Luca\New\Luca\Luca.Generators\obj\Debug\Luca.Generators.dll
 C:\Luca\New\Luca\Luca.Generators\obj\Debug\Luca.Generators.pdb
+C:\Development\Code\Net4.0\Luca\Luca.Generators\bin\Debug\Luca.Core.dll
+C:\Development\Code\Net4.0\Luca\Luca.Generators\bin\Debug\Luca.Core.pdb

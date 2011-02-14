@@ -22,3 +22,5 @@ C:\Luca\New\Luca\Luca\bin\Debug\Luca.pdb
 C:\Luca\New\Luca\Luca\bin\Debug\Luca.Generators.dll
 C:\Luca\New\Luca\Luca\bin\Debug\Luca.Generators.pdb
 C:\Luca\New\Luca\Luca\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Development\Code\Net4.0\Luca\Luca\bin\Debug\Luca.Core.dll
+C:\Development\Code\Net4.0\Luca\Luca\bin\Debug\Luca.Core.pdb

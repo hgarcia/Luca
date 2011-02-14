@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace Generators.Specs 
+namespace Generators.Specs.Features 
 {
     [TestFixture]
     public partial class Server 
