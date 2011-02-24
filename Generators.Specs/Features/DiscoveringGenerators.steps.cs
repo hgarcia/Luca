@@ -16,12 +16,12 @@ namespace Generators.Specs.Features
 
         private void When_passing_a_real_command()
         {
-            _runner = new Runner(new[] { "create-app" }, new StringWriter(), _generators);
+            _runner = new Runner(new[] { "create-app", "--help" }, new StringWriter(), _generators);
         }
 
         private void Then_should_create_the_proper_command_parser()
         {
-            _runner.Parameters.Should().Be.InstanceOf<AppGeneratorParams>();
+            _runner.Parameters.Should().Be.InstanceOf<CreateAppParams>();
         }
 
         private void When_passing_a_non_existent_command()

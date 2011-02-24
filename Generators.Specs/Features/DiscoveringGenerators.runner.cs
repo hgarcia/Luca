@@ -9,7 +9,7 @@ namespace Generators.Specs.Features
         [Test]
         public void PassingARealCommand()
         {         
-            When_passing_a_real_command();        
+            When_passing_a_real_command();
             Then_should_create_the_proper_command_parser();
         }
         

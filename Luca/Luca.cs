@@ -15,7 +15,7 @@ namespace Luca
         {
             return new Dictionary<string, Type>
                        {
-                           {"application", typeof(AppGenerator)}
+                           {"application", typeof(CreateAppGenerator)}
                        };
         }
     }

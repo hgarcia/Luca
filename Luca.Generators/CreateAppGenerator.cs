@@ -3,13 +3,13 @@ using System.Collections.Generic;
 
 namespace Luca.Generators
 {
-    public class AppGenerator : IGenerator
+    public class CreateAppGenerator : IGenerator
     {
-        private readonly AppGeneratorParams _appGeneratorParams;
+        private readonly CreateAppParams _createAppParams;
 
-        public AppGenerator(AppGeneratorParams appGeneratorParams)
+        public CreateAppGenerator(CreateAppParams createAppParams)
         {
-            _appGeneratorParams = appGeneratorParams;
+            _createAppParams = createAppParams;
         }
 
         public void Generate(TextWriter output)
@@ -19,16 +19,18 @@ namespace Luca.Generators
                 output.WriteLine("The folder needs to be empty to create a Luca application.");
                 return;
             }
+           
             CreateApplication();
         }
 
+        
         private void CreateApplication()
         {
-            if (!IsNewFolder()) CreateFolder(_appGeneratorParams.Path);
+            if (!IsNewFolder()) CreateFolder(_createAppParams.Root + "\\" + _createAppParams.Path + "\\");
             var appStructure = GetApplicationStructure();
             foreach (var path in appStructure)
             {
-                CreateFolder(_appGeneratorParams.Path + "\\" + path);
+                CreateFolder(_createAppParams.Root + "\\" + _createAppParams.Path + "\\" + path);
             }
         }
 
@@ -72,12 +74,12 @@ namespace Luca.Generators
 
         private bool IsNewFolder()
         {
-            return !new DirectoryInfo(_appGeneratorParams.Path).Exists;
+            return !new DirectoryInfo(_createAppParams.Root + "\\" + _createAppParams.Path + "\\").Exists;
         }
         
         private bool IsFolderEmpty()
         {
-            var dirinfo = new DirectoryInfo(_appGeneratorParams.Path);
+            var dirinfo = new DirectoryInfo(_createAppParams.Root + "\\" + _createAppParams.Path + "\\");
             return (dirinfo.Exists && dirinfo.GetFiles().Length == 0 && dirinfo.GetDirectories().Length == 0);
         }
 

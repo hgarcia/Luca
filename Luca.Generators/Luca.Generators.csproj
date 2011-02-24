@@ -40,8 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppGenerator.cs" />
-    <Compile Include="AppGeneratorParams.cs" />
+    <Compile Include="CreateAppGenerator.cs" />
     <Compile Include="Builder.cs" />
     <Compile Include="CreateAppParams.cs" />
     <Compile Include="IGenerator.cs" />

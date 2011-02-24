@@ -11,9 +11,8 @@ namespace Luca.Generators
             try
             {
                 Parameters = Builder.CreateParams(args);
-                var parameters = new AppGeneratorParams(args);
-                var generator = (IGenerator)Activator.CreateInstance(generators["application"], parameters);
-                if (parameters.Help)
+                var generator = (IGenerator)Activator.CreateInstance(generators[Parameters.Generator], Parameters);
+                if (Parameters.Help)
                 {
                     generator.Help(output);
                 }else
